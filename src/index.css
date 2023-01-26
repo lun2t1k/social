@@ -2,24 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    .container-props {
-        @apply container px-3 mx-auto;
-    }
+.container-props {
+    @apply container px-3 mx-auto;
+}
 
-    .navbar-item__link {
-        @apply block w-full p-2 rounded-lg text-2xl text-black transition-all ease-in;
-    }
-
-    .button {
-        @apply px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in;
-    }
-
-    .profile-info-data__key {
-        @apply text-xl text-gray-500;
-    }
-
-    .profile-info-data__value {
-        @apply text-xl;
-    }
+.button {
+    @apply px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in;
 }

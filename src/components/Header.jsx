@@ -2,28 +2,26 @@ import logo from "../Social-Logo.png";
 
 export default function Header() {
     return (
-        <header className="header mb-4">
+        <header className="w-full bg-white fixed top-0 z-50">
             <div className="container-props">
-                <div className="header-wrap flex justify-between items-center py-4">
+                <div className="flex justify-between items-center py-4">
                     <a href="/" className="flex items-center">
-                        <img
-                            src={logo}
-                            width="70"
-                            height="70"
-                            alt="SOCIAL"
-                            className="header-logo"
-                        />
-                        <div className="header-title text-4xl uppercase">
-                            SOCIAL
+                        <div className="w-[70px] h-[70px]">
+                            <img
+                                src={logo}
+                                alt="SOCIAL"
+                                className="w-full h-full"
+                            />
                         </div>
+                        <div className="text-4xl uppercase">SOCIAL</div>
                     </a>
-                    <div className="header-buttons">
-                        <button className="appearance mr-5" id="appearance">
-                            Dark
+                    <div className="buttons">
+                        <button className="mr-5" id="appearance">
+                            <span className="appearance-title">Dark</span>
                         </button>
                         <a
                             href="/"
-                            className="header-buttons__login button hover:bg-purple-accent--dark"
+                            className="button hover:bg-purple-accent--dark"
                         >
                             Login
                         </a>

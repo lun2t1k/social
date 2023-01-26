@@ -1,0 +1,3 @@
+.navbar-item__link {
+    @apply block w-full p-2 rounded-lg text-2xl text-black transition-all ease-in;
+}

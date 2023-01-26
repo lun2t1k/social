@@ -1,0 +1,7 @@
+.profile-info-data__key {
+    @apply text-xl text-gray-500;
+}
+
+.profile-info-data__value {
+    @apply text-xl;
+}
