@@ -8,16 +8,16 @@ export default function Navbar() {
                     <NavbarLink title="My Profile" url="/profile" />
                 </li>
                 <li>
-                    <NavbarLink title="News" url="#" />
+                    <NavbarLink title="News" url="/" />
                 </li>
                 <li>
                     <NavbarLink title="Messages" url="/messages" />
                 </li>
                 <li>
-                    <NavbarLink title="Music" url="#" />
+                    <NavbarLink title="Music" url="/music" />
                 </li>
                 <li>
-                    <NavbarLink title="Settings" url="#" />
+                    <NavbarLink title="Settings" url="/settings" />
                 </li>
             </ul>
         </nav>
