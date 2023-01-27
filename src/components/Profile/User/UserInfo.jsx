@@ -22,6 +22,7 @@ export default function UserInfo(props) {
                             href={props.url}
                             target="_blank"
                             rel="noreferrer noopener"
+                            className="hover:text-purple-accent"
                         >
                             {props.site}
                         </a>

@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'montserrat': `'Montserrat', sans-serif`
+      },
       colors: {
         purple: {
           accent: '#932790',
@@ -18,9 +21,6 @@ module.exports = {
           'raspberry--dark': '#72024a'
         }
       }
-    },
-    boxShadow: {
-      '1xl': '0 0 40px -15px rgba(0, 0, 0, 0.3)'
     }
   },
   plugins: [],

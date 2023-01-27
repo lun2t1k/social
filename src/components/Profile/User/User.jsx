@@ -14,7 +14,7 @@ export default function User(props) {
                     location={props.userLocation}
                     education={props.userEducation}
                     site={props.userSite}
-                    url={props.userURL}
+                    url={props.userSiteURL}
                 />
             </div>
         </div>

@@ -11,7 +11,7 @@ export default function Profile() {
                 userLocation="Russia, Omsk"
                 userEducation="College"
                 userSite="Telegram"
-                userURL="http://t.me/lun2t1k"
+                userSiteURL="http://t.me/lun2t1k"
             />
             <NewPost />
             <Posts />
