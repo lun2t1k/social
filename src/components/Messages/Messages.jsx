@@ -10,7 +10,7 @@ export default function Messages() {
                 <List />
             </div>
             <div className="w-3/4">
-                <div className="py-5 border-2 h-full ml-5 rounded-xl flex flex-col min-h-[700px]">
+                <div className="border-2 h-full ml-5 rounded-xl flex flex-col min-h-[700px]">
                     <MessageHeader />
                     <MessageArea />
                     <MessageInput />

@@ -1,12 +1,12 @@
 export default function MessageInput() {
     return (
-        <form className="w-full flex items-end pt-5 px-5 border-t-2">
+        <form className="w-full flex items-end p-5">
             <input
                 type="text"
                 name=""
                 id=""
-                placeholder="Write a message..."
-                className="p-3 border-2 rounded-xl flex-auto mr-3"
+                placeholder="Message"
+                className="p-3 border-2 rounded-xl flex-auto mr-3 focus:border-purple-accent outline-none"
             />
             <button
                 type="submit"
