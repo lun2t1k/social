@@ -1,6 +1,6 @@
-export default function LikeButton() {
+export default function LikeButton(props) {
     return (
-        <button className="p-2 bg-neutral-300 rounded-xl">
+        <button className="flex items-center p-2 bg-neutral-300 rounded-xl">
             <svg
                 width="24"
                 height="24"
@@ -19,6 +19,9 @@ export default function LikeButton() {
                     fill="black"
                 />
             </svg>
+            <span className="text-md font-bold ml-1 relative -bottom-[2px]">
+                {props.likes}
+            </span>
         </button>
     );
 }

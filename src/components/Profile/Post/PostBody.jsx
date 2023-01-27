@@ -1,12 +1,7 @@
-export default function PostBody() {
+export default function PostBody(props) {
     return (
         <div className="mb-4">
-            <p className="text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat illum quam eum veritatis, ipsam suscipit voluptatum
-                possimus rem quod aspernatur, officiis est omnis at voluptate
-                libero non, dolores iste optio.
-            </p>
+            <p className="text-lg">{props.text}</p>
         </div>
     );
 }

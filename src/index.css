@@ -5,7 +5,3 @@
 .container-props {
     @apply container px-3 mx-auto;
 }
-
-.button {
-    @apply px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in;
-}

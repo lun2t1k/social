@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 export default function NewPost() {
     return (
         <div className="add-post w-full bg-white rounded-3xl overflow-hidden">
@@ -12,12 +14,7 @@ export default function NewPost() {
                         className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3"
                     ></textarea>
                     <div className="text-right">
-                        <button
-                            type="submit"
-                            className="button hover:bg-purple-accent--dark"
-                        >
-                            Add Post
-                        </button>
+                        <Button type="submit" title="Add Post" disabled={false} />
                     </div>
                 </form>
             </div>

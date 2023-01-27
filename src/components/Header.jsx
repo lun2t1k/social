@@ -7,11 +7,7 @@ export default function Header() {
                 <div className="flex justify-between items-center py-4">
                     <a href="/" className="flex items-center">
                         <div className="w-[70px] h-[70px]">
-                            <img
-                                src={logo}
-                                alt="SOCIAL"
-                                className="w-full h-full"
-                            />
+                            <img src={logo} alt="" className="w-full h-full" />
                         </div>
                         <div className="text-4xl uppercase">SOCIAL</div>
                     </a>
@@ -21,7 +17,7 @@ export default function Header() {
                         </button>
                         <a
                             href="/"
-                            className="button hover:bg-purple-accent--dark"
+                            className="px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in hover:bg-purple-accent--dark"
                         >
                             Login
                         </a>
