@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../../Button";
 
 export default function NewPost() {
     return (
@@ -14,7 +14,11 @@ export default function NewPost() {
                         className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3"
                     ></textarea>
                     <div className="text-right">
-                        <Button type="submit" title="Add Post" disabled={false} />
+                        <Button
+                            type="submit"
+                            title="Add Post"
+                            disabled={false}
+                        />
                     </div>
                 </form>
             </div>

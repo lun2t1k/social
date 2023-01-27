@@ -1,12 +1,12 @@
 import './App.css';
 import Header from './components/Header';
-import Profile from './components/Profile/Profile';
+import Main from './components/Main';
 
 export default function App() {
     return (
         <>
             <Header />
-            <Profile />
+            <Main />
         </>
     );
 }
