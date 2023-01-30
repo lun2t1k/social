@@ -1,5 +1,5 @@
-import ContactMessage from "./ContactMessage";
-import UserMessage from "./UserMessage";
+import ContactMessage from "./MessageType/ContactMessage";
+import UserMessage from "./MessageType/UserMessage";
 
 export default function MessageArea() {
     return (

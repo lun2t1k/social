@@ -7,7 +7,11 @@ export default function Header() {
                 <div className="flex justify-between items-center py-4">
                     <a href="/" className="flex items-center">
                         <div className="w-[70px] h-[70px]">
-                            <img src={logo} alt="" className="w-full h-full" />
+                            <img
+                                src={logo}
+                                alt=""
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                         <div className="text-4xl uppercase">SOCIAL</div>
                     </a>

@@ -4,7 +4,7 @@ export default function MessageHeader() {
             <span className="text-lg">Back</span>
             <span className="text-2xl">User Name</span>
             <div className="min-w-[70px] min-h-[70px] max-w-[70px] max-h-[70px] rounded-full overflow-hidden bg-slate-400">
-                <img src="" alt="" className="w-full h-full" />
+                <img src="" alt="" className="w-full h-full object-cover" />
             </div>
         </div>
     );

@@ -13,8 +13,8 @@ module.exports = {
         purple: {
           accent: '#932790',
           'accent--dark': '#701d70',
-          secodary: '#672e91',
-          'secodary--dark': '#472168',
+          secondary: '#672e91',
+          'secondary--dark': '#472168',
         },
         pink: {
           raspberry: '#9f005d',

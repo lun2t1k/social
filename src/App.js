@@ -11,15 +11,15 @@ export default function App() {
     return (
         <BrowserRouter>
             <Header />
-            <main className="pt-[118px] mb-20">
+            <main className="pt-[122px] mb-20">
                 <div className="container-props">
-                    <div className="flex gap-4">
+                    <div className="flex gap-5">
                         <Navbar />
-                        <section className="w-full md:w-4/5 flex flex-col gap-4">
+                        <section className="w-full md:w-4/5 flex flex-col gap-5">
                             <Routes>
                                 <Route path="/profile" element={<Profile />} />
                                 <Route path="/" element={<News />} />
-                                <Route path="/messages" element={<Messages />} />
+                                <Route path="/messages/*" element={<Messages />} />
                                 <Route path="/music" element={<Music />} />
                                 <Route path="/settings" element={<Settings />} />
                             </Routes>
