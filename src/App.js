@@ -6,6 +6,7 @@ import News from "./components/News/News";
 import Messages from "./components/Messages/Messages";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Footer from "./components/Footer";
 
 export default function App() {
     return (
@@ -27,6 +28,7 @@ export default function App() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </BrowserRouter>
     );
 }
