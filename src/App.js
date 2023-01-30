@@ -8,7 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer";
 
-export default function App() {
+export default function App(props) {
     return (
         <BrowserRouter>
             <Header />
@@ -20,7 +20,7 @@ export default function App() {
                             <Routes>
                                 <Route path="/profile" element={<Profile />} />
                                 <Route path="/" element={<News />} />
-                                <Route path="/messages/*" element={<Messages />} />
+                                <Route path="/messages/*" element={<Messages chatsData={props.chatsData} messagesData={props.messagesData} />} />
                                 <Route path="/music" element={<Music />} />
                                 <Route path="/settings" element={<Settings />} />
                             </Routes>
