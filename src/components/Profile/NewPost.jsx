@@ -9,7 +9,7 @@ export default function NewPost() {
                         id="newPost"
                         cols="30"
                         rows="10"
-                        className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3 focus:border-purple-accent outline-none"
+                        className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3 focus:border-purple-accent"
                     ></textarea>
                     <div className="text-right">
                         <button

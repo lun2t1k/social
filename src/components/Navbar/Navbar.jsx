@@ -14,6 +14,9 @@ export default function Navbar() {
                     <NavbarLink title="Messages" url="/messages" />
                 </li>
                 <li>
+                    <NavbarLink title="Friends" url="/friends" />
+                </li>
+                <li>
                     <NavbarLink title="Music" url="/music" />
                 </li>
                 <li>

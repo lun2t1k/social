@@ -5,7 +5,7 @@ export default function MessageHeader() {
         <div className="flex items-center justify-between p-5">
             <NavLink
                 to="/messages"
-                className="flex items-center text-lg relative -left-[7px]"
+                className="flex items-center p-3 text-lg relative -left-[19px]"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

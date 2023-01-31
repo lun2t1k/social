@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Messages from "./components/Messages/Messages";
+import Friends from "./components/Friends/Friends";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer";
@@ -20,7 +21,8 @@ export default function App(props) {
                             <Routes>
                                 <Route path="/profile" element={<Profile />} />
                                 <Route path="/" element={<News />} />
-                                <Route path="/messages/*" element={<Messages chatsData={props.chatsData} messagesData={props.messagesData} />} />
+                                <Route path="/messages/*" element={<Messages state={props.state.messagesPage} />} />
+                                <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
                                 <Route path="/music" element={<Music />} />
                                 <Route path="/settings" element={<Settings />} />
                             </Routes>

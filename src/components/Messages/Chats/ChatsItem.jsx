@@ -21,7 +21,7 @@ export default function ChatsItem(props) {
                 />
             </div>
             <div className="flex flex-col min-w-0">
-                <span className="font-bold mb-1">{props.userName}</span>
+                <h5 className="font-bold mb-1">{props.userName}</h5>
                 <span className="truncate">{props.lastMessage}</span>
             </div>
         </NavLink>
