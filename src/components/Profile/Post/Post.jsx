@@ -4,7 +4,7 @@ import PostHeader from "./PostHeader";
 
 export default function Post(props) {
     return (
-        <div className="post mb-5">
+        <div id={props.postID} className="post mb-5">
             <div className="w-full bg-white rounded-2xl overflow-hidden p-5">
                 <PostHeader
                     userAvatar={props.postUserAvatar}

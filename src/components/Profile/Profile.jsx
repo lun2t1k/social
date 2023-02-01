@@ -2,7 +2,7 @@ import User from "./User/User";
 import NewPost from "./NewPost";
 import Posts from "./Posts";
 
-export default function Profile() {
+export default function Profile(props) {
     return (
         <>
             <User
@@ -13,8 +13,12 @@ export default function Profile() {
                 userSite="Telegram"
                 userSiteURL="http://t.me/lun2t1k"
             />
-            <NewPost />
-            <Posts />
+            <NewPost
+                addNewPost={props.addNewPost}
+                updateNewPostText={props.updateNewPostText}
+                newPostText={props.state.newPostText}
+            />
+            <Posts posts={props.state.posts} />
         </>
     );
 }

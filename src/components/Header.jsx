@@ -1,4 +1,4 @@
-import logo from "../Social-Logo.png";
+import logo from "../assets/img/Social-Logo.png";
 
 export default function Header() {
     return (

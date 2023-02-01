@@ -10,5 +10,6 @@ export default function FriendsList(props) {
             status={friend.status}
         />
     ));
-    return <ol>{friends}</ol>;
+
+    return <ul>{friends}</ul>;
 }

@@ -19,7 +19,11 @@ export default function App(props) {
                         <Navbar />
                         <section className="w-full md:w-4/5 flex flex-col gap-5">
                             <Routes>
-                                <Route path="/profile" element={<Profile />} />
+                                <Route path="/profile" element={
+                                    <Profile state={props.state.profilePage}
+                                        addNewPost={props.addNewPost}
+                                        updateNewPostText={props.updateNewPostText} />
+                                } />
                                 <Route path="/" element={<News />} />
                                 <Route path="/messages/*" element={<Messages state={props.state.messagesPage} />} />
                                 <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
