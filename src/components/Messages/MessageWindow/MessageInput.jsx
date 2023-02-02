@@ -1,12 +1,35 @@
-export default function MessageInput() {
+import { createRef } from "react";
+import {
+    sendNewMessageActionCreator,
+    updateNewMessageTextActionCreator,
+} from "../../../redux/store";
+
+export default function MessageInput(props) {
+    let newMessageInput = createRef();
+
+    let sendNewMessage = (event) => {
+        event.preventDefault();
+        props.dispatch(sendNewMessageActionCreator());
+        newMessageInput.current.focus();
+    };
+
+    let updateNewMessageText = () => {
+        let messageText = newMessageInput.current.value;
+        props.dispatch(updateNewMessageTextActionCreator(messageText));
+    };
+
     return (
-        <form className="w-full flex items-end p-5">
+        <form onSubmit={sendNewMessage} className="w-full flex items-end p-5">
             <input
                 type="text"
-                name=""
-                id=""
+                name="newMessageText"
+                id="newMessageText"
                 placeholder="Message"
+                ref={newMessageInput}
+                value={props.newMessageText}
+                onChange={updateNewMessageText}
                 className="p-3 border-2 rounded-xl flex-auto mr-3 focus:border-purple-accent"
+                required
             />
             <button
                 type="submit"

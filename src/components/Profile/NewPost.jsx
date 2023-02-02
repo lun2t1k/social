@@ -1,18 +1,20 @@
 import { createRef } from "react";
+import {
+    addNewPostActionCreator,
+    updateNewPostTextActionCreator,
+} from "../../redux/store";
 
 export default function NewPost(props) {
     let newPostTextarea = createRef();
 
     let addNewPost = (event) => {
         event.preventDefault();
-        // props.addNewPost();
-        props.dispatch({ type: "ADD-POST" });
+        props.dispatch(addNewPostActionCreator());
     };
 
     let onChangeNewPostText = () => {
-        let text = newPostTextarea.current.value;
-        // props.updateNewPostText(text);
-        props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: text });
+        let postText = newPostTextarea.current.value;
+        props.dispatch(updateNewPostTextActionCreator(postText));
     };
 
     return (
@@ -21,8 +23,8 @@ export default function NewPost(props) {
                 <form onSubmit={addNewPost}>
                     <h3 className="mb-3 text-2xl">What's new?</h3>
                     <textarea
-                        name="newPost"
-                        id="newPost"
+                        name="newPostText"
+                        id="newPostText"
                         cols="30"
                         rows="10"
                         ref={newPostTextarea}

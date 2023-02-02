@@ -21,7 +21,7 @@ export default function App(props) {
                             <Routes>
                                 <Route path="/profile" element={<Profile state={props.state.profilePage} dispatch={props.dispatch} />} />
                                 <Route path="/" element={<News />} />
-                                <Route path="/messages/*" element={<Messages state={props.state.messagesPage} />} />
+                                <Route path="/messages/*" element={<Messages state={props.state.messagesPage} dispatch={props.dispatch} />} />
                                 <Route path="/friends" element={<Friends state={props.state.friendsPage} />} />
                                 <Route path="/music" element={<Music />} />
                                 <Route path="/settings" element={<Settings />} />
