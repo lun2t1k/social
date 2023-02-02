@@ -14,8 +14,7 @@ export default function Profile(props) {
                 userSiteURL="http://t.me/lun2t1k"
             />
             <NewPost
-                addNewPost={props.addNewPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
                 newPostText={props.state.newPostText}
             />
             <Posts posts={props.state.posts} />

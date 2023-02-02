@@ -5,12 +5,14 @@ export default function NewPost(props) {
 
     let addNewPost = (event) => {
         event.preventDefault();
-        props.addNewPost();
+        // props.addNewPost();
+        props.dispatch({ type: "ADD-POST" });
     };
 
     let onChangeNewPostText = () => {
         let text = newPostTextarea.current.value;
-        props.updateNewPostText(text);
+        // props.updateNewPostText(text);
+        props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: text });
     };
 
     return (

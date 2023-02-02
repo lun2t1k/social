@@ -229,7 +229,7 @@ let store = {
         return this._state;
     },
     _callSubscriber() { },
-    addNewPost() {
+    _addNewPost() {
         let newPost = {
             id: this._state.profilePage.posts.length + 1,
             text: this._state.profilePage.newPostText,
@@ -239,13 +239,20 @@ let store = {
         this._state.profilePage.newPostText = '';
         this._callSubscriber();
     },
-    updateNewPostText(newText) {
+    _updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber();
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            this._addNewPost();
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._updateNewPostText(action.newText);
+        }
+    }
 }
 
 export default store;
