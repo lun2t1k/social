@@ -3,12 +3,12 @@ import UserMessage from "./MessageType/UserMessage";
 
 export default function MessageArea(props) {
     let messagesElements = props.messagesData.map((message) => {
-        if (message.messageType === "contact") {
+        if (message.type === "contact") {
             return (
                 <ContactMessage
                     key={message.id}
                     messageID={message.id}
-                    messageText={message.messageText}
+                    messageText={message.text}
                 />
             );
         } else {
@@ -16,7 +16,7 @@ export default function MessageArea(props) {
                 <UserMessage
                     key={message.id}
                     messageID={message.id}
-                    messageText={message.messageText}
+                    messageText={message.text}
                 />
             );
         }

@@ -1,26 +1,23 @@
 import { createRef } from "react";
-import {
-    addNewPostActionCreator,
-    updateNewPostTextActionCreator,
-} from "../../redux/profilePageReducer";
+import { addNewPost, updateNewPostText } from "../../redux/profilePageReducer";
 
 export default function NewPost(props) {
     let newPostTextarea = createRef();
 
-    let addNewPost = (event) => {
+    let submitNewPost = (event) => {
         event.preventDefault();
-        props.dispatch(addNewPostActionCreator());
+        props.dispatch(addNewPost());
     };
 
     let onChangeNewPostText = () => {
         let postText = newPostTextarea.current.value;
-        props.dispatch(updateNewPostTextActionCreator(postText));
+        props.dispatch(updateNewPostText(postText));
     };
 
     return (
         <div className="add-post w-full bg-white rounded-3xl overflow-hidden">
             <div className="p-5">
-                <form onSubmit={addNewPost}>
+                <form onSubmit={submitNewPost}>
                     <h3 className="mb-3 text-2xl">What's new?</h3>
                     <textarea
                         name="newPostText"
