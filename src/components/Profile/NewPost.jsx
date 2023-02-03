@@ -2,7 +2,7 @@ import { createRef } from "react";
 import {
     addNewPostActionCreator,
     updateNewPostTextActionCreator,
-} from "../../redux/store";
+} from "../../redux/profilePageReducer";
 
 export default function NewPost(props) {
     let newPostTextarea = createRef();

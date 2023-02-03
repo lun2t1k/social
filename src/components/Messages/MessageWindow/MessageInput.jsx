@@ -2,7 +2,7 @@ import { createRef } from "react";
 import {
     sendNewMessageActionCreator,
     updateNewMessageTextActionCreator,
-} from "../../../redux/store";
+} from "../../../redux/messagesPageReducer";
 
 export default function MessageInput(props) {
     let newMessageInput = createRef();

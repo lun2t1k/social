@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import profilePageReducer from "./profilePageReducer";
+import messagesPageReducer from "./messagesPageReducer";
 
 let store = {
     _state: {
@@ -231,71 +229,17 @@ let store = {
             ],
         }
     },
+    _callSubscriber() { },
     getState() {
         return this._state;
-    },
-    _callSubscriber() { },
-    _addNewPost() {
-        let newPost = {
-            id: 'post' + (this._state.profilePage.posts.length + 1),
-            text: this._state.profilePage.newPostText,
-            likesAmount: 0
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber();
-    },
-    _updateNewPostText(newPostText) {
-        this._state.profilePage.newPostText = newPostText;
-        this._callSubscriber();
-    },
-    _sendNewMessage() {
-        let newMessage = {
-            id: 'message' + (this._state.messagesPage.messages.length + 1),
-            messageType: 'user',
-            messageText: this._state.messagesPage.newMessageText
-        }
-        this._state.messagesPage.messages.push(newMessage);
-        this._state.messagesPage.newMessageText = '';
-        this._callSubscriber();
-    },
-    _updateNewMessageText(newMessageText) {
-        this._state.messagesPage.newMessageText = newMessageText;
-        this._callSubscriber();
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addNewPost();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newPostText);
-        } else if (action.type === SEND_MESSAGE) {
-            this._sendNewMessage();
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._updateNewMessageText(action.newMessageText);
-        }
-    }
-}
-
-export const addNewPostActionCreator = () => {
-    return { type: ADD_POST }
-}
-export const updateNewPostTextActionCreator = (postText) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newPostText: postText
-    }
-}
-
-export const sendNewMessageActionCreator = () => {
-    return { type: SEND_MESSAGE }
-}
-export const updateNewMessageTextActionCreator = (messageText) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newMessageText: messageText
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesPageReducer(this._state.messagesPage, action);
+        this._callSubscriber(this._state);
     }
 }
 
