@@ -37,8 +37,7 @@ export const addNewPost = createAction(ADD_POST);
 const profilePageReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(updateNewPostText, (state = initialState, action) => {
-            state.newPostText = action.payload.newPostText;
-            return state;
+            return { ...state, newPostText: action.payload.newPostText };
         })
         .addCase(addNewPost, (state = initialState, action) => {
             let newPost = {
@@ -46,9 +45,7 @@ const profilePageReducer = createReducer(initialState, (builder) => {
                 text: state.newPostText,
                 likesAmount: 0
             }
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
+            return { ...state, newPostText: '', posts: [...state.posts, newPost] };
         })
         .addDefaultCase((state = initialState, action) => {
             return state;

@@ -158,8 +158,7 @@ export const sendNewMessage = createAction(SEND_MESSAGE);
 const messagesPageReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(updateNewMessageText, (state = initialState, action) => {
-            state.newMessageText = action.payload.newMessageText;
-            return state;
+            return { ...state, newMessageText: action.payload.newMessageText };
         })
         .addCase(sendNewMessage, (state = initialState, action) => {
             let newMessage = {
@@ -167,9 +166,7 @@ const messagesPageReducer = createReducer(initialState, (builder) => {
                 type: 'user',
                 text: state.newMessageText
             }
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
+            return { ...state, newMessageText: '', messages: [...state.messages, newMessage] };
         })
         .addDefaultCase((state = initialState, action) => {
             return state;

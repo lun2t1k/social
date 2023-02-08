@@ -24,6 +24,7 @@ export default function MessageInput(props) {
                 name="newMessageText"
                 id="newMessageText"
                 placeholder="Message"
+                autoComplete="off"
                 ref={newMessageInput}
                 value={props.newMessageText}
                 onChange={onChangeNewMessageText}
