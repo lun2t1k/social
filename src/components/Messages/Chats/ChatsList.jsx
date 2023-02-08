@@ -1,7 +1,7 @@
 import ChatsItem from "./ChatsItem";
 
 export default function ChatsList(props) {
-    let chatsElements = props.chatsData.map((chat) => (
+    let chatsList = props.chats.map((chat) => (
         <ChatsItem
             key={chat.id}
             userID={chat.id}
@@ -11,5 +11,5 @@ export default function ChatsList(props) {
         />
     ));
 
-    return <div className="h-full overflow-scroll">{chatsElements}</div>;
+    return <div className="h-full overflow-scroll">{chatsList}</div>;
 }

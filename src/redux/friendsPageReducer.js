@@ -65,10 +65,6 @@ let initialState = {
     ],
 };
 
-// export default function friendsPageReducer(state = initialState, action) {
-//     return state;
-// }
-
 const friendsPageReducer = createReducer(initialState, (builder) => {
     builder.addDefaultCase((state = initialState, action) => {
         return state;

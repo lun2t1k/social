@@ -1,6 +1,6 @@
 import logo from "../assets/img/Social-Logo.png";
 
-export default function Header() {
+export default function Header(props) {
     return (
         <header className="w-full bg-white fixed top-0 z-50">
             <div className="container-props">

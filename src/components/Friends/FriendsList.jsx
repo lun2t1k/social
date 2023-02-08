@@ -1,7 +1,7 @@
 import FriendsItem from "./FriendsItem";
 
 export default function FriendsList(props) {
-    let friends = props.friendsData.map((friend) => (
+    let friendsList = props.friends.map((friend) => (
         <FriendsItem
             key={friend.id}
             id={friend.id}
@@ -11,5 +11,5 @@ export default function FriendsList(props) {
         />
     ));
 
-    return <ul>{friends}</ul>;
+    return <ul>{friendsList}</ul>;
 }

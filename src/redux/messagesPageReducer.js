@@ -145,36 +145,6 @@ let initialState = {
     ]
 }
 
-// export const updateNewMessageText = (messageText) => {
-//     return {
-//         type: UPDATE_NEW_MESSAGE_TEXT,
-//         newMessageText: messageText
-//     }
-// }
-
-// export const sendNewMessage = () => {
-//     return { type: SEND_MESSAGE }
-// }
-
-// export default function messagesPageReducer(state = initialState, action) {
-//     switch (action.type) {
-//         case UPDATE_NEW_MESSAGE_TEXT:
-//             state.newMessageText = action.newMessageText;
-//             return state;
-//         case SEND_MESSAGE:
-//             let newMessage = {
-//                 id: 'message' + (state.messages.length + 1),
-//                 type: 'user',
-//                 text: state.newMessageText
-//             }
-//             state.messages.push(newMessage);
-//             state.newMessageText = '';
-//             return state;
-//         default:
-//             return state;
-//     }
-// }
-
 export const updateNewMessageText = createAction(UPDATE_NEW_MESSAGE_TEXT, function prepare(messageText) {
     return {
         payload: {
@@ -182,6 +152,7 @@ export const updateNewMessageText = createAction(UPDATE_NEW_MESSAGE_TEXT, functi
         }
     }
 });
+
 export const sendNewMessage = createAction(SEND_MESSAGE);
 
 const messagesPageReducer = createReducer(initialState, (builder) => {

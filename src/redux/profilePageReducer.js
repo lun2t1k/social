@@ -24,36 +24,6 @@ let initialState = {
     ]
 }
 
-// export const updateNewPostText = (postText) => {
-//     return {
-//         type: UPDATE_NEW_POST_TEXT,
-//         newPostText: postText
-//     }
-// }
-
-// export const addNewPost = () => {
-//     return { type: ADD_POST }
-// }
-
-// export default function profilePageReducer(state = initialState, action) {
-//     switch (action.type) {
-//         case UPDATE_NEW_POST_TEXT:
-//             state.newPostText = action.newPostText;
-//             return state;
-//         case ADD_POST:
-//             let newPost = {
-//                 id: 'post' + (state.posts.length + 1),
-//                 text: state.newPostText,
-//                 likesAmount: 0
-//             }
-//             state.posts.push(newPost);
-//             state.newPostText = '';
-//             return state;
-//         default:
-//             return state;
-//     }
-// }
-
 export const updateNewPostText = createAction(UPDATE_NEW_POST_TEXT, function prepare(postText) {
     return {
         payload: {
@@ -61,6 +31,7 @@ export const updateNewPostText = createAction(UPDATE_NEW_POST_TEXT, function pre
         }
     }
 });
+
 export const addNewPost = createAction(ADD_POST);
 
 const profilePageReducer = createReducer(initialState, (builder) => {

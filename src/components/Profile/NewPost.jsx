@@ -1,23 +1,22 @@
 import { createRef } from "react";
-import { addNewPost, updateNewPostText } from "../../redux/profilePageReducer";
 
 export default function NewPost(props) {
     let newPostTextarea = createRef();
 
-    let submitNewPost = (event) => {
+    let onSubmitNewPost = (event) => {
         event.preventDefault();
-        props.dispatch(addNewPost());
+        props.addNewPost();
     };
 
     let onChangeNewPostText = () => {
         let postText = newPostTextarea.current.value;
-        props.dispatch(updateNewPostText(postText));
+        props.updateNewPostText(postText);
     };
 
     return (
         <div className="add-post w-full bg-white rounded-3xl overflow-hidden">
             <div className="p-5">
-                <form onSubmit={submitNewPost}>
+                <form onSubmit={onSubmitNewPost}>
                     <h3 className="mb-3 text-2xl">What's new?</h3>
                     <textarea
                         name="newPostText"

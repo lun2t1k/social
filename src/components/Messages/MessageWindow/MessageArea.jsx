@@ -2,7 +2,7 @@ import ContactMessage from "./MessageType/ContactMessage";
 import UserMessage from "./MessageType/UserMessage";
 
 export default function MessageArea(props) {
-    let messagesElements = props.messagesData.map((message) => {
+    let messagesElements = props.messages.map((message) => {
         if (message.type === "contact") {
             return (
                 <ContactMessage
