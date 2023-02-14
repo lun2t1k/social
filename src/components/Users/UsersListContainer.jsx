@@ -28,11 +28,11 @@ const mapDispatchToProps = (dispatch) => {
         setCurrentPage(currentPageNumber) {
             dispatch(setCurrentPage(currentPageNumber));
         },
-        followUser() {
-            dispatch(followUser());
+        followUser(userID) {
+            dispatch(followUser(userID));
         },
-        unfollowUser() {
-            dispatch(unfollowUser());
+        unfollowUser(userID) {
+            dispatch(unfollowUser(userID));
         },
     };
 };
