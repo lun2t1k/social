@@ -1,11 +1,11 @@
-export default function FriendsSearch(props) {
+export default function UsersSearch(props) {
     return (
         <form className="w-full flex items-center gap-5 mb-6">
             <input
                 type="search"
                 name=""
                 id=""
-                placeholder="Search friends"
+                placeholder="Search users"
                 className="p-3 border-2 rounded-xl flex-auto focus:border-purple-accent"
             />
             <button

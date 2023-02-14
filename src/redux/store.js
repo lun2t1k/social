@@ -1,12 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import profilePageReducer from './profilePageReducer';
 import messagesPageReducer from './messagesPageReducer';
-import friendsPageReducer from './friendsPageReducer';
+import usersPageReducer from './usersPageReducer';
 
 let reducers = combineReducers({
     profilePage: profilePageReducer,
     messagesPage: messagesPageReducer,
-    friendsPage: friendsPageReducer
+    usersPage: usersPageReducer
 });
 
 let store = configureStore({

@@ -3,7 +3,7 @@ import Navbar from "./Navbar/Navbar";
 import Profile from "./Profile/Profile";
 import News from "./News/News";
 import Messages from "./Messages/Messages";
-import Friends from "./Friends/Friends";
+import Users from "./Users/Users";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 
@@ -18,7 +18,7 @@ export default function Main(props) {
                             <Route path="/profile" element={<Profile />} />
                             <Route path="/" element={<News />} />
                             <Route path="/messages/*" element={<Messages />} />
-                            <Route path="/friends" element={<Friends />} />
+                            <Route path="/users" element={<Users />} />
                             <Route path="/music" element={<Music />} />
                             <Route path="/settings" element={<Settings />} />
                         </Routes>
