@@ -58,7 +58,6 @@ class UsersListAPI extends React.Component {
                 currentPage={this.props.currentPage}
                 isFetching={this.props.isFetching}
                 onPageChange={this.onPageChange}
-                onArrowClick={this.onArrowClick}
                 followUser={() => {
                     this.props.followUser();
                 }}
