@@ -5,6 +5,7 @@ import {
     setUsers,
     setTotalUsersCount,
     setCurrentPage,
+    setIsFetching,
     followUser,
     unfollowUser,
 } from "../../redux/usersPageReducer";
@@ -27,33 +28,45 @@ class UsersListAPI extends React.Component {
     }
     onPageChange = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
+        this.props.setIsFetching(true);
         axios
             .get(
                 `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
             )
             .then((response) => {
                 this.props.setUsers(response.data.items);
+                this.props.setIsFetching(false);
                 if (response.data.totalCount > 100) {
                     this.props.setTotalUsersCount(99);
                 } else {
                     this.props.setTotalUsersCount(response.data.totalCount);
                 }
             });
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
     onArrowClick = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
+        this.props.setIsFetching(true);
         axios
             .get(
                 `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
             )
             .then((response) => {
                 this.props.setUsers(response.data.items);
+                this.props.setIsFetching(false);
                 if (response.data.totalCount > 100) {
                     this.props.setTotalUsersCount(99);
                 } else {
                     this.props.setTotalUsersCount(response.data.totalCount);
                 }
             });
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
     render() {
         return (
@@ -62,6 +75,7 @@ class UsersListAPI extends React.Component {
                 pageSize={this.props.pageSize}
                 totalCount={this.props.totalCount}
                 currentPage={this.props.currentPage}
+                isFetching={this.props.isFetching}
                 onPageChange={this.onPageChange}
                 onArrowClick={this.onArrowClick}
                 followUser={() => {
@@ -81,6 +95,7 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
     };
 };
 
@@ -94,6 +109,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage(currentPageNumber) {
             dispatch(setCurrentPage(currentPageNumber));
+        },
+        setIsFetching(boolean) {
+            dispatch(setIsFetching(boolean));
         },
         followUser(userID) {
             dispatch(followUser(userID));

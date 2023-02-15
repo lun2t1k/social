@@ -5,12 +5,14 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 let initialState = {
     users: [],
     pageSize: 10,
     totalCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 };
 
 export const setUsers = createAction(SET_USERS, function prepare(users) {
@@ -33,6 +35,14 @@ export const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(cu
     return {
         payload: {
             currentPage: currentPageNumber
+        }
+    }
+});
+
+export const setIsFetching = createAction(SET_IS_FETCHING, function prepare(boolean) {
+    return {
+        payload: {
+            isFetching: boolean
         }
     }
 });
@@ -71,6 +81,12 @@ const usersPageReducer = createReducer(initialState, (builder) => {
             return {
                 ...state,
                 currentPage: action.payload.currentPage
+            }
+        })
+        .addCase(setIsFetching, (state = initialState, action) => {
+            return {
+                ...state,
+                isFetching: action.payload.isFetching
             }
         })
         .addCase(followUser, (state = initialState, action) => {
