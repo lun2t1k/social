@@ -63,7 +63,7 @@ export default function UsersList(props) {
                                     if (props.currentPage === 1) {
                                         return;
                                     } else {
-                                        props.onArrowClick(
+                                        props.onPageChange(
                                             props.currentPage - 1
                                         );
                                     }
@@ -112,7 +112,7 @@ export default function UsersList(props) {
                                     if (props.currentPage === pagesAmount) {
                                         return;
                                     } else {
-                                        props.onArrowClick(
+                                        props.onPageChange(
                                             props.currentPage + 1
                                         );
                                     }

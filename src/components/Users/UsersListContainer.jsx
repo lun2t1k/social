@@ -49,27 +49,6 @@ class UsersListAPI extends React.Component {
             behavior: "smooth",
         });
     };
-    onArrowClick = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.setIsFetching(true);
-        axios
-            .get(
-                `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-            )
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-                this.props.setIsFetching(false);
-                if (response.data.totalCount > 100) {
-                    this.props.setTotalUsersCount(99);
-                } else {
-                    this.props.setTotalUsersCount(response.data.totalCount);
-                }
-            });
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
     render() {
         return (
             <UsersList
@@ -101,32 +80,13 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setUsers(users) {
-            dispatch(setUsers(users));
-        },
-        setTotalUsersCount(totalUsersNumber) {
-            dispatch(setTotalUsersCount(totalUsersNumber));
-        },
-        setCurrentPage(currentPageNumber) {
-            dispatch(setCurrentPage(currentPageNumber));
-        },
-        setIsFetching(boolean) {
-            dispatch(setIsFetching(boolean));
-        },
-        followUser(userID) {
-            dispatch(followUser(userID));
-        },
-        unfollowUser(userID) {
-            dispatch(unfollowUser(userID));
-        },
-    };
-};
-
-const UsersListContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(UsersListAPI);
+const UsersListContainer = connect(mapStateToProps, {
+    setUsers,
+    setTotalUsersCount,
+    setCurrentPage,
+    setIsFetching,
+    followUser,
+    unfollowUser,
+})(UsersListAPI);
 
 export default UsersListContainer;
