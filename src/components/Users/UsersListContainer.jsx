@@ -1,6 +1,6 @@
-import React from "react";
-import axios from "axios";
-import { connect } from "react-redux";
+import React from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 import {
     setUsers,
     setTotalUsersCount,
@@ -8,16 +8,14 @@ import {
     setIsFetching,
     followUser,
     unfollowUser,
-} from "../../redux/usersPageReducer";
-import UsersList from "./UsersList";
+} from '../../redux/usersPageReducer';
+import UsersList from './UsersList';
 
 class UsersListAPI extends React.Component {
     componentDidMount() {
+        this.props.setCurrentPage(1);
         this.props.setIsFetching(true);
-        axios
-            .get(
-                `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-            )
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then((response) => {
                 this.props.setUsers(response.data.items);
                 this.props.setIsFetching(false);
@@ -31,10 +29,7 @@ class UsersListAPI extends React.Component {
     onPageChange = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setIsFetching(true);
-        axios
-            .get(
-                `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-            )
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then((response) => {
                 this.props.setUsers(response.data.items);
                 this.props.setIsFetching(false);
@@ -46,7 +41,7 @@ class UsersListAPI extends React.Component {
             });
         window.scrollTo({
             top: 0,
-            behavior: "smooth",
+            behavior: 'smooth',
         });
     };
     render() {
@@ -58,12 +53,8 @@ class UsersListAPI extends React.Component {
                 currentPage={this.props.currentPage}
                 isFetching={this.props.isFetching}
                 onPageChange={this.onPageChange}
-                followUser={() => {
-                    this.props.followUser();
-                }}
-                unfollowUser={() => {
-                    this.props.unfollowUser();
-                }}
+                followUser={() => {this.props.followUser()}}
+                unfollowUser={() => {this.props.unfollowUser()}}
             />
         );
     }

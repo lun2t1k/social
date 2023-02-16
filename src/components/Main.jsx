@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
-import Profile from "./Profile/Profile";
+import ProfileContainer from "./Profile/ProfileContainer";
 import News from "./News/News";
 import Messages from "./Messages/Messages";
 import Users from "./Users/Users";
@@ -15,7 +15,7 @@ export default function Main(props) {
                     <Navbar />
                     <section className="w-full md:w-4/5 flex flex-col gap-5">
                         <Routes>
-                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/profile/:userID?" element={<ProfileContainer />} />
                             <Route path="/" element={<News />} />
                             <Route path="/messages/*" element={<Messages />} />
                             <Route path="/users" element={<Users />} />

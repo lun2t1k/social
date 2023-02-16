@@ -1,9 +1,11 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const ADD_POST = 'ADD_POST';
 
 let initialState = {
+    profile: null,
     newPostText: '',
     posts: [
         {
@@ -24,6 +26,14 @@ let initialState = {
     ]
 }
 
+export const setUserProfile = createAction(SET_USER_PROFILE, function prepare(userID) {
+    return {
+        payload: {
+            profile: userID
+        }
+    }
+});
+
 export const updateNewPostText = createAction(UPDATE_NEW_POST_TEXT, function prepare(postText) {
     return {
         payload: {
@@ -36,6 +46,9 @@ export const addNewPost = createAction(ADD_POST);
 
 const profilePageReducer = createReducer(initialState, (builder) => {
     builder
+        .addCase(setUserProfile, (state = initialState, action) => {
+            return { ...state, profile: action.payload.profile }
+        })
         .addCase(updateNewPostText, (state = initialState, action) => {
             return { ...state, newPostText: action.payload.newPostText };
         })

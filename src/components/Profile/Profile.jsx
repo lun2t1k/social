@@ -1,20 +1,22 @@
-import User from "./User/User";
-import NewPostContainer from "./NewPostContainer";
-import PostsContainer from "./PostsContainer";
+import User from './User';
+import NewPostContainer from './NewPostContainer';
+import PostsContainer from './PostsContainer';
 
 export default function Profile(props) {
     return (
         <>
             <User
-                userName="Dmitry Krutkin"
-                userBirthday="25.07.2000"
-                userLocation="Russia, Omsk"
-                userEducation="College"
-                userSite="Telegram"
-                userSiteURL="http://t.me/lun2t1k"
+                userCover={props.profile.cover}
+                userPhoto={props.profile.photos.large}
+                userName={props.profile.fullName}
+                userStatus={props.profile.aboutMe}
+                userBirthday={props.profile.birthday}
+                userLocation={props.profile.location}
+                userEducation={props.profile.education}
+                userContacts={props.profile.contacts}
             />
             <NewPostContainer />
-            <PostsContainer />
+            <PostsContainer userPhoto={props.profile.photos.small} userName={props.profile.fullName} />
         </>
     );
 }
