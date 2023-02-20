@@ -1,6 +1,7 @@
-import logo from "../assets/img/Social-Logo.png";
+import logo from "./../../assets/img/Social-Logo.png";
 
 export default function Header(props) {
+    debugger
     return (
         <header className="w-full bg-white fixed top-0 z-50">
             <div className="container-props">
@@ -15,17 +16,17 @@ export default function Header(props) {
                         </div>
                         <div className="text-4xl uppercase">SOCIAL</div>
                     </a>
-                    <div className="buttons">
-                        <button className="mr-5" id="appearance">
-                            <span className="appearance-title">Dark</span>
-                        </button>
+
+                    {props.isAuth ? (
+                        "hello"
+                    ) : (
                         <a
                             href="/"
                             className="px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in hover:bg-purple-accent--dark"
                         >
                             Login
                         </a>
-                    </div>
+                    )}
                 </div>
             </div>
         </header>
