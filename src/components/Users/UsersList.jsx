@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import usersAPI from '../../api/usersAPI';
 import UsersLoader from './UsersLoader';
 
 export default function UsersList(props) {
@@ -61,29 +61,19 @@ export default function UsersList(props) {
                                         <button
                                             onClick={() => {
                                                 user.followed 
-                                                    ? axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                                                        withCredentials: true,
-                                                        headers: {
-                                                            'API-KEY': '1ea63667-7d48-4187-bfcd-ba68cfae3ead'
-                                                        }
-                                                    }).then((response) => {
-                                                        if (response.data.resultCode === 0) {
-                                                            props.unfollowUser(user.id)
+                                                    ? usersAPI.unfollowUserRequest(user.id).then((data) => {
+                                                        if (data.resultCode === 0) {
+                                                            props.unfollowUser(user.id);
                                                         }
                                                     }).catch((error) => {
-                                                        alert(error)
+                                                        alert(error);
                                                     })
-                                                    : axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-                                                        withCredentials: true,
-                                                        headers: {
-                                                            'API-KEY': '1ea63667-7d48-4187-bfcd-ba68cfae3ead'
-                                                        }
-                                                    }).then((response) => {
-                                                        if (response.data.resultCode === 0) {
-                                                            props.followUser(user.id)
+                                                    : usersAPI.followUserRequest(user.id).then((data) => {
+                                                        if (data.resultCode === 0) {
+                                                            props.followUser(user.id);
                                                         }
                                                     }).catch((error) => {
-                                                        alert(error)
+                                                        alert(error);
                                                     })
                                             }}
                                             className="p-2 bg-purple-accent rounded-xl text-white"

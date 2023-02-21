@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
+import usersAPI from '../../api/usersAPI';
 import {
     setUsers,
     setTotalUsersCount,
@@ -15,15 +15,13 @@ class UsersListAPI extends React.Component {
     componentDidMount() {
         this.props.setCurrentPage(1);
         this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        }).then((response) => {
-            this.props.setUsers(response.data.items);
+        usersAPI.getUsersRequest(this.props.currentPage, this.props.pageSize).then((data) => {
+            this.props.setUsers(data.items);
             this.props.setIsFetching(false);
-            if (response.data.totalCount > 100) {
+            if (data.totalCount > 100) {
                 this.props.setTotalUsersCount(99);
             } else {
-                this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.setTotalUsersCount(data.totalCount);
             }
         }).catch((error) => {
             alert(error);
@@ -32,15 +30,13 @@ class UsersListAPI extends React.Component {
     onPageChange = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        }).then((response) => {
-            this.props.setUsers(response.data.items);
+        usersAPI.getUsersRequest(pageNumber, this.props.pageSize).then((data) => {
+            this.props.setUsers(data.items);
             this.props.setIsFetching(false);
-            if (response.data.totalCount > 100) {
+            if (data.totalCount > 100) {
                 this.props.setTotalUsersCount(99);
             } else {
-                this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.setTotalUsersCount(data.totalCount);
             }
         }).catch((error) => {
             alert(error);
@@ -49,7 +45,7 @@ class UsersListAPI extends React.Component {
             top: 0,
             behavior: 'smooth',
         });
-    };
+    }
     render() {
         return (
             <UsersList
