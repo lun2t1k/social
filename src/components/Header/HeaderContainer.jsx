@@ -6,6 +6,7 @@ import Header from './Header';
 
 class HeaderAPI extends React.Component {
     componentDidMount() {
+        // ! The request doesn't get the right response, although I logged in
         axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {
             withCredentials: true
         })
@@ -23,7 +24,8 @@ class HeaderAPI extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        profile: state.profilePage.profile
     }
 }
 

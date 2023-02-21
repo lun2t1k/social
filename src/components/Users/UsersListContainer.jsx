@@ -15,30 +15,36 @@ class UsersListAPI extends React.Component {
     componentDidMount() {
         this.props.setCurrentPage(1);
         this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-                this.props.setIsFetching(false);
-                if (response.data.totalCount > 100) {
-                    this.props.setTotalUsersCount(99);
-                } else {
-                    this.props.setTotalUsersCount(response.data.totalCount);
-                }
-            });
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true
+        }).then((response) => {
+            this.props.setUsers(response.data.items);
+            this.props.setIsFetching(false);
+            if (response.data.totalCount > 100) {
+                this.props.setTotalUsersCount(99);
+            } else {
+                this.props.setTotalUsersCount(response.data.totalCount);
+            }
+        }).catch((error) => {
+            alert(error);
+        });
     }
     onPageChange = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-                this.props.setIsFetching(false);
-                if (response.data.totalCount > 100) {
-                    this.props.setTotalUsersCount(99);
-                } else {
-                    this.props.setTotalUsersCount(response.data.totalCount);
-                }
-            });
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true
+        }).then((response) => {
+            this.props.setUsers(response.data.items);
+            this.props.setIsFetching(false);
+            if (response.data.totalCount > 100) {
+                this.props.setTotalUsersCount(99);
+            } else {
+                this.props.setTotalUsersCount(response.data.totalCount);
+            }
+        }).catch((error) => {
+            alert(error);
+        });
         window.scrollTo({
             top: 0,
             behavior: 'smooth',

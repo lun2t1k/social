@@ -50,7 +50,7 @@ export const setIsFetching = createAction(SET_IS_FETCHING, function prepare(bool
 export const followUser = createAction(FOLLOW_USER, function prepare(userID) {
     return {
         payload: {
-            userID
+            id: userID
         }
     }
 });
@@ -58,7 +58,7 @@ export const followUser = createAction(FOLLOW_USER, function prepare(userID) {
 export const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID) {
     return {
         payload: {
-            userID
+            id: userID
         }
     }
 });
@@ -90,10 +90,30 @@ const usersPageReducer = createReducer(initialState, (builder) => {
             }
         })
         .addCase(followUser, (state = initialState, action) => {
-            return state;
+            // ! Error -> payload: {userID: undefined}
+            // ! The case doesn't receive the user id from action creator
+            return {
+                ...state,
+                users: state.users.map((user) => {
+                    if (user.id === action.payload.id) {
+                        return {...user, followed: true}
+                    }
+                    return user;
+                })
+            }
         })
         .addCase(unfollowUser, (state = initialState, action) => {
-            return state;
+            // ! Error -> payload: {userID: undefined}
+            // ! The case doesn't receive the user id from action creator
+            return {
+                ...state,
+                users: state.users.map((user) => {
+                    if (user.id === action.payload.id) {
+                        return {...user, followed: false}
+                    }
+                    return user;
+                })
+            }
         })
         .addDefaultCase((state = initialState, action) => {
             return state;

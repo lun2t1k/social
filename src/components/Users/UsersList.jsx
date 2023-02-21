@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 import UsersLoader from './UsersLoader';
 
 export default function UsersList(props) {
@@ -24,46 +25,70 @@ export default function UsersList(props) {
                                         className="flex items-center justify-between border-b-2 last:border-b-0 py-5 last:pb-0"
                                     >
                                         <div className="flex items-center">
-                                            <NavLink to={`/profile/${user.id}`} className="flex items-center justify-center w-[70px] h-[70px] bg-slate-400 rounded-full overflow-hidden mr-3">
-                                                {user.photos.small 
-                                                    ? (
-                                                        <img
-                                                            src={user.photos.small}
-                                                            alt=""
-                                                            className="w-full h-full object-cover"
+                                            <NavLink
+                                                to={`/profile/${user.id}`}
+                                                className="flex items-center justify-center w-[70px] h-[70px] bg-slate-400 rounded-full overflow-hidden mr-3"
+                                            >
+                                                {user.photos.small ? (
+                                                    <img
+                                                        src={user.photos.small}
+                                                        alt=""
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        strokeWidth={1}
+                                                        stroke="white"
+                                                        className="w-[50px] h-[50px]"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                                                         />
-                                                    ) 
-                                                    : (
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            strokeWidth={1}
-                                                            stroke="white"
-                                                            className="w-[50px] h-[50px]"
-                                                        >
-                                                            <path
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                                                            />
-                                                        </svg>
-                                                    )
-                                                }
+                                                    </svg>
+                                                )}
                                             </NavLink>
                                             <NavLink to={`/profile/${user.id}`}>
-                                                <h5 className="font-bold mb-1">{user.name}</h5>
+                                                <h5 className="font-bold mb-1">
+                                                    {user.name}
+                                                </h5>
                                             </NavLink>
                                         </div>
                                         <button
-                                            onClick={
-                                                user.followed
-                                                    ? props.unfollowUser(user.id)
-                                                    : props.followUser(user.id)
-                                            }
+                                            onClick={() => {
+                                                user.followed 
+                                                    ? axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                                                        withCredentials: true,
+                                                        headers: {
+                                                            'API-KEY': '1ea63667-7d48-4187-bfcd-ba68cfae3ead'
+                                                        }
+                                                    }).then((response) => {
+                                                        if (response.data.resultCode === 0) {
+                                                            props.unfollowUser(user.id)
+                                                        }
+                                                    }).catch((error) => {
+                                                        alert(error)
+                                                    })
+                                                    : axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                                                        withCredentials: true,
+                                                        headers: {
+                                                            'API-KEY': '1ea63667-7d48-4187-bfcd-ba68cfae3ead'
+                                                        }
+                                                    }).then((response) => {
+                                                        if (response.data.resultCode === 0) {
+                                                            props.followUser(user.id)
+                                                        }
+                                                    }).catch((error) => {
+                                                        alert(error)
+                                                    })
+                                            }}
                                             className="p-2 bg-purple-accent rounded-xl text-white"
                                         >
-                                            {user.followed ? "Unfollow" : "Follow"}
+                                            {user.followed ? 'Unfollow' : 'Follow'}
                                         </button>
                                     </li>
                                 );
