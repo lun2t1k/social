@@ -6,13 +6,16 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_IS_FETCHING = 'SET_IS_FETCHING';
+const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS';
 
 let initialState = {
     users: [],
     pageSize: 10,
     totalCount: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    isFollowingProcess: false,
+    followingQueue: []
 };
 
 export const setUsers = createAction(SET_USERS, function prepare(users) {
@@ -59,6 +62,15 @@ export const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID)
     return {
         payload: {
             id: userID
+        }
+    }
+});
+
+export const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function prepare(boolean, userID) {
+    return {
+        payload: {
+            isFollowingProcess: boolean,
+            userID: userID
         }
     }
 });
@@ -113,6 +125,15 @@ const usersPageReducer = createReducer(initialState, (builder) => {
                     }
                     return user;
                 })
+            }
+        })
+        .addCase(setIsFollowingProcess, (state = initialState, action) => {
+            return {
+                ...state,
+                isFollowingProcess: action.payload.isFollowingProcess,
+                followingQueue: action.payload.isFollowingProcess
+                    ? [...state.followingQueue, action.payload.userID]
+                    : state.followingQueue.filter(userID => userID !== action.payload.userID)
             }
         })
         .addDefaultCase((state = initialState, action) => {

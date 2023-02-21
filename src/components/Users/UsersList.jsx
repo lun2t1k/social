@@ -60,25 +60,34 @@ export default function UsersList(props) {
                                         </div>
                                         <button
                                             onClick={() => {
+                                                props.setIsFollowingProcess(true, user.id);
                                                 user.followed 
                                                     ? usersAPI.unfollowUserRequest(user.id).then((data) => {
                                                         if (data.resultCode === 0) {
                                                             props.unfollowUser(user.id);
                                                         }
+                                                        props.setIsFollowingProcess(false, user.id);
                                                     }).catch((error) => {
                                                         alert(error);
+                                                        props.setIsFollowingProcess(false, user.id);
                                                     })
                                                     : usersAPI.followUserRequest(user.id).then((data) => {
                                                         if (data.resultCode === 0) {
                                                             props.followUser(user.id);
                                                         }
+                                                        props.setIsFollowingProcess(false, user.id);
                                                     }).catch((error) => {
                                                         alert(error);
-                                                    })
+                                                        props.setIsFollowingProcess(false, user.id);
+                                                    });
                                             }}
+                                            disabled={props.followingQueue.some(userID => userID === user.id)}
                                             className="p-2 bg-purple-accent rounded-xl text-white"
                                         >
-                                            {user.followed ? 'Unfollow' : 'Follow'}
+                                            {props.followingQueue.some(userID => userID === user.id) 
+                                                ? <span className="animate-spin block w-6 h-6 border-2 border-black border-t-white rounded-full" />
+                                                : user.followed ? 'Unfollow' : 'Follow'
+                                            }
                                         </button>
                                     </li>
                                 );

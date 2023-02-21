@@ -8,6 +8,7 @@ import {
     setIsFetching,
     followUser,
     unfollowUser,
+    setIsFollowingProcess
 } from '../../redux/usersPageReducer';
 import UsersList from './UsersList';
 
@@ -55,8 +56,10 @@ class UsersListAPI extends React.Component {
                 currentPage={this.props.currentPage}
                 isFetching={this.props.isFetching}
                 onPageChange={this.onPageChange}
-                followUser={() => {this.props.followUser()}}
-                unfollowUser={() => {this.props.unfollowUser()}}
+                followUser={this.props.followUser}
+                unfollowUser={this.props.unfollowUser}
+                setIsFollowingProcess={this.props.setIsFollowingProcess}
+                followingQueue={this.props.followingQueue}
             />
         );
     }
@@ -69,6 +72,7 @@ const mapStateToProps = (state) => {
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
+        followingQueue: state.usersPage.followingQueue
     };
 };
 
@@ -79,6 +83,7 @@ const UsersListContainer = connect(mapStateToProps, {
     setIsFetching,
     followUser,
     unfollowUser,
+    setIsFollowingProcess
 })(UsersListAPI);
 
 export default UsersListContainer;
