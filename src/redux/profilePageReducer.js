@@ -1,4 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
+import profileAPI from './../api/profileAPI';
 
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
@@ -26,7 +27,7 @@ let initialState = {
     ]
 }
 
-export const setUserProfile = createAction(SET_USER_PROFILE, function prepare(userID) {
+const setUserProfile = createAction(SET_USER_PROFILE, function prepare(userID) {
     return {
         payload: {
             profile: userID
@@ -43,6 +44,12 @@ export const updateNewPostText = createAction(UPDATE_NEW_POST_TEXT, function pre
 });
 
 export const addNewPost = createAction(ADD_POST);
+
+export const setProfile = (userID) => {
+    return (dispatch) => {
+        profileAPI.getProfileRequest(userID).then(data => dispatch(setUserProfile(data)));
+    }
+}
 
 const profilePageReducer = createReducer(initialState, (builder) => {
     builder

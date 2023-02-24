@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
-import profileAPI from '../../api/profileAPI';
-import { setUserProfile } from '../../redux/profilePageReducer';
+import { setProfile } from '../../redux/profilePageReducer';
 import ProfileLoader from './ProfileLoader';
 import Profile from './Profile';
 
@@ -14,14 +13,13 @@ export default function ProfileWrap(props) {
 
 class ProfileAPI extends React.Component {
     componentDidMount() {
-        this.props.setUserProfile(null);
         let userID;
         if (!this.props.params.userID) {
             userID = 2
         } else {
             userID = this.props.params.userID;
         }
-        profileAPI.getProfileRequest(userID).then(data => this.props.setUserProfile(data));
+        this.props.setProfile(userID);
     }
     render() {
         if (!this.props.profile) {
@@ -38,4 +36,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ProfileContainer = connect(mapStateToProps, { setUserProfile })(ProfileAPI);
+const ProfileContainer = connect(mapStateToProps, {setProfile})(ProfileAPI);

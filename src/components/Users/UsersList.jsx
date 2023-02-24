@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import usersAPI from '../../api/usersAPI';
 import UsersLoader from './UsersLoader';
 
 export default function UsersList(props) {
@@ -25,8 +24,7 @@ export default function UsersList(props) {
                                         className="flex items-center justify-between border-b-2 last:border-b-0 py-5 last:pb-0"
                                     >
                                         <div className="flex items-center">
-                                            <NavLink
-                                                to={`/profile/${user.id}`}
+                                            <NavLink to={`/profile/${user.id}`}
                                                 className="flex items-center justify-center w-[70px] h-[70px] bg-slate-400 rounded-full overflow-hidden mr-3"
                                             >
                                                 {user.photos.small ? (
@@ -53,34 +51,11 @@ export default function UsersList(props) {
                                                 )}
                                             </NavLink>
                                             <NavLink to={`/profile/${user.id}`}>
-                                                <h5 className="font-bold mb-1">
-                                                    {user.name}
-                                                </h5>
+                                                <h5 className="font-bold mb-1">{user.name}</h5>
                                             </NavLink>
                                         </div>
                                         <button
-                                            onClick={() => {
-                                                props.setIsFollowingProcess(true, user.id);
-                                                user.followed 
-                                                    ? usersAPI.unfollowUserRequest(user.id).then((data) => {
-                                                        if (data.resultCode === 0) {
-                                                            props.unfollowUser(user.id);
-                                                        }
-                                                        props.setIsFollowingProcess(false, user.id);
-                                                    }).catch((error) => {
-                                                        alert(error);
-                                                        props.setIsFollowingProcess(false, user.id);
-                                                    })
-                                                    : usersAPI.followUserRequest(user.id).then((data) => {
-                                                        if (data.resultCode === 0) {
-                                                            props.followUser(user.id);
-                                                        }
-                                                        props.setIsFollowingProcess(false, user.id);
-                                                    }).catch((error) => {
-                                                        alert(error);
-                                                        props.setIsFollowingProcess(false, user.id);
-                                                    });
-                                            }}
+                                            onClick={() => user.followed ? props.unfollow(user.id) : props.follow(user.id)}
                                             disabled={props.followingQueue.some(userID => userID === user.id)}
                                             className="p-2 bg-purple-accent rounded-xl text-white"
                                         >
@@ -106,10 +81,9 @@ export default function UsersList(props) {
                                             );
                                         }
                                     }}
-                                    className={
-                                        props.currentPage === 1
-                                            ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-not-allowed transition-all ease delay-100 bg-gray-200 opacity-50"
-                                            : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
+                                    className={props.currentPage === 1
+                                        ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-not-allowed transition-all ease delay-100 bg-gray-200 opacity-50"
+                                        : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
                                     }
                                 >
                                     <svg
@@ -131,11 +105,10 @@ export default function UsersList(props) {
                                     return (
                                         <li
                                             key={page}
-                                            onClick={() => {props.onPageChange(page)}}
-                                            className={
-                                                props.currentPage === page
-                                                    ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 bg-purple-accent border-purple-accent text-white"
-                                                    : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
+                                            onClick={() => props.onPageChange(page)}
+                                            className={props.currentPage === page
+                                                ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 bg-purple-accent border-purple-accent text-white"
+                                                : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
                                             }
                                         >
                                             {page}
@@ -153,10 +126,9 @@ export default function UsersList(props) {
                                             );
                                         }
                                     }}
-                                    className={
-                                        props.currentPage === pagesAmount
-                                            ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-not-allowed transition-all ease delay-100 bg-gray-200 opacity-50"
-                                            : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
+                                    className={props.currentPage === pagesAmount
+                                        ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-not-allowed transition-all ease delay-100 bg-gray-200 opacity-50"
+                                        : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
                                     }
                                 >
                                     <svg

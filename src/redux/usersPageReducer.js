@@ -1,4 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
+import usersAPI from './../api/usersAPI';
 
 const SET_USERS = 'SET_USERS';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
@@ -18,7 +19,7 @@ let initialState = {
     followingQueue: []
 };
 
-export const setUsers = createAction(SET_USERS, function prepare(users) {
+const setUsers = createAction(SET_USERS, function prepare(users) {
     return {
         payload: {
             users: users
@@ -26,7 +27,7 @@ export const setUsers = createAction(SET_USERS, function prepare(users) {
     }
 });
 
-export const setTotalUsersCount = createAction(SET_TOTAL_USERS_COUNT, function prepare(totalUsersNumber) {
+const setTotalUsersCount = createAction(SET_TOTAL_USERS_COUNT, function prepare(totalUsersNumber) {
     return {
         payload: {
             totalCount: totalUsersNumber
@@ -34,7 +35,7 @@ export const setTotalUsersCount = createAction(SET_TOTAL_USERS_COUNT, function p
     }
 });
 
-export const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(currentPageNumber) {
+const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(currentPageNumber) {
     return {
         payload: {
             currentPage: currentPageNumber
@@ -42,7 +43,7 @@ export const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(cu
     }
 });
 
-export const setIsFetching = createAction(SET_IS_FETCHING, function prepare(boolean) {
+const setIsFetching = createAction(SET_IS_FETCHING, function prepare(boolean) {
     return {
         payload: {
             isFetching: boolean
@@ -50,7 +51,7 @@ export const setIsFetching = createAction(SET_IS_FETCHING, function prepare(bool
     }
 });
 
-export const followUser = createAction(FOLLOW_USER, function prepare(userID) {
+const followUser = createAction(FOLLOW_USER, function prepare(userID) {
     return {
         payload: {
             id: userID
@@ -58,7 +59,7 @@ export const followUser = createAction(FOLLOW_USER, function prepare(userID) {
     }
 });
 
-export const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID) {
+const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID) {
     return {
         payload: {
             id: userID
@@ -66,7 +67,7 @@ export const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID)
     }
 });
 
-export const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function prepare(boolean, userID) {
+const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function prepare(boolean, userID) {
     return {
         payload: {
             isFollowingProcess: boolean,
@@ -74,6 +75,54 @@ export const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, func
         }
     }
 });
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setCurrentPage(currentPage));
+        dispatch(setIsFetching(true));
+        usersAPI.getUsersRequest(currentPage, pageSize).then((data) => {
+            dispatch(setUsers(data.items));
+            dispatch(setIsFetching(false));
+            if (data.totalCount > 100) {
+                dispatch(setTotalUsersCount(99));
+            } else {
+                dispatch(setTotalUsersCount(data.totalCount));
+            }
+        }).catch((error) => {
+            alert(error);
+        });
+    }
+}
+
+export const follow = (userID) => {
+    return (dispatch) => {
+        dispatch(setIsFollowingProcess(true, userID));
+        usersAPI.followUserRequest(userID).then((data) => {
+            if (data.resultCode === 0) {
+                dispatch(followUser(userID));
+            }
+            dispatch(setIsFollowingProcess(false, userID));
+        }).catch((error) => {
+            alert(error);
+            dispatch(setIsFollowingProcess(false, userID));
+        });
+    }
+}
+
+export const unfollow = (userID) => {
+    return (dispatch) => {
+        dispatch(setIsFollowingProcess(true, userID));
+        usersAPI.unfollowUserRequest(userID).then((data) => {
+            if (data.resultCode === 0) {
+                dispatch(followUser(userID));
+            }
+            dispatch(setIsFollowingProcess(false, userID));
+        }).catch((error) => {
+            alert(error);
+            dispatch(setIsFollowingProcess(false, userID));
+        });
+    }
+}
 
 const usersPageReducer = createReducer(initialState, (builder) => {
     builder

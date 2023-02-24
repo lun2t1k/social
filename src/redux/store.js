@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
 import authReducer from './authReducer';
 import profilePageReducer from './profilePageReducer';
 import messagesPageReducer from './messagesPageReducer';
@@ -12,7 +13,8 @@ let reducers = combineReducers({
 });
 
 let store = configureStore({
-    reducer: reducers
+    reducer: reducers,
+    middleware: [thunk]
 });
 
 window.state = store.getState();
