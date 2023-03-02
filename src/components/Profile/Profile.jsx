@@ -14,6 +14,9 @@ export default function Profile(props) {
                 userLocation={props.profile.location}
                 userEducation={props.profile.education}
                 userContacts={props.profile.contacts}
+
+                localstate={props.state}
+                onStatusClick={props.onStatusClick}
             />
             <NewPostContainer />
             <PostsContainer userPhoto={props.profile.photos.small} userName={props.profile.fullName} />

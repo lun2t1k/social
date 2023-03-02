@@ -1,3 +1,5 @@
+import ProfileStatus from './ProfileStatus';
+
 export default function User(props) {
     return (
         <div className="user w-full bg-white rounded-3xl overflow-hidden">
@@ -33,7 +35,7 @@ export default function User(props) {
                 </div>
                 <div className="w-full pt-[140px] lg:pt-0 lg:pl-[230px]">
                     <h2 className="block w-full mb-2 text-5xl capitalize">{props.userName}</h2>
-                    {props.userStatus ? (<h3 className="mb-4 text-2xl">{props.userStatus}</h3>) : null}
+                    <ProfileStatus userStatus={props.userStatus} />
                     <ul>
                         <li>
                             <span className="text-xl text-gray-500"> Birthday: </span>
