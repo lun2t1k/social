@@ -15,16 +15,8 @@ class ProfileStatus extends React.Component {
                     ? (
                         <input type="text"
                             autoFocus
-                            onClick={
-                                () => {
-                                    this.setEditMode.bind(this)(true)
-                                }
-                            }
-                            onBlur={
-                                () => {
-                                    this.setEditMode.bind(this)(false)
-                                }
-                            }
+                            onClick={() => this.setEditMode.bind(this)(true)}
+                            onBlur={() => this.setEditMode.bind(this)(false)}
                             className="w-full py-2 px-3 border-2 rounded-xl text-lg mb-4 focus:border-purple-accent"
                         />
                     )
