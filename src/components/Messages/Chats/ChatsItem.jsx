@@ -4,7 +4,7 @@ export default function ChatsItem(props) {
     let defaultClassName =
         "px-5 py-5 border-b-2 last:border-b-0 flex items-center hover:bg-gray-200 transition-all duration-300 ease-in";
     let activeClassName =
-        "px-5 py-5 border-b-2 last:border-b-0 flex items-center bg-purple-accent text-white hover:bg-purple-accent transition-all duration-300 ease-in";
+        "px-5 py-5 border-b-2 last:border-b-0 flex items-center bg-violet-500 text-white hover:bg-violet-500 transition-all duration-300 ease-in";
 
     return (
         <NavLink

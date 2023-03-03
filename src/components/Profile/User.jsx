@@ -38,7 +38,7 @@ export default function User(props) {
                 </div>
                 <div className="w-full pt-[140px] lg:pt-0 lg:pl-[230px]">
                     <h2 className="block w-full mb-2 text-5xl capitalize">{props.userName}</h2>
-                    <ProfileStatus userStatus={props.userStatus} />
+                    <ProfileStatus userStatus={props.userStatus} updateStatus={props.updateStatus} />
                     <ul>
                         <li>
                             <span className="text-xl text-gray-500">Birthday: </span>

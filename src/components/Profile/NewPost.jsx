@@ -27,12 +27,12 @@ export default function NewPost(props) {
                         onChange={onChangeNewPostText}
                         value={props.newPostText}
                         required
-                        className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3 focus:border-purple-accent"
+                        className="w-full max-h-[200px] min-h-[100px] p-3 border-2 rounded-xl text-lg mb-3 focus:border-violet-500"
                     ></textarea>
                     <div className="text-right">
                         <button
                             type="submit"
-                            className="px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in hover:bg-purple-accent--dark disabled:bg-gray-500 disabled:hover:bg-gray-500"
+                            className="px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500"
                         >
                             Add Post
                         </button>

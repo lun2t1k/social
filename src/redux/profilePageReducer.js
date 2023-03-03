@@ -1,12 +1,15 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 import profileAPI from './../api/profileAPI';
 
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const ADD_POST = 'ADD_POST';
 
 let initialState = {
     profile: null,
+    status: '',
     newPostText: '',
     posts: [
         {
@@ -35,6 +38,14 @@ const setUserProfile = createAction(SET_USER_PROFILE, function prepare(userID) {
     }
 });
 
+const setUserStatus = createAction(SET_USER_STATUS, function prepare(statusText) {
+    return {
+        payload: {
+            status: statusText
+        }
+    }
+});
+
 export const updateNewPostText = createAction(UPDATE_NEW_POST_TEXT, function prepare(postText) {
     return {
         payload: {
@@ -47,7 +58,40 @@ export const addNewPost = createAction(ADD_POST);
 
 export const setProfile = (userID) => {
     return (dispatch) => {
-        profileAPI.getProfileRequest(userID).then(data => dispatch(setUserProfile(data)));
+        profileAPI.getUserProfile(userID).then(data => dispatch(setUserProfile(data)));
+    }
+}
+
+export const setStatus = (userID) => {
+    return (dispatch) => {
+        profileAPI.getUserStatus(userID).then((data) => {
+            if (data === null) {
+                dispatch(setUserStatus(''));
+            } else {
+                dispatch(setUserStatus(data));
+            }
+        });
+    }
+}
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateUserStatus(status).then((data) => {
+            if (data.resultCode === 0) {
+                dispatch(setUserStatus(status));
+            }
+        }).catch((error) => {
+            Swal.fire({
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                buttonsStyling: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+                }
+            });
+        });
     }
 }
 
@@ -55,6 +99,9 @@ const profilePageReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(setUserProfile, (state = initialState, action) => {
             return { ...state, profile: action.payload.profile }
+        })
+        .addCase(setUserStatus, (state = initialState, action) => {
+            return { ...state, status: action.payload.status }
         })
         .addCase(updateNewPostText, (state = initialState, action) => {
             return { ...state, newPostText: action.payload.newPostText };

@@ -57,7 +57,7 @@ export default function UsersList(props) {
                                         <button
                                             onClick={() => user.followed ? props.unfollow(user.id) : props.follow(user.id)}
                                             disabled={props.followingQueue.some(userID => userID === user.id)}
-                                            className="p-2 bg-purple-accent rounded-xl text-white"
+                                            className="p-2 rounded-xl bg-violet-500 hover:bg-violet-600 transition-all ease-in text-white"
                                         >
                                             {props.followingQueue.some(userID => userID === user.id) 
                                                 ? <span className="animate-spin block w-6 h-6 border-2 border-black border-t-white rounded-full" />
@@ -107,7 +107,7 @@ export default function UsersList(props) {
                                             key={page}
                                             onClick={() => props.onPageChange(page)}
                                             className={props.currentPage === page
-                                                ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 bg-purple-accent border-purple-accent text-white"
+                                                ? "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 bg-violet-500 border-violet-500 text-white"
                                                 : "w-[40px] h-[40px] flex items-center justify-center text-center p-2 border-2 rounded-xl cursor-pointer transition-all ease delay-100 hover:bg-gray-200"
                                             }
                                         >

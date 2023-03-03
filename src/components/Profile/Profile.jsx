@@ -9,14 +9,12 @@ export default function Profile(props) {
                 userCover={props.profile.cover}
                 userPhoto={props.profile.photos.large}
                 userName={props.profile.fullName}
-                userStatus={props.profile.aboutMe}
+                userStatus={props.status}
+                updateStatus={props.updateStatus}
                 userBirthday={props.profile.birthday}
                 userLocation={props.profile.location}
                 userEducation={props.profile.education}
                 userContacts={props.profile.contacts}
-
-                localstate={props.state}
-                onStatusClick={props.onStatusClick}
             />
             <NewPostContainer />
             <PostsContainer userPhoto={props.profile.photos.small} userName={props.profile.fullName} />

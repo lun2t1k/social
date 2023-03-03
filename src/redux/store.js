@@ -17,6 +17,4 @@ let store = configureStore({
     middleware: [thunk]
 });
 
-window.state = store.getState();
-
 export default store;

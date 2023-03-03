@@ -1,4 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 import authAPI from './../api/authAPI';
 
 const SET_USER_DATA = 'SET_USER_DATA';
@@ -29,7 +30,16 @@ export const authMe = () => {
                 dispatch(setUserData(userID, login, email));
             }
         }).catch(error => {
-            alert(error);
+            Swal.fire({
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                buttonsStyling: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+                }
+            });
         });
     }
 }

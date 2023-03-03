@@ -1,4 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 import usersAPI from './../api/usersAPI';
 
 const SET_USERS = 'SET_USERS';
@@ -89,7 +90,16 @@ export const getUsers = (currentPage, pageSize) => {
                 dispatch(setTotalUsersCount(data.totalCount));
             }
         }).catch((error) => {
-            alert(error);
+            Swal.fire({
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                buttonsStyling: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+                }
+            });
         });
     }
 }
@@ -103,7 +113,16 @@ export const follow = (userID) => {
             }
             dispatch(setIsFollowingProcess(false, userID));
         }).catch((error) => {
-            alert(error);
+            Swal.fire({
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                buttonsStyling: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+                }
+            });
             dispatch(setIsFollowingProcess(false, userID));
         });
     }
@@ -118,7 +137,16 @@ export const unfollow = (userID) => {
             }
             dispatch(setIsFollowingProcess(false, userID));
         }).catch((error) => {
-            alert(error);
+            Swal.fire({
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                buttonsStyling: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+                }
+            });
             dispatch(setIsFollowingProcess(false, userID));
         });
     }

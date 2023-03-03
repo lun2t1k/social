@@ -34,7 +34,7 @@ export default function Header(props) {
                         </div>
                     ) : (
                         <a href="/"
-                            className="px-6 py-3 rounded-lg text-xl text-white bg-purple-accent transition-all ease-in hover:bg-purple-accent--dark"
+                            className="px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600"
                         >
                             Login
                         </a>

@@ -8,6 +8,18 @@ class ProfileStatus extends React.Component {
     setEditMode = (boolean) => {
         this.setState({editMode: boolean});
     }
+    saveStatus = () => {
+        this.setEditMode(false);
+        this.props.updateStatus(this.state.status);
+    }
+    setStatusText = (event) => {
+        this.setState({status: event.currentTarget.value});
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.userStatus !== prevProps.userStatus) {
+            this.setState({status: this.props.userStatus});
+        }
+    }
     render() {
         return (
             <>
@@ -16,7 +28,9 @@ class ProfileStatus extends React.Component {
                         <input type="text"
                             autoFocus
                             onClick={() => this.setEditMode(true)}
-                            onBlur={() => this.setEditMode(false)}
+                            onChange={this.setStatusText}
+                            onBlur={() => this.saveStatus()}
+                            value={this.state.status}
                             className="w-full py-2 px-3 border-2 rounded-xl text-lg mb-4 focus:border-purple-accent"
                         />
                     )
