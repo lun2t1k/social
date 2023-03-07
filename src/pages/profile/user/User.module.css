@@ -1,0 +1,23 @@
+.userCover {
+    background-size: 400%;
+
+    -webkit-animation: userCoverAnimation 5s ease-in-out infinite;
+    -moz-animation: userCoverAnimation 5s ease-in-out infinite;
+    animation: userCoverAnimation 5s ease-in-out infinite;
+}
+
+@keyframes userCoverAnimation {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.userAvatar {
+    left: calc(50% - 90px);
+}

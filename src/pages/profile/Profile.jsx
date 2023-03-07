@@ -1,6 +1,6 @@
-import User from './User';
-import NewPost from './NewPost';
-import Posts from './Posts';
+import User from './user/User';
+import NewPost from './posts/NewPost';
+import Posts from './posts/Posts';
 
 export default function Profile(props) {
     return (

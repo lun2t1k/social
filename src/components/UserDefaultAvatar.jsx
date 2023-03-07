@@ -1,13 +1,13 @@
-export default function UserDefaultPhoto() {
+export default function UserDefaultAvatar() {
     return (
-        <div className="mr-3 flex h-[70px] w-[70px] items-center justify-center overflow-hidden rounded-full bg-slate-400">
+        <div className="flex h-[40px] min-w-[40px] items-center justify-center overflow-hidden rounded-full bg-slate-400">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1}
                 stroke="white"
-                className="h-[50px] w-[50px]"
+                className="h-[30px] w-[30px]"
             >
                 <path
                     strokeLinecap="round"

@@ -2,7 +2,7 @@ export default function Footer(props) {
     return (
         <footer className="pt-20 pb-16">
             <div className="container-props">
-                <ul className="flex justify-center items-center gap-10">
+                <ul className="flex flex-col items-center justify-center gap-10 text-center sm:flex-row sm:text-left">
                     <li>
                         <a
                             href="/"
