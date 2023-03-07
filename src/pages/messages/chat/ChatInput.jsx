@@ -6,7 +6,7 @@ import { NewMessageSchema } from "./validationSchema";
 const ChatInputContainer = (props) => {
     const onSubmit = (values, actions) => {
         props.sendNewMessage(values.newMessageText);
-        // actions.resetForm();
+        actions.resetForm();
     };
 
     return (
