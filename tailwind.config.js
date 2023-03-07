@@ -1,27 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './public/index.html',
-    './src/**/*.{js,jsx,ts,tsx}'
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        'montserrat': `'Montserrat', sans-serif`
-      },
-      colors: {
-        purple: {
-          accent: '#932790',
-          'accent--dark': '#701d70',
-          secondary: '#672e91',
-          'secondary--dark': '#472168',
-        },
-        pink: {
-          raspberry: '#9f005d',
-          'raspberry--dark': '#72024a'
+    content: [
+        './public/index.html',
+        './src/**/*.{js,jsx,ts,tsx}'
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                'montserrat': `'Montserrat', sans-serif`
+            },
+            animation: {
+                spin: 'spin 0.7s linear infinite'
+            }
         }
-      }
-    }
-  },
-  plugins: [],
+    },
+    plugins: [],
 }

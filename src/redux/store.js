@@ -1,18 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import authReducer from './authReducer';
-import profilePageReducer from './profilePageReducer';
-import messagesPageReducer from './messagesPageReducer';
-import usersPageReducer from './usersPageReducer';
+import auth from './reducers/auth';
+import profilePage from './reducers/profile';
+import messagesPage from './reducers/messages';
+import usersPage from './reducers/users';
 
-let reducers = combineReducers({
-    auth: authReducer,
-    profilePage: profilePageReducer,
-    messagesPage: messagesPageReducer,
-    usersPage: usersPageReducer
-});
+const reducers = combineReducers({ auth, profilePage, messagesPage, usersPage });
 
-let store = configureStore({
+const store = configureStore({
     reducer: reducers,
     middleware: [thunk]
 });
