@@ -16,10 +16,10 @@ export default function UserInfo(props) {
                 updateStatus={props.updateStatus}
             />
             <ul className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <UserInfoItem icon={<BirthdayIcon />} info={props.userBirthday ? props.userBirthday : "13.10.1999"} />
-                <UserInfoItem icon={<LocationIcon />} info={props.userLocation ? props.userLocation : "Russia, Omsk"} />
-                <UserInfoItem icon={<EducationIcon />} info={props.userEducation ? props.userEducation : "High School"} />
-                <UserInfoItem icon={<LinkIcon />} info={props.userContacts.github ? props.userContacts.github : "@lun2t1k"} />
+                {props.userBirthday ? <UserInfoItem icon={<BirthdayIcon />} info={props.userBirthday} /> : null}
+                {props.userLocation ? <UserInfoItem icon={<LocationIcon />} info={props.userLocation} /> : null}
+                {props.userEducation ? <UserInfoItem icon={<EducationIcon />} info={props.userEducation} /> : null}
+                {props.userContacts.github ? <UserInfoItem icon={<LinkIcon />} info={props.userContacts.github} /> : null}
             </ul>
         </div>
     );
