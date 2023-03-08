@@ -2,18 +2,20 @@ import { connect } from "react-redux";
 import ChatsItem from "./ChatsItem";
 
 const ChatsListContainer = (props) => {
-    let chats = props.chats.map((chat) => (
-        <ChatsItem
-            key={chat.id}
-            userID={chat.id}
-            userName={chat.name}
-            userAvatar={chat.avatar}
-            lastMessage={chat.lastMessage}
-        />
-    ));
-
-    return <div className="h-full overflow-scroll">{chats}</div>;
-}
+    return (
+        <div className="h-full overflow-scroll pb-[62px]">
+            {props.chats.map((chat) => (
+                <ChatsItem
+                    key={chat.id}
+                    userID={chat.id}
+                    userName={chat.name}
+                    userAvatar={chat.avatar}
+                    lastMessage={chat.lastMessage}
+                />
+            ))}
+        </div>
+    );
+};
 
 const mapStateToProps = (state) => {
     return {

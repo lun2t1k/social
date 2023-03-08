@@ -4,7 +4,7 @@ export default function NavbarLink(props) {
     return (
         <NavLink
             to={props.url}
-            className="flex flex-col w-full items-center gap-2 p-2"
+            className="flex w-full flex-col items-center gap-2 p-2 text-xs"
         >
             {props.icon}
             {props.title}
