@@ -7,8 +7,8 @@ import MusicIcon from "./icons/MusicIcon";
 
 export default function Navbar() {
     return (
-        <nav className="sticky top-[76px] hidden h-fit w-full md:flex md:w-1/5 flex-col">
-            <ul className="w-full rounded-2xl bg-white p-3 mb-5">
+        <nav className="sticky top-[76px] hidden h-fit flex-col md:flex md:min-w-[220px] md:max-w-[220px]">
+            <ul className="mb-5 w-full rounded-2xl bg-white p-3">
                 <li>
                     <NavbarLink
                         icon={<ProfileIcon />}

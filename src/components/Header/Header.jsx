@@ -17,7 +17,6 @@ export default function Header(props) {
                         </div>
                         {/* <div className="text-xl uppercase">SOCIAL</div> */}
                     </NavLink>
-
                     <UserActions />
                 </div>
             </div>

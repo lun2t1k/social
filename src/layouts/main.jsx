@@ -6,27 +6,21 @@ import News from "./../pages/news/News";
 import Messages from "./../pages/messages/Messages";
 import Users from "./../pages/users/Users";
 import Music from "./../pages/music/Music";
-import MobileNavbar from '../components/mobileNavbar/MobileNavbar';
+import MobileNavbar from "../components/mobileNavbar/MobileNavbar";
 
 const MainLayout = (props) => {
     return (
         <>
             <Header />
-            <main className="pb-[116px] md:pb-[20px] pt-[76px]">
+            <main className="pb-[116px] pt-[76px] md:pb-[20px]">
                 <div className="container-props">
-                    <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col gap-5 md:flex-row">
                         <Navbar />
-                        <section className="flex w-full flex-col gap-5 md:w-4/5">
+                        <section className="flex flex-auto flex-col gap-5">
                             <Routes>
-                                <Route
-                                    path="/profile/:userID?"
-                                    element={<ProfileContainer />}
-                                />
+                                <Route path="/profile/:userID?" element={<ProfileContainer />} />
                                 <Route path="/" element={<News />} />
-                                <Route
-                                    path="/messages/*"
-                                    element={<Messages />}
-                                />
+                                <Route path="/messages/*" element={<Messages />} />
                                 <Route path="/users" element={<Users />} />
                                 <Route path="/music" element={<Music />} />
                             </Routes>
