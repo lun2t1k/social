@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, getUsers } from '../../redux/reducers/users';
+import { follow, unfollow, getUsers } from '../../../redux/reducers/users';
 import UsersList from './UsersList';
 
 class UsersListAPI extends React.Component {
@@ -9,10 +9,6 @@ class UsersListAPI extends React.Component {
     }
     onPageChange = (pageNumber) => {
         this.props.getUsers(pageNumber);
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
     }
     render() {
         return (

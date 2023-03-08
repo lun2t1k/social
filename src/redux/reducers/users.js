@@ -7,15 +7,15 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
-const SET_IS_FETCHING = 'SET_IS_FETCHING';
+const SET_IS_FETCHING_USERS = 'SET_IS_FETCHING_USERS';
 const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS';
 
 let initialState = {
     users: [],
-    pageSize: 10,
+    pageSize: 5,
     totalCount: 0,
     currentPage: 1,
-    isFetching: false,
+    isFetchingUsers: false,
     isFollowingProcess: false,
     followingQueue: []
 };
@@ -44,10 +44,10 @@ const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(currentPa
     }
 });
 
-const setIsFetching = createAction(SET_IS_FETCHING, function prepare(boolean) {
+const setIsFetchingUsers = createAction(SET_IS_FETCHING_USERS, function prepare(boolean) {
     return {
         payload: {
-            isFetching: boolean
+            isFetchingUsers: boolean
         }
     }
 });
@@ -80,15 +80,11 @@ const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function pr
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setCurrentPage(currentPage));
-        dispatch(setIsFetching(true));
+        dispatch(setIsFetchingUsers(true));
         users.getUsersRequest(currentPage, pageSize).then((data) => {
             dispatch(setUsers(data.items));
-            dispatch(setIsFetching(false));
-            if (data.totalCount > 100) {
-                dispatch(setTotalUsersCount(99));
-            } else {
-                dispatch(setTotalUsersCount(data.totalCount));
-            }
+            dispatch(setIsFetchingUsers(false));
+            dispatch(setTotalUsersCount(data.totalCount));
         }).catch((error) => {
             Swal.fire({
                 title: 'Error!',
@@ -172,10 +168,10 @@ const usersPage = createReducer(initialState, (builder) => {
                 currentPage: action.payload.currentPage
             }
         })
-        .addCase(setIsFetching, (state = initialState, action) => {
+        .addCase(setIsFetchingUsers, (state = initialState, action) => {
             return {
                 ...state,
-                isFetching: action.payload.isFetching
+                isFetchingUsers: action.payload.isFetchingUsers
             }
         })
         .addCase(followUser, (state = initialState, action) => {

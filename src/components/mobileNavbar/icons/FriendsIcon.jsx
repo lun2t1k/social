@@ -1,4 +1,4 @@
-export default function UsersIcon() {
+export default function FriendsIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

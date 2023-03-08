@@ -2,7 +2,7 @@ import NavbarLink from "./NavbarLink";
 import ProfileIcon from "./icons/ProfileIcon";
 import NewsIcon from "./icons/NewsIcon";
 import MessagesIcon from "./icons/MessagesIcon";
-import UsersIcon from "./icons/UsersIcon";
+import FriendsIcon from "./icons/FriendsIcon";
 import MusicIcon from "./icons/MusicIcon";
 
 export default function Navbar() {
@@ -28,9 +28,9 @@ export default function Navbar() {
                 </li>
                 <li>
                     <NavbarLink
-                        icon={<UsersIcon />}
-                        title="Users"
-                        url="/users"
+                        icon={<FriendsIcon />}
+                        title="Friends"
+                        url="/friends"
                     />
                 </li>
                 <li>
@@ -47,7 +47,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Blog
                         </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Developers
                         </a>
@@ -63,7 +63,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             About Social
                         </a>
@@ -71,7 +71,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Data Protection
                         </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Help
                         </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Terms & Conditions
                         </a>
@@ -95,7 +95,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="/"
-                            className="text-[12px] text-slate-500 hover:underline hover:underline-offset-2"
+                            className="text-xs text-slate-500 hover:underline hover:underline-offset-2"
                         >
                             Privicy Policy
                         </a>

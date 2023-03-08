@@ -6,7 +6,7 @@ const UserDefaultPhoto = (props) => {
             viewBox="0 0 24 24"
             strokeWidth={1}
             stroke="white"
-            className="h-[50px] w-[50px]"
+            className="h-[30px] w-[30px]"
         >
             <path
                 strokeLinecap="round"

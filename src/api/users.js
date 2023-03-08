@@ -1,7 +1,7 @@
-import instance from './axios';
+import { instance } from './axios';
 
 const users = {
-    getUsersRequest(currentPage = 1, pageSize = 10) {
+    getUsersRequest(currentPage = 1, pageSize = 5) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data);
     },
     followUserRequest(userID) {

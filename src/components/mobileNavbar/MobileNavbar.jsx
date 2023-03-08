@@ -1,7 +1,7 @@
 import MobileNavbarLink from "./MobileNavbarLink";
 import NewsIcon from "./icons/NewsIcon";
 import MessagesIcon from "./icons/MessagesIcon";
-import UsersIcon from "./icons/UsersIcon";
+import FriendsIcon from "./icons/FriendsIcon";
 import MusicIcon from "./icons/MusicIcon";
 
 export default function MobileNavbar(props) {
@@ -20,9 +20,9 @@ export default function MobileNavbar(props) {
                 </li>
                 <li>
                     <MobileNavbarLink
-                        icon={<UsersIcon />}
-                        title="Users"
-                        url="/users"
+                        icon={<FriendsIcon />}
+                        title="Friends"
+                        url="/Friends"
                     />
                 </li>
                 <li>
