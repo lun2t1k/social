@@ -1,18 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "../components/header/Header";
-import Footer from "./../components/Footer";
 import Navbar from "./../components/navbar/Navbar";
 import ProfileContainer from "./../pages/profile/ProfileContainer";
 import News from "./../pages/news/News";
 import Messages from "./../pages/messages/Messages";
 import Users from "./../pages/users/Users";
 import Music from "./../pages/music/Music";
+import MobileNavbar from '../components/mobileNavbar/MobileNavbar';
 
 const MainLayout = (props) => {
     return (
         <>
             <Header />
-            <main className="mb-20 pt-[76px]">
+            <main className="pb-[116px] md:pb-[20px] pt-[76px]">
                 <div className="container-props">
                     <div className="flex flex-col md:flex-row gap-5">
                         <Navbar />
@@ -34,7 +34,7 @@ const MainLayout = (props) => {
                     </div>
                 </div>
             </main>
-            <Footer />
+            <MobileNavbar />
         </>
     );
 };

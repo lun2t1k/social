@@ -6,7 +6,7 @@ export default function Notifications() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="mr-5 h-6 w-6"
+            className="mr-5 h-7 w-7"
         >
             <path
                 strokeLinecap="round"
