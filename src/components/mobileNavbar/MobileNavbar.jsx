@@ -6,8 +6,8 @@ import MusicIcon from "./icons/MusicIcon";
 
 export default function MobileNavbar(props) {
     return (
-        <nav className="fixed bottom-0 w-full bg-white md:hidden z-50 dark:bg-zinc-900">
-            <ul className="w-full px-0 pt-1 pb-7 flex justify-around">
+        <nav className="fixed bottom-0 w-full min-w-[320px] bg-white md:hidden z-50 dark:bg-zinc-900">
+            <ul className="w-full py-1 px-3 flex justify-around">
                 <li>
                     <MobileNavbarLink icon={<NewsIcon />} title="News" url="/" />
                 </li>

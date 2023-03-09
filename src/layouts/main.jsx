@@ -12,7 +12,7 @@ const MainLayout = (props) => {
     return (
         <>
             <Header />
-            <main className="pb-[116px] pt-[76px] md:pb-[20px]">
+            <main className="pb-[88px] pt-[76px] md:pb-[20px]">
                 <div className="container-props">
                     <div className="flex flex-col gap-5 md:flex-row">
                         <Navbar />
