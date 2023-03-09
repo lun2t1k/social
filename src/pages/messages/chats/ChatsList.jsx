@@ -3,7 +3,7 @@ import ChatsItem from "./ChatsItem";
 
 const ChatsListContainer = (props) => {
     return (
-        <div className="h-full overflow-scroll pb-[62px]">
+        <div className="h-full overflow-scroll lg:pb-[62px]">
             {props.chats.map((chat) => (
                 <ChatsItem
                     key={chat.id}
