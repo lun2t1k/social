@@ -1,6 +1,6 @@
 export default function ChatUserDefaultPhoto() {
     return (
-        <div className="hidden md:flex items-center justify-center h-[30px] w-[30px] overflow-hidden rounded-full bg-slate-400">
+        <div className="hidden md:flex items-center justify-center h-[30px] w-[30px] flex-[1_0_auto]  overflow-hidden rounded-full bg-slate-400">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

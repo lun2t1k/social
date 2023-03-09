@@ -10,22 +10,21 @@ export default function UsersLoader(props) {
                 return (
                     <div
                         key={skeleton}
-                        className="w-full border-b-2 py-5 last:border-b-0 last:pb-0"
+                        className="w-full border-b py-5 last:border-b-0 last:pb-0 dark:border-zinc-800"
                     >
-                        <div className="animate-pulse flex">
+                        <div className="flex animate-pulse">
                             <div className="flex">
-                                <div className="w-[70px] h-[70px] bg-slate-400 rounded-full overflow-hidden mr-3"></div>
+                                <div className="mr-3 h-[70px] w-[70px] overflow-hidden rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                                 <div>
-                                <div>
-                                    <div className="w-60 h-3 bg-slate-400 rounded max-w-xs mb-2"></div>
-                                    <div className="w-40 h-2 bg-slate-400 rounded max-w-xs mb-4"></div>
-                                </div>
-                                <div>
-                                    <div className="w-20 h-2 bg-slate-400 rounded max-w-xs"></div>
-                                </div>
+                                    <div>
+                                        <div className="mb-2 h-3 w-60 max-w-xs rounded bg-slate-400 dark:bg-zinc-600"></div>
+                                        <div className="mb-4 h-2 w-40 max-w-xs rounded bg-slate-400 dark:bg-zinc-600"></div>
+                                    </div>
+                                    <div>
+                                        <div className="h-2 w-20 max-w-xs rounded bg-slate-400 dark:bg-zinc-600"></div>
+                                    </div>
                                 </div>
                             </div>
-                            {/* <div className="w-[68px] h-[40px] bg-slate-400 rounded-xl text-white"></div> */}
                         </div>
                     </div>
                 );

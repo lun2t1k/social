@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function ChatsItem(props) {
     let defaultClassName =
-        "p-2 lg:pl-5 lg:pr-2 first:pt-2 last:pb-2 lg:border-b-2 last:border-b-0 flex gap-3 items-center hover:bg-slate-100 transition-all ease-in ";
+        "p-2 lg:pl-5 lg:pr-2 first:pt-2 last:pb-2 lg:border-b last:border-b-0 dark:border-zinc-800 flex gap-3 items-center hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all ease-in ";
 
     return (
         <NavLink
@@ -10,11 +10,11 @@ export default function ChatsItem(props) {
             className={({ isActive }) =>
                 isActive
                     ? defaultClassName +
-                      "bg-violet-400 text-white hover:bg-violet-400"
+                      "bg-violet-400 text-white hover:bg-violet-400 dark:bg-violet-400 dark:hover:bg-violet-400"
                     : defaultClassName
             }
         >
-            <div className="min-w-[50px] max-w-[50px] overflow-hidden rounded-full bg-slate-400">
+            <div className="flex-[1_0_auto] w-[50px] h-[50px] overflow-hidden rounded-full bg-slate-400">
                 <img
                     src={props.userAvatar}
                     alt=""

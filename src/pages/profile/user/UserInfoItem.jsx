@@ -1,6 +1,6 @@
 export default function UserInfoItem(props) {
     return (
-        <li className="flex items-center gap-1 text-gray-500">
+        <li className="flex items-center gap-1 text-zinc-500">
             {props.icon}
             {props.info}
         </li>

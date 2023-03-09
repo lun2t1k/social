@@ -11,7 +11,7 @@ const NewPostContainer = (props) => {
     };
 
     return (
-        <div className="add-post w-full overflow-hidden rounded-2xl bg-white">
+        <div className="add-post w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900">
             <div className="p-5">
                 <Formik
                     initialValues={{ newPostText: "" }}
@@ -28,7 +28,7 @@ const NewPostContainer = (props) => {
                                         as="textarea"
                                         placeholder="What's new?"
                                         required
-                                        className="min-h-[52px] w-full rounded-xl rounded-tl-none border-2 p-3 focus:border-violet-400 outline-none"
+                                        className="min-h-[52px] max-h-[250px] w-full rounded-xl rounded-tl-none border dark:border-zinc-700 bg-transparent p-3 focus:border-violet-400 outline-none"
                                     />
                                 </div>
                                 <button

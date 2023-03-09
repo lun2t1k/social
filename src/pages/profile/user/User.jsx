@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo";
 
 export default function User(props) {
     return (
-        <div className="user w-full overflow-hidden rounded-2xl bg-white">
+        <div className="user w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900">
             <UserCover userCover={props.userCover} />
             <div className="relative flex p-5">
                 <UserAvatar userPhoto={props.userPhoto} />

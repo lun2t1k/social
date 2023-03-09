@@ -10,14 +10,14 @@ export default function UsersLoader(props) {
                 return (
                     <div
                         key={skeleton}
-                        className="w-full border-b-2 py-2 last:border-b-0 last:pb-0"
+                        className="w-full border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800"
                     >
-                        <div className="animate-pulse flex items-center justify-between">
+                        <div className="flex animate-pulse items-center justify-between">
                             <div className="flex items-center">
-                                <div className="w-[40px] h-[40px] bg-slate-400 rounded-full overflow-hidden mr-3"></div>
-                                <div className="w-20 h-3 bg-slate-400 rounded"></div>
+                                <div className="dark:bg-zink-600 mr-2 h-[40px] w-[40px] overflow-hidden rounded-full bg-slate-400"></div>
+                                <div className="dark:bg-zink-600 h-3 w-20 rounded bg-slate-400"></div>
                             </div>
-                            <div className="w-[56px] h-[28px] bg-slate-400 rounded-xl text-white"></div>
+                            <div className="dark:bg-zink-600 h-[24px] w-[56px] rounded-xl bg-slate-400"></div>
                         </div>
                     </div>
                 );

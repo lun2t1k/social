@@ -12,12 +12,12 @@ class Messages extends React.Component {
     }
     render() {
         return (
-            <div className="flex h-[75vh] lg:h-[80vh] overflow-hidden rounded-3xl bg-white">
+            <div className="flex h-[75vh] lg:h-[80vh] overflow-hidden rounded-3xl bg-white dark:bg-zinc-900">
                 <div className="w-fit lg:min-w-[250px] lg:max-w-[250px]">
                     <ChatsSearch />
                     <ChatsList />
                 </div>
-                <div className="flex h-full w-full flex-col border-l-2">
+                <div className="flex h-full w-full flex-col border-l dark:border-l-zinc-800">
                     <Chat />
                 </div>
             </div>

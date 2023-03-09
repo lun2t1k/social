@@ -18,12 +18,12 @@ export default function UsersList(props) {
                                 <li
                                     key={user.id}
                                     id={user.id}
-                                    className="flex items-center justify-between border-b-2 py-2 last:border-b-0 last:pb-0"
+                                    className="flex items-center justify-between border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800"
                                 >
                                     <div className="flex items-center min-w-0">
                                         <NavLink
                                             to={`/profile/${user.id}`}
-                                            className="mr-2 flex h-[40px] min-w-[40px] max-w-[40px] items-center justify-center overflow-hidden rounded-full bg-slate-400"
+                                            className="mr-2 flex h-[40px] w-[40px] flex-[1_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400"
                                         >
                                             {user.photos.small ? (
                                                 <img
@@ -53,7 +53,7 @@ export default function UsersList(props) {
                                         {props.followingQueue.some(
                                             (userID) => userID === user.id
                                         ) ? (
-                                            <span className="block h-5 w-5 animate-spin rounded-full border-2 border-transparent border-t-white" />
+                                            <span className="block h-4 w-4 animate-spin rounded-full border border-transparent border-t-white" />
                                         ) : user.followed ? (
                                             "Unfollow"
                                         ) : (

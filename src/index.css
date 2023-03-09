@@ -11,10 +11,18 @@ a {
 }
 
 .container-props {
-    @apply container max-w-6xl px-3 mx-auto;
+    @apply container max-w-6xl min-w-[320px] px-3 mx-auto;
+}
+
+.swal2-container {
+    padding: 12px;
+}
+.swal2-backdrop-show {
+    background: rgba(0, 0, 0, 0.7) !important;
 }
 
 .swal2-popup {
+    @apply dark:text-zinc-100 dark:bg-zinc-900;
     border-radius: 20px;
 }
 

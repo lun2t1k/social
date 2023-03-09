@@ -1,6 +1,6 @@
 export default function Music() {
     return (
-        <div className="w-full overflow-hidden rounded-3xl bg-white p-5">
+        <div className="w-full overflow-hidden rounded-3xl bg-white dark:bg-zinc-900 p-5">
             <iframe
                 title="SoundCloud"
                 width="100%"

@@ -14,12 +14,12 @@ export default function FriendsList(props) {
                             <li
                                 key={friend.id}
                                 id={friend.id}
-                                className="flex items-center justify-between border-b-2 py-5 last:border-b-0 last:pb-0"
+                                className="flex items-center justify-between border-b py-5 last:border-b-0 last:pb-0 dark:border-zinc-800"
                             >
                                 <div className="flex">
                                     <NavLink
                                         to={`/profile/${friend.id}`}
-                                        className="mr-3 flex h-[70px] min-w-[70px] max-w-[70px] items-center justify-center overflow-hidden rounded-full bg-slate-400"
+                                        className="mr-3 flex h-[70px] w-[70px] flex-[1_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400"
                                     >
                                         {friend.avatar ? (
                                             <img

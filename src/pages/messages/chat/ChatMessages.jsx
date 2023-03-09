@@ -24,7 +24,7 @@ const ChatsMessagesContainer = (props) => {
     });
 
     return (
-        <div className="flex flex-col flex-auto p-2 md:px-5 md:py-3 border-y-2 overflow-scroll">
+        <div className="flex flex-col flex-auto p-2 md:px-5 md:py-3 border-y dark:border-y-zinc-800 overflow-scroll">
             {messages}
         </div>
     );

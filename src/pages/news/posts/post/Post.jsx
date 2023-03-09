@@ -6,7 +6,7 @@ export default function Post(props) {
     return (
         <div
             id={props.id}
-            className="mb-5 w-full overflow-hidden rounded-2xl bg-white p-5"
+            className="mb-5 w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-5"
         >
             <PostHeader userPhoto={props.userPhoto} userName={props.userName} />
             <PostBody postTitle={props.title} postBody={props.body} />

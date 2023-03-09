@@ -24,7 +24,7 @@ export default function MessageHeader() {
                 </svg>
                 <span>Back</span>
             </NavLink>
-            <span className="text-sm font-semibold md:text-md">User Name</span>
+            <span className="text-sm font-semibold md:text-md w-full text-center">User Name</span>
             <ChatUserDefaultPhoto />
         </div>
     );

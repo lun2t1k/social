@@ -14,7 +14,7 @@ export default function PostHeader(props) {
             ) : (
                 <UserDefaultAvatar />
             )}
-            <span className="ml-3 font-semibold capitalize">{props.userName}</span>
+            <span className="ml-3 font-semibold capitalize w-full">{props.userName}</span>
         </div>
     );
 }

@@ -1,30 +1,30 @@
 export default function ProfileLoader(props) {
     return (
-        <div className="animate-pulse w-full bg-white rounded-3xl overflow-hidden">
-            <div className="w-full h-[200px] bg-slate-400"></div>
-            <div className="flex p-5 relative">
+        <div className="w-full animate-pulse overflow-hidden rounded-3xl bg-white dark:bg-zinc-900">
+            <div className="h-[200px] w-full bg-slate-400 dark:bg-zinc-600"></div>
+            <div className="relative flex p-5">
                 <div className="absolute -top-[70px]">
-                    <div className="flex items-center justify-center w-[200px] h-[200px] rounded-full overflow-hidden bg-slate-400"></div>
+                    <div className="flex h-[200px] w-[200px] items-center justify-center overflow-hidden rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                 </div>
                 <div className="w-full pt-[140px] lg:pt-0 lg:pl-[230px]">
-                    <div className="w-[50%] h-[30px] bg-slate-400 rounded-full mb-2"></div>
-                    <div className="w-[35%] h-[20px] bg-slate-400 rounded-full mb-4"></div>
+                    <div className="mb-2 h-[30px] w-[50%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
+                    <div className="mb-4 h-[20px] w-[35%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
 
-                    <div className="flex gap-2 mb-2">
-                        <div className="w-[15%] h-[15px] bg-slate-400 rounded-full"></div>
-                        <div className="w-[20%] h-[15px] bg-slate-400 rounded-full"></div>
+                    <div className="mb-2 flex gap-2">
+                        <div className="h-[15px] w-[15%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
+                        <div className="h-[15px] w-[20%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                     </div>
-                    <div className="flex gap-2 mb-2">
-                        <div className="w-[15%] h-[15px] bg-slate-400 rounded-full"></div>
-                        <div className="w-[22%] h-[15px] bg-slate-400 rounded-full"></div>
+                    <div className="mb-2 flex gap-2">
+                        <div className="h-[15px] w-[15%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
+                        <div className="h-[15px] w-[22%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                     </div>
-                    <div className="flex gap-2 mb-2">
-                        <div className="w-[18%] h-[15px] bg-slate-400 rounded-full"></div>
-                        <div className="w-[25%] h-[15px] bg-slate-400 rounded-full"></div>
+                    <div className="mb-2 flex gap-2">
+                        <div className="h-[15px] w-[18%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
+                        <div className="h-[15px] w-[25%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                     </div>
-                    <div className="flex gap-2 mb-2">
-                        <div className="w-[10%] h-[15px] bg-slate-400 rounded-full"></div>
-                        <div className="w-[20%] h-[15px] bg-slate-400 rounded-full"></div>
+                    <div className="mb-2 flex gap-2">
+                        <div className="h-[15px] w-[10%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
+                        <div className="h-[15px] w-[20%] rounded-full bg-slate-400 dark:bg-zinc-600"></div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 export default function UserDefaultAvatar() {
     return (
-        <div className="flex h-[40px] min-w-[40px] items-center justify-center overflow-hidden rounded-full bg-slate-400">
+        <div className="flex h-[40px] w-[40px] flex-[1_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
