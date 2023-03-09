@@ -21,13 +21,12 @@ const ChatInputContainer = (props) => {
                         name="newMessageText"
                         placeholder="Message"
                         as="textarea"
-                        required
-                        className="max-h-[150px] min-h-[36px] flex-auto rounded-2xl rounded-br-none border-2 p-2 text-xs outline-none focus:border-violet-500 md:py-2 md:px-3"
+                        className="max-h-[150px] min-h-[36px] flex-auto rounded-2xl rounded-br-none border-2 p-2 text-xs outline-none focus:border-violet-400 md:py-2 md:px-3"
                     />
                     <button
                         type="submit"
                         disabled={!isValid || isSubmitting}
-                        className="h-fit rounded-full bg-violet-500 p-2 text-white transition-all ease-in hover:bg-violet-600 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-500"
+                        className="h-fit rounded-full bg-violet-400 p-2 text-white transition-all ease-in hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400"
                     >
                         {isSubmitting ? (
                             <span className="inline-block h-9 w-9 animate-spin rounded-full border-2 border-transparent border-t-white" />

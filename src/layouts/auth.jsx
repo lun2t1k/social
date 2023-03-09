@@ -1,6 +1,5 @@
 import HeaderContainer from "../components/header/Header";
 import Login from '../pages/login/Login';
-import Footer from "./../components/Footer";
 
 const AuthLayout = () => {
     return (
@@ -11,7 +10,6 @@ const AuthLayout = () => {
                     <Login />
                 </div>
             </main>
-            <Footer />
         </>
     )
 }

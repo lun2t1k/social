@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .container-props {
     @apply container max-w-6xl px-3 mx-auto;
 }
@@ -9,6 +17,7 @@
 .swal2-popup {
     border-radius: 20px;
 }
+
 .swal2-popup .swal2-actions .swal2-styled {
     border-radius: 8px;
 }

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "./../../assets/img/Social-Logo.png";
+import Logo from '../Logo';
 import UserActions from "./UserActions";
 
 export default function Header(props) {
@@ -8,15 +8,9 @@ export default function Header(props) {
             <div className="container-props">
                 <div className="flex items-center justify-between py-2">
                     <NavLink to="/" className="flex items-center">
-                        <div className="h-[40px] w-[40px]">
-                            <img
-                                src={logo}
-                                alt=""
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                        {/* <div className="text-xl uppercase">SOCIAL</div> */}
+                        <Logo width="40" height="40" />
                     </NavLink>
+
                     <UserActions />
                 </div>
             </div>

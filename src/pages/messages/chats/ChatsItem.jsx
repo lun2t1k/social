@@ -10,7 +10,7 @@ export default function ChatsItem(props) {
             className={({ isActive }) =>
                 isActive
                     ? defaultClassName +
-                      "bg-violet-500 text-white hover:bg-violet-500"
+                      "bg-violet-400 text-white hover:bg-violet-400"
                     : defaultClassName
             }
         >

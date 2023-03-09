@@ -19,30 +19,31 @@ const NewPostContainer = (props) => {
                     onSubmit={onSubmit}
                 >
                     {({ dirty, isSubmitting, isValid }) => {
-                        return(
-                        <Form className="flex gap-3 flex-col xs:flex-row">
-                            <div className="flex flex-auto gap-3">
-                                <UserDefaultAvatar />
-                                <Field
-                                    name="newPostText"
-                                    as="textarea"
-                                    placeholder="What's new?"
-                                    required
-                                    className="min-h-[52px] w-full rounded-xl rounded-tl-none border-2 p-3 outline-none"
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                disabled={!isValid || isSubmitting}
-                                className={
-                                    "h-fit rounded-xl bg-violet-500 py-2 px-3 text-center font-semibold text-white transition-all ease-in hover:bg-violet-600 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-500 " +
-                                    (dirty ? "inline" : "hidden")
-                                }
-                            >
-                                Post
-                            </button>
-                        </Form>
-                    )}}
+                        return (
+                            <Form className="flex flex-col gap-3 xs:flex-row">
+                                <div className="flex flex-auto gap-3">
+                                    <UserDefaultAvatar />
+                                    <Field
+                                        name="newPostText"
+                                        as="textarea"
+                                        placeholder="What's new?"
+                                        required
+                                        className="min-h-[52px] w-full rounded-xl rounded-tl-none border-2 p-3 focus:border-violet-400 outline-none"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    disabled={!isValid || isSubmitting}
+                                    className={
+                                        "h-fit rounded-xl bg-violet-400 py-2 px-3 text-center font-semibold text-white transition-all ease-in hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400 " +
+                                        (dirty ? "inline" : "hidden")
+                                    }
+                                >
+                                    Post
+                                </button>
+                            </Form>
+                        );
+                    }}
                 </Formik>
             </div>
         </div>

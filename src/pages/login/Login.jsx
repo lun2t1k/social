@@ -52,7 +52,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={!isValid || isSubmitting}
-                            className="active h-[60px] w-full rounded-xl bg-violet-500 p-3 text-center text-xl font-bold text-white transition-all ease-in hover:bg-violet-600 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-500"
+                            className="active h-[60px] w-full rounded-xl bg-violet-400 p-3 text-center text-xl font-bold text-white transition-all ease-in hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400"
                         >
                             {isSubmitting ? (
                                 <span className="inline-block h-9 w-9 animate-spin rounded-full border-2 border-transparent border-t-white" />

@@ -48,7 +48,7 @@ export default function UsersList(props) {
                                         disabled={props.followingQueue.some(
                                             (userID) => userID === user.id
                                         )}
-                                        className="ml-3 rounded-xl bg-violet-500 px-2 py-1 text-white text-xs font-semibold transition-all ease-in hover:bg-violet-600"
+                                        className="ml-3 rounded-xl bg-violet-400 px-2 py-1 text-white text-xs font-semibold transition-all ease-in hover:bg-violet-500"
                                     >
                                         {props.followingQueue.some(
                                             (userID) => userID === user.id

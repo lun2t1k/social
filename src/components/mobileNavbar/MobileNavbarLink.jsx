@@ -8,7 +8,7 @@ export default function NavbarLink(props) {
             to={props.url}
             className={({ isActive }) =>
                 isActive
-                    ? defaultClassName + "text-violet-500"
+                    ? defaultClassName + "text-violet-400"
                     : defaultClassName
             }
         >

@@ -6,11 +6,11 @@ export default function FriendsSearch(props) {
                 name=""
                 id=""
                 placeholder="Search friends"
-                className="flex-auto rounded-xl border-2 py-2 px-3 outline-none focus:border-violet-500"
+                className="flex-auto rounded-xl border-2 py-2 px-3 outline-none focus:border-violet-400"
             />
             <button
                 type="submit"
-                className="h-fit rounded-xl border-2 border-violet-500 bg-violet-500 p-2 sm:px-5 sm:py-2 font-semibold text-white transition-all ease-in hover:border-violet-600 hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+                className="h-fit rounded-xl border-2 border-violet-400 bg-violet-400 p-2 sm:px-5 sm:py-2 font-semibold text-white transition-all ease-in hover:border-violet-500 hover:bg-violet-500 disabled:bg-gray-400 disabled:hover:bg-gray-400"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

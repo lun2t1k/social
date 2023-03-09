@@ -5,7 +5,7 @@ export default function UserCover(props) {
         <div
             className={
                 styles.userCover +
-                " h-[250px] w-full bg-gradient-to-tr from-violet-500 to-fuchsia-500"
+                " h-[250px] w-full bg-gradient-to-tr from-violet-400 to-fuchsia-400"
             }
         >
             {props.userCover ? (
