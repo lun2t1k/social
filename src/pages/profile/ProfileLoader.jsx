@@ -1,4 +1,4 @@
-export default function ProfileLoader(props) {
+export default function ProfileLoader() {
     return (
         <div className="w-full animate-pulse overflow-hidden rounded-3xl bg-white dark:bg-zinc-900">
             <div className="h-[200px] w-full bg-slate-400 dark:bg-zinc-600"></div>
@@ -29,5 +29,5 @@ export default function ProfileLoader(props) {
                 </div>
             </div>
         </div>
-    );
+    )
 }

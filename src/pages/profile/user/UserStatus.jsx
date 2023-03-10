@@ -5,14 +5,14 @@ class UserStatus extends React.Component {
         editMode: false,
         status: this.props.userStatus,
     };
-    setEditMode = (boolean) => {
+    setEditMode = boolean => {
         this.setState({ editMode: boolean })
     };
     saveStatus = () => {
         this.setEditMode(false)
         this.props.updateStatus(this.state.status)
     };
-    setStatusText = (event) => {
+    setStatusText = event => {
         this.setState({ status: event.currentTarget.value })
     };
     componentDidUpdate(prevProps, prevState) {
