@@ -1,14 +1,14 @@
-import React from "react";
-import Chat from "./chat/Chat";
-import ChatsList from "./chats/ChatsList";
-import ChatsSearch from "./chats/ChatsSearch";
+import React from "react"
+import Chat from "./chat/Chat"
+import ChatsList from "./chats/ChatsList"
+import ChatsSearch from "./chats/ChatsSearch"
 
 class Messages extends React.Component {
     componentDidMount() {
-        document.body.classList.add("overflow-hidden");
+        document.body.classList.add("overflow-hidden")
     }
     componentWillUnmount() {
-        document.body.classList.remove("overflow-hidden");
+        document.body.classList.remove("overflow-hidden")
     }
     render() {
         return (
@@ -21,8 +21,8 @@ class Messages extends React.Component {
                     <Chat />
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default Messages;
+export default Messages

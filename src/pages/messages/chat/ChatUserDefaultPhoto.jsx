@@ -5,7 +5,7 @@ export default function ChatUserDefaultPhoto() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1}
+                strokeWidth={ 1 }
                 stroke="white"
                 className="h-6 w-6"
             >
@@ -16,5 +16,5 @@ export default function ChatUserDefaultPhoto() {
                 />
             </svg>
         </div>
-    );
+    )
 };

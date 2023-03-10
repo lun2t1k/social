@@ -5,7 +5,7 @@ export default function UserDefaultAvatar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1}
+                strokeWidth={ 1 }
                 stroke="white"
                 className="h-[30px] w-[30px]"
             >
@@ -16,5 +16,5 @@ export default function UserDefaultAvatar() {
                 />
             </svg>
         </div>
-    );
+    )
 }

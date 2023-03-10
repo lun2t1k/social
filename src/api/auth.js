@@ -1,15 +1,15 @@
-import { instance } from './axios';
+import { instance } from './axios'
 
 const auth = {
     getAuthStatus() {
-        return instance.get('auth/me');
+        return instance.get('auth/me')
     },
     loginRequest(email, password, rememberMe = false) {
-        return instance.post('auth/login', { email, password, rememberMe });
+        return instance.post('auth/login', { email, password, rememberMe })
     },
     logoutRequest() {
-        return instance.delete('auth/login');
+        return instance.delete('auth/login')
     },
 }
 
-export default auth;
+export default auth

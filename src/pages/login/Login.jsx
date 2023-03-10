@@ -5,7 +5,7 @@ import { login } from "../../redux/reducers/auth"
 import Input from "./Input"
 import Checkbox from './Checkbox'
 
-const LoginContainer = (props) => {
+const LoginContainer = props => {
     const onSubmit = (values, actions) => {
         props.login(values.email, values.password, values.rememberMe)
         actions.resetForm()

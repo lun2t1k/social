@@ -1,15 +1,15 @@
-import { instance } from './axios';
+import { instance } from './axios'
 
 const profile = {
     getUserProfile(userID) {
-        return instance.get(`profile/${userID}`);
+        return instance.get(`profile/${userID}`)
     },
     getUserStatus(userID) {
-        return instance.get(`profile/status/${userID}`);
+        return instance.get(`profile/status/${userID}`)
     },
     updateUserStatus(status) {
-        return instance.put('profile/status', {status});
+        return instance.put('profile/status', { status })
     },
 }
 
-export default profile;
+export default profile

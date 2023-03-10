@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
-import Logo from '../Logo';
-import UserActions from "./UserActions";
+import { NavLink } from "react-router-dom"
+import Logo from '../Logo'
+import UserActions from "./UserActions"
 
 export default function Header(props) {
     return (
@@ -15,5 +15,5 @@ export default function Header(props) {
                 </div>
             </div>
         </header>
-    );
+    )
 };

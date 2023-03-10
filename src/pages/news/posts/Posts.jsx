@@ -1,28 +1,26 @@
-import NewsLoader from "../NewsLoader";
-import Post from "./post/Post";
+import NewsLoader from "../NewsLoader"
+import Post from "./post/Post"
 
-const Posts = (props) => {
+export default function Posts(props) {
     return (
         <div>
-            {props.isFetchingNews ? (
+            { props.isFetchingNews ? (
                 <NewsLoader />
             ) : (
                 <>
-                    {props.news.map((post) => {
+                    { props.news.map(post => {
                         return (
                             <Post
-                                key={post.id}
-                                id={post.id}
-                                userId={post.userId}
-                                title={post.title}
-                                body={post.body}
+                                key={ post.id }
+                                id={ post.id }
+                                userId={ post.userId }
+                                title={ post.title }
+                                body={ post.body }
                             />
-                        );
-                    })}
+                        )
+                    }) }
                 </>
-            )}
+            ) }
         </div>
-    );
-};
-
-export default Posts;
+    )
+}

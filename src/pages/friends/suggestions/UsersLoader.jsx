@@ -1,15 +1,15 @@
-export default function UsersLoader(props) {
-    let usersLoaderSkeletons = [];
+export default function UsersLoader() {
+    let usersLoaderSkeletons = []
     for (let i = 0; i < 5; i++) {
-        usersLoaderSkeletons.push(i);
+        usersLoaderSkeletons.push(i)
     }
 
     return (
         <>
-            {usersLoaderSkeletons.map((skeleton) => {
+            { usersLoaderSkeletons.map(skeleton => {
                 return (
                     <div
-                        key={skeleton}
+                        key={ skeleton }
                         className="w-full border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800"
                     >
                         <div className="flex animate-pulse items-center justify-between">
@@ -20,8 +20,8 @@ export default function UsersLoader(props) {
                             <div className="dark:bg-zink-600 h-[24px] w-[56px] rounded-xl bg-slate-400"></div>
                         </div>
                     </div>
-                );
-            })}
+                )
+            }) }
         </>
-    );
+    )
 }

@@ -1,4 +1,4 @@
-export default function ChatsSearch(props) {
+export default function ChatsSearch() {
     return (
         <form className="hidden border-b dark:border-b-zinc-800 p-5 pr-2 lg:flex">
             <input
@@ -9,5 +9,5 @@ export default function ChatsSearch(props) {
                 className="w-full outline-none dark:bg-zinc-900"
             />
         </form>
-    );
+    )
 }

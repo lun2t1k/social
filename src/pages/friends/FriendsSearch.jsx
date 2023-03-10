@@ -1,4 +1,4 @@
-export default function FriendsSearch(props) {
+export default function FriendsSearch() {
     return (
         <form className="mb-5 flex w-full items-center gap-5">
             <input
@@ -16,7 +16,7 @@ export default function FriendsSearch(props) {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={1.5}
+                    strokeWidth={ 1.5 }
                     stroke="currentColor"
                     className="h-5 w-5 sm:hidden"
                 >
@@ -29,5 +29,5 @@ export default function FriendsSearch(props) {
                 <span className="hidden sm:inline">Search</span>
             </button>
         </form>
-    );
+    )
 }

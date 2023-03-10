@@ -1,8 +1,8 @@
-import FriendsSearch from "./FriendsSearch";
-import FriendsListContainer from "./FriendsListContainer";
-import UsersListContainer from './suggestions/UsersListContainer';
+import FriendsSearch from "./FriendsSearch"
+import FriendsListContainer from "./FriendsListContainer"
+import UsersListContainer from './suggestions/UsersListContainer'
 
-export default function Friends(props) {
+export default function Friends() {
     return (
         <div className="relative flex flex-col lg:flex-row w-full gap-5">
             <div className="w-full lg:w-2/3 overflow-hidden rounded-3xl bg-white p-5 dark:bg-zinc-900">
@@ -13,5 +13,5 @@ export default function Friends(props) {
                 <UsersListContainer />
             </div>
         </div>
-    );
+    )
 }

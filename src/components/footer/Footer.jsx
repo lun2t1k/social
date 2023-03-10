@@ -1,4 +1,4 @@
-import FooterLink from "./FooterLink";
+import FooterLink from "./FooterLink"
 
 export default function Footer(props) {
     return (
@@ -27,5 +27,5 @@ export default function Footer(props) {
                 </li>
             </ul>
         </footer>
-    );
+    )
 }

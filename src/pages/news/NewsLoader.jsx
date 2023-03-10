@@ -1,15 +1,15 @@
-export default function NewsLoader(props) {
-    let newsLoaderSkeletons = [];
+export default function NewsLoader() {
+    let newsLoaderSkeletons = []
     for (let i = 0; i < 5; i++) {
-        newsLoaderSkeletons.push(i);
+        newsLoaderSkeletons.push(i)
     }
 
     return (
         <>
-            {newsLoaderSkeletons.map((skeleton) => {
+            { newsLoaderSkeletons.map(skeleton => {
                 return (
                     <div
-                        key={skeleton}
+                        key={ skeleton }
                         className="mb-5 w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-5"
                     >
                         <div className="flex animate-pulse flex-col">
@@ -28,8 +28,8 @@ export default function NewsLoader(props) {
                             </div>
                         </div>
                     </div>
-                );
-            })}
+                )
+            }) }
         </>
-    );
+    )
 }

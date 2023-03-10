@@ -1,13 +1,13 @@
-import ChatHeader from "./ChatHeader";
-import ChatMessages from "./ChatMessages";
-import ChatInput from "./ChatInput";
+import ChatHeader from "./ChatHeader"
+import ChatMessages from "./ChatMessages"
+import ChatInput from "./ChatInput"
 
-export default function Chat(props) {
+export default function Chat() {
     return (
         <>
             <ChatHeader />
             <ChatMessages />
             <ChatInput />
         </>
-    );
+    )
 }

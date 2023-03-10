@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 
 export default function ThemeToggle(props) {
-    const [enabled, setEnabled] = useState(false);
+    const [enabled, setEnabled] = useState(false)
 
     // const toggleTheme = (theme) => {};
 
@@ -11,7 +11,7 @@ export default function ThemeToggle(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={ 1.5 }
                 stroke="currentColor"
                 className="h-6 w-6"
             >
@@ -27,13 +27,13 @@ export default function ThemeToggle(props) {
                     <input
                         type="checkbox"
                         className="peer sr-only"
-                        checked={enabled}
+                        checked={ enabled }
                         readOnly
                     />
                     <div
-                        onClick={() => {
-                            setEnabled(!enabled);
-                        }}
+                        onClick={ () => {
+                            setEnabled(!enabled)
+                        } }
                         className="peer h-6 w-11 rounded-full bg-zinc-200  after:absolute  after:top-0.5 after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-violet-400 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                     ></div>
                 </label>
@@ -43,7 +43,7 @@ export default function ThemeToggle(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={ 1.5 }
                 stroke="currentColor"
                 className="h-6 w-6"
             >
@@ -54,5 +54,5 @@ export default function ThemeToggle(props) {
                 />
             </svg>
         </div>
-    );
+    )
 }

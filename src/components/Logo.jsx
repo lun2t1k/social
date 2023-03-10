@@ -2,8 +2,8 @@ export default function Logo(props) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={props.width}
-            height={props.height}
+            width={ props.width }
+            height={ props.height }
             fill="none"
             viewBox="0 0 460 460"
             className=""
@@ -34,5 +34,5 @@ export default function Logo(props) {
                 d="M175.462 45l-76.088 76.299 222.41 110.208 14.898-106.5L175.462 45z"
             ></path>
         </svg>
-    );
+    )
 }

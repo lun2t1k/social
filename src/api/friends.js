@@ -1,9 +1,9 @@
-import { jsonplaceholder } from './axios';
+import { jsonplaceholder } from './axios'
 
 const friends = {
     getFriendsRequest() {
-        return jsonplaceholder.get('users');
+        return jsonplaceholder.get('users')
     }
 }
 
-export default friends;
+export default friends
