@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/main";
-import AuthLayout from './layouts/auth';
+import AuthLayout from "./layouts/auth";
 
-export default function App() {
+const App = () => {
     return (
         <BrowserRouter>
             <Routes>
@@ -12,3 +12,5 @@ export default function App() {
         </BrowserRouter>
     );
 }
+
+export default App;

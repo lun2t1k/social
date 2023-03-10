@@ -1,61 +1,85 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-import auth from '../../api/auth';
+import { createAction, createReducer } from '@reduxjs/toolkit'
+import { swalError } from './../../helpers/swal'
+import auth from '../../api/auth'
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'SET_USER_DATA'
 
 let initialState = {
     id: null,
     login: null,
     email: null,
-    isAuth: false
+    isAuth: true
 }
 
-const setUserData = createAction(SET_USER_DATA, function prepare(userID, login, email) {
+const STATUS_CODE = {
+    SUCCESS: 0,
+    ERROR: 1
+}
+
+const setUserData = createAction(SET_USER_DATA, function prepare(id, login, email, isAuth) {
     return {
-        payload: {
-            id: userID,
-            login: login,
-            email: email
-        }
+        payload: { id, login, email, isAuth }
     }
-});
+})
 
 export const authMe = () => {
-    return (dispatch) => {
+    return dispatch => {
         // ! The request doesn't get the right response, although I logged in
-        auth.getAuthStatus().then((response) => {
-            if (response.resultCode === 0) {
-                let {userID, login, email} = response.data;
-                dispatch(setUserData(userID, login, email));
-            }
-        }).catch(error => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-400 transition-all ease-in hover:bg-violet-500 disabled:bg-gray-400 disabled:hover:bg-gray-400',
+        auth.getAuthStatus()
+            .then(response => {
+                console.log('getAuthStatus: ', response);
+                if (response.resultCode === STATUS_CODE.SUCCESS) {
+                    let { id, login, email } = response.data
+                    dispatch(setUserData(id, login, email, true))
                 }
-            });
-        });
+            })
+            .catch(error => {
+                swalError(error)
+            })
     }
 }
 
-const authReducer = createReducer(initialState, (builder) => {
+export const login = (email, password, rememberMe) => {
+    return dispatch => {
+        auth.loginRequest(email, password, rememberMe)
+            .then(response => {
+                console.log('loginRequest: ', response)
+                if (response.data.resultCode === STATUS_CODE.SUCCESS) {
+                    dispatch(authMe())
+                }
+            })
+            .catch(error => {
+                swalError(error)
+            })
+    }
+}
+
+export const logout = () => {
+    return dispatch => {
+        auth.logoutRequest()
+            .then(response => {
+                console.log('logoutRequest: ', response)
+                if (response.resultCode === STATUS_CODE.SUCCESS) {
+                    dispatch(setUserData(null, null, null, false))
+                }
+            })
+            .catch(error => {
+                swalError(error)
+            })
+    }
+}
+
+const authReducer = createReducer(initialState, builder => {
     builder
         .addCase(setUserData, (state = initialState, action) => {
             return {
                 ...state,
-                ...action.payload,
-                isAuth: true
+                ...action.payload
             }
         })
         .addDefaultCase((state = initialState, action) => {
             return state
-        });
-});
+        })
+})
 
-export default authReducer;
+export default authReducer

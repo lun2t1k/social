@@ -1,20 +1,25 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-import news from '../../api/news';
+import { createAction, createReducer } from '@reduxjs/toolkit'
+import { swalError } from './../../helpers/swal'
+import news from '../../api/news'
 
-const SET_NEWS = 'SET_NEWS';
-const SET_IS_FETCHING_NEWS = 'SET_IS_FETCHING_NEWS';
+const SET_NEWS = 'SET_NEWS'
+const SET_IS_FETCHING_NEWS = 'SET_IS_FETCHING_NEWS'
 
 let initialState = {
     news: [],
     isFetchingNews: false
 }
 
+const STATUS_CODE = {
+    SUCCESS: 200,
+    ERROR: 1
+}
+
 const setNews = createAction(SET_NEWS, function prepare(news) {
     return {
         payload: { news }
     }
-});
+})
 
 
 const setIsFetchingNews = createAction(SET_IS_FETCHING_NEWS, function prepare(boolean) {
@@ -23,30 +28,23 @@ const setIsFetchingNews = createAction(SET_IS_FETCHING_NEWS, function prepare(bo
             isFetchingNews: boolean
         }
     }
-});
+})
 
 export const getNews = () => {
-    return (dispatch) => {
-        dispatch(setIsFetchingNews(true));
-        news.getNewsRequest().then((data) => {
-            dispatch(setNews(data));
-            dispatch(setIsFetchingNews(false));
-        }).catch((error) => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
-                }
-            });
-        });
+    return dispatch => {
+        dispatch(setIsFetchingNews(true))
+        news.getNewsRequest().then(response => {
+            if (response.status === STATUS_CODE.SUCCESS) {
+                dispatch(setNews(response.data))
+                dispatch(setIsFetchingNews(false))
+            }
+        }).catch(error => {
+            swalError(error)
+        })
     }
 }
 
-const newsPage = createReducer(initialState, (builder) => {
+const newsPage = createReducer(initialState, builder => {
     builder
         .addCase(setNews, (state = initialState, action) => {
             return {
@@ -61,8 +59,8 @@ const newsPage = createReducer(initialState, (builder) => {
             }
         })
         .addDefaultCase((state = initialState, action) => {
-            return state;
-        });
-});
+            return state
+        })
+})
 
-export default newsPage;
+export default newsPage

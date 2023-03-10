@@ -1,28 +1,30 @@
-import { Formik, Form } from "formik";
-import { LoginSchema } from "./validationSchema";
-import Input from "./Input";
-import Checkbox from "./Checkbox";
+import { connect } from "react-redux"
+import { Formik, Form } from "formik"
+import { LoginSchema } from "./validationSchema"
+import { login } from "../../redux/reducers/auth"
+import Input from "./Input"
+import Checkbox from './Checkbox'
 
-const onSubmit = (values, actions) => {
-    console.log(values);
-    actions.resetForm();
-};
+const LoginContainer = (props) => {
+    const onSubmit = (values, actions) => {
+        props.login(values.email, values.password, values.rememberMe)
+        actions.resetForm()
+    }
 
-const Login = () => {
     return (
-        <div className="max-w-[600px] mx-auto overflow-hidden rounded-3xl bg-white p-5">
-            <h1 className="mb-6 text-4xl text-center">Login</h1>
+        <div className="mx-auto max-w-[600px] overflow-hidden rounded-3xl bg-white p-5 dark:bg-zinc-900">
+            <h1 className="mb-6 text-center text-4xl">Login</h1>
 
             <Formik
-                initialValues={{
+                initialValues={ {
                     email: "",
                     password: "",
-                    rememberMe: false,
-                }}
-                validationSchema={LoginSchema}
-                onSubmit={onSubmit}
+                    rememberMe: false
+                } }
+                validationSchema={ LoginSchema }
+                onSubmit={ onSubmit }
             >
-                {({ isSubmitting, isValid }) => (
+                { ({ isSubmitting, isValid }) => (
                     <Form>
                         <Input
                             label="Email"
@@ -51,20 +53,22 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            disabled={!isValid || isSubmitting}
+                            disabled={ !isValid || isSubmitting }
                             className="active h-[60px] w-full rounded-xl bg-violet-400 p-3 text-center text-xl font-bold text-white transition-all ease-in hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400"
                         >
-                            {isSubmitting ? (
+                            { isSubmitting ? (
                                 <span className="inline-block h-9 w-9 animate-spin rounded-full border-2 border-transparent border-t-white" />
                             ) : (
-                                'Log in'
-                            )}
+                                "Log in"
+                            ) }
                         </button>
                     </Form>
-                )}
+                ) }
             </Formik>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+const Login = connect(null, { login })(LoginContainer)
+
+export default Login

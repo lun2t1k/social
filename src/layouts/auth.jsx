@@ -1,17 +1,27 @@
-import HeaderContainer from "../components/header/Header";
-import Login from '../pages/login/Login';
+import { Navigate } from "react-router-dom"
+import { connect } from 'react-redux'
+import Login from '../pages/login/Login'
 
-const AuthLayout = () => {
-    return (
-        <>
-            <HeaderContainer />
-            <main className="mb-20 pt-[250px]">
+const AuthLayoutContainer = props => {
+    if (props.isAuth) {
+        return <Navigate replace to="/news" />
+    } else {
+        return (
+            <main className="h-[100vh] w-full flex items-center justify-center">
                 <div className="container-props">
                     <Login />
                 </div>
             </main>
-        </>
-    )
+        )
+    }
 }
 
-export default AuthLayout;
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+
+const AuthLayout = connect(mapStateToProps, null)(AuthLayoutContainer)
+
+export default AuthLayout

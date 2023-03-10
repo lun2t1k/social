@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class UserStatus extends React.Component {
     state = {
@@ -6,48 +6,48 @@ class UserStatus extends React.Component {
         status: this.props.userStatus,
     };
     setEditMode = (boolean) => {
-        this.setState({ editMode: boolean });
+        this.setState({ editMode: boolean })
     };
     saveStatus = () => {
-        this.setEditMode(false);
-        this.props.updateStatus(this.state.status);
+        this.setEditMode(false)
+        this.props.updateStatus(this.state.status)
     };
     setStatusText = (event) => {
-        this.setState({ status: event.currentTarget.value });
+        this.setState({ status: event.currentTarget.value })
     };
     componentDidUpdate(prevProps, prevState) {
         if (this.props.userStatus !== prevProps.userStatus) {
-            this.setState({ status: this.props.userStatus });
+            this.setState({ status: this.props.userStatus })
         }
     }
     render() {
         return (
             <>
-                {this.state.editMode ? (
+                { this.state.editMode ? (
                     <input
                         type="text"
                         autoFocus
-                        onClick={() => this.setEditMode(true)}
-                        onChange={this.setStatusText}
-                        onBlur={() => this.saveStatus()}
-                        value={this.state.status}
-                        className="focus:border-purple-accent mb-4 w-full rounded-xl border-2 py-2 px-3"
+                        onClick={ () => this.setEditMode(true) }
+                        onChange={ this.setStatusText }
+                        onBlur={ () => this.saveStatus() }
+                        value={ this.state.status }
+                        className="focus:border-violet-400 bg-transparent outline-none mb-4 w-full rounded-xl border dark:border-zinc-700 py-2 px-3"
                     />
                 ) : (
                     <h3
-                        onClick={() => this.setEditMode(true)}
+                        onClick={ () => this.setEditMode(true) }
                         className="group mb-4 flex cursor-pointer select-none items-center justify-center md:justify-start"
                     >
                         <span>
-                            {this.state.status
+                            { this.state.status
                                 ? this.state.status
-                                : "Set your status"}
+                                : "Set your status" }
                         </span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            strokeWidth={1.5}
+                            strokeWidth={ 1.5 }
                             stroke="currentColor"
                             className="ml-2 hidden h-4 w-4 group-hover:inline-block"
                         >
@@ -58,10 +58,10 @@ class UserStatus extends React.Component {
                             />
                         </svg>
                     </h3>
-                )}
+                ) }
             </>
-        );
+        )
     }
 }
 
-export default UserStatus;
+export default UserStatus

@@ -1,10 +1,10 @@
-import NavbarLink from "./NavbarLink";
-import ProfileIcon from "./icons/ProfileIcon";
-import NewsIcon from "./icons/NewsIcon";
-import MessagesIcon from "./icons/MessagesIcon";
-import FriendsIcon from "./icons/FriendsIcon";
-import MusicIcon from "./icons/MusicIcon";
-import Footer from '../footer/Footer';
+import NavbarLink from "./NavbarLink"
+import ProfileIcon from "./icons/ProfileIcon"
+import NewsIcon from "./icons/NewsIcon"
+import MessagesIcon from "./icons/MessagesIcon"
+import FriendsIcon from "./icons/FriendsIcon"
+import MusicIcon from "./icons/MusicIcon"
+import Footer from '../footer/Footer'
 
 export default function Navbar() {
     return (
@@ -12,31 +12,31 @@ export default function Navbar() {
             <ul className="mb-5 w-full rounded-2xl bg-white dark:bg-zinc-900 p-3">
                 <li>
                     <NavbarLink
-                        icon={<ProfileIcon />}
+                        icon={ <ProfileIcon /> }
                         title="My Profile"
                         url="/profile"
                     />
                 </li>
                 <li>
-                    <NavbarLink icon={<NewsIcon />} title="News" url="/" />
+                    <NavbarLink icon={ <NewsIcon /> } title="News" url="/news" />
                 </li>
                 <li>
                     <NavbarLink
-                        icon={<MessagesIcon />}
+                        icon={ <MessagesIcon /> }
                         title="Messages"
                         url="/messages"
                     />
                 </li>
                 <li>
                     <NavbarLink
-                        icon={<FriendsIcon />}
+                        icon={ <FriendsIcon /> }
                         title="Friends"
                         url="/friends"
                     />
                 </li>
                 <li>
                     <NavbarLink
-                        icon={<MusicIcon />}
+                        icon={ <MusicIcon /> }
                         title="Music"
                         url="/music"
                     />
@@ -45,5 +45,5 @@ export default function Navbar() {
 
             <Footer />
         </nav>
-    );
+    )
 }

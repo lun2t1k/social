@@ -1,14 +1,14 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-import users from '../../api/users';
+import { createAction, createReducer } from '@reduxjs/toolkit'
+import { swalError } from './../../helpers/swal'
+import users from '../../api/users'
 
-const SET_USERS = 'SET_USERS';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const FOLLOW_USER = 'FOLLOW_USER';
-const UNFOLLOW_USER = 'UNFOLLOW_USER';
-const SET_IS_FETCHING_USERS = 'SET_IS_FETCHING_USERS';
-const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS';
+const SET_USERS = 'SET_USERS'
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const FOLLOW_USER = 'FOLLOW_USER'
+const UNFOLLOW_USER = 'UNFOLLOW_USER'
+const SET_IS_FETCHING_USERS = 'SET_IS_FETCHING_USERS'
+const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS'
 
 let initialState = {
     users: [],
@@ -18,15 +18,18 @@ let initialState = {
     isFetchingUsers: false,
     isFollowingProcess: false,
     followingQueue: []
-};
+}
+
+const STATUS_CODE = {
+    SUCCESS: 0,
+    ERROR: 1
+}
 
 const setUsers = createAction(SET_USERS, function prepare(users) {
     return {
-        payload: {
-            users: users
-        }
+        payload: { users }
     }
-});
+})
 
 const setTotalUsersCount = createAction(SET_TOTAL_USERS_COUNT, function prepare(totalUsersNumber) {
     return {
@@ -34,7 +37,7 @@ const setTotalUsersCount = createAction(SET_TOTAL_USERS_COUNT, function prepare(
             totalCount: totalUsersNumber
         }
     }
-});
+})
 
 const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(currentPageNumber) {
     return {
@@ -42,7 +45,7 @@ const setCurrentPage = createAction(SET_CURRENT_PAGE, function prepare(currentPa
             currentPage: currentPageNumber
         }
     }
-});
+})
 
 const setIsFetchingUsers = createAction(SET_IS_FETCHING_USERS, function prepare(boolean) {
     return {
@@ -50,105 +53,80 @@ const setIsFetchingUsers = createAction(SET_IS_FETCHING_USERS, function prepare(
             isFetchingUsers: boolean
         }
     }
-});
+})
 
-const followUser = createAction(FOLLOW_USER, function prepare(userID) {
+const followUser = createAction(FOLLOW_USER, function prepare(id) {
     return {
-        payload: {
-            id: userID
-        }
+        payload: { id }
     }
-});
+})
 
-const unfollowUser = createAction(UNFOLLOW_USER, function prepare(userID) {
+const unfollowUser = createAction(UNFOLLOW_USER, function prepare(id) {
     return {
-        payload: {
-            id: userID
-        }
+        payload: { id }
     }
-});
+})
 
-const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function prepare(boolean, userID) {
+const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function prepare(boolean, id) {
     return {
         payload: {
             isFollowingProcess: boolean,
-            userID: userID
+            id: id
         }
     }
-});
+})
 
 export const getUsers = (currentPage, pageSize) => {
-    return (dispatch) => {
-        dispatch(setCurrentPage(currentPage));
-        dispatch(setIsFetchingUsers(true));
-        users.getUsersRequest(currentPage, pageSize).then((data) => {
-            dispatch(setUsers(data.items));
-            dispatch(setIsFetchingUsers(false));
-            dispatch(setTotalUsersCount(data.totalCount));
-        }).catch((error) => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
-                }
-            });
-        });
+    return dispatch => {
+        dispatch(setCurrentPage(currentPage))
+        dispatch(setIsFetchingUsers(true))
+        users.getUsersRequest(currentPage, pageSize)
+            .then(response => {
+                dispatch(setUsers(response.data.items))
+                dispatch(setIsFetchingUsers(false))
+                dispatch(setTotalUsersCount(response.data.totalCount))
+            })
+            .catch(error => {
+                swalError(error)
+            })
     }
 }
 
-export const follow = (userID) => {
-    return (dispatch) => {
-        dispatch(setIsFollowingProcess(true, userID));
-        users.followUserRequest(userID).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(followUser(userID));
-            }
-            dispatch(setIsFollowingProcess(false, userID));
-        }).catch((error) => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+export const follow = id => {
+    return dispatch => {
+        dispatch(setIsFollowingProcess(true, id))
+        users.followUserRequest(id)
+            .then(response => {
+                if (response.data.resultCode === STATUS_CODE.SUCCESS) {
+                    dispatch(followUser(id))
                 }
-            });
-            dispatch(setIsFollowingProcess(false, userID));
-        });
+                dispatch(setIsFollowingProcess(false, id))
+            })
+            .catch(error => {
+                swalError(error)
+                dispatch(setIsFollowingProcess(false, id))
+            })
     }
 }
 
-export const unfollow = (userID) => {
-    return (dispatch) => {
-        dispatch(setIsFollowingProcess(true, userID));
-        users.unfollowUserRequest(userID).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(followUser(userID));
-            }
-            dispatch(setIsFollowingProcess(false, userID));
-        }).catch((error) => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+export const unfollow = id => {
+    return dispatch => {
+        dispatch(setIsFollowingProcess(true, id))
+        users.unfollowUserRequest(id)
+            .then(response => {
+                if (response.data.resultCode === STATUS_CODE.SUCCESS) {
+                    dispatch(followUser(id))
                 }
-            });
-            dispatch(setIsFollowingProcess(false, userID));
-        });
+                dispatch(setIsFollowingProcess(false, id))
+            })
+            .catch(error => {
+                swalError(error)
+                dispatch(setIsFollowingProcess(false, id))
+            })
     }
 }
 
-const usersPage = createReducer(initialState, (builder) => {
+const usersPage = createReducer(initialState, builder => {
     builder
         .addCase(setUsers, (state = initialState, action) => {
             return {
@@ -175,28 +153,28 @@ const usersPage = createReducer(initialState, (builder) => {
             }
         })
         .addCase(followUser, (state = initialState, action) => {
-            // ! Error -> payload: {userID: undefined}
+            // ! Error -> payload: {id: undefined}
             // ! The case doesn't receive the user id from action creator
             return {
                 ...state,
-                users: state.users.map((user) => {
+                users: state.users.map(user => {
                     if (user.id === action.payload.id) {
-                        return {...user, followed: true}
+                        return { ...user, followed: true }
                     }
-                    return user;
+                    return user
                 })
             }
         })
         .addCase(unfollowUser, (state = initialState, action) => {
-            // ! Error -> payload: {userID: undefined}
+            // ! Error -> payload: {id: undefined}
             // ! The case doesn't receive the user id from action creator
             return {
                 ...state,
-                users: state.users.map((user) => {
+                users: state.users.map(user => {
                     if (user.id === action.payload.id) {
-                        return {...user, followed: false}
+                        return { ...user, followed: false }
                     }
-                    return user;
+                    return user
                 })
             }
         })
@@ -205,13 +183,13 @@ const usersPage = createReducer(initialState, (builder) => {
                 ...state,
                 isFollowingProcess: action.payload.isFollowingProcess,
                 followingQueue: action.payload.isFollowingProcess
-                    ? [...state.followingQueue, action.payload.userID]
-                    : state.followingQueue.filter(userID => userID !== action.payload.userID)
+                    ? [...state.followingQueue, action.payload.id]
+                    : state.followingQueue.filter(id => id !== action.payload.id)
             }
         })
         .addDefaultCase((state = initialState, action) => {
-            return state;
-        });
-});
+            return state
+        })
+})
 
-export default usersPage;
+export default usersPage

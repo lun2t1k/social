@@ -2,7 +2,7 @@ import { jsonplaceholder } from './axios';
 
 const news = {
     getNewsRequest() {
-        return jsonplaceholder.get('posts').then(response => response.data);
+        return jsonplaceholder.get('posts');
     }
 }
 

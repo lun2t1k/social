@@ -2,7 +2,7 @@ import { jsonplaceholder } from './axios';
 
 const friends = {
     getFriendsRequest() {
-        return jsonplaceholder.get('users').then(response => response.data);
+        return jsonplaceholder.get('users');
     }
 }
 

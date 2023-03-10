@@ -2,13 +2,13 @@ import { instance } from './axios';
 
 const profile = {
     getUserProfile(userID) {
-        return instance.get(`profile/${userID}`).then(response => response.data);
+        return instance.get(`profile/${userID}`);
     },
     getUserStatus(userID) {
-        return instance.get(`profile/status/${userID}`).then(response => response.data);
+        return instance.get(`profile/status/${userID}`);
     },
     updateUserStatus(status) {
-        return instance.put('profile/status', {status}).then(response => response.data);
+        return instance.put('profile/status', {status});
     },
 }
 

@@ -1,10 +1,10 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-import profile from '../../api/profile';
+import { createAction, createReducer } from '@reduxjs/toolkit'
+import { swalError } from './../../helpers/swal'
+import profile from '../../api/profile'
 
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_USER_STATUS = 'SET_USER_STATUS';
-const ADD_POST = 'ADD_POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
+const SET_USER_STATUS = 'SET_USER_STATUS'
+const ADD_POST = 'ADD_POST'
 
 let initialState = {
     profile: null,
@@ -28,13 +28,16 @@ let initialState = {
     ]
 }
 
-const setUserProfile = createAction(SET_USER_PROFILE, function prepare(userID) {
+const STATUS_CODE = {
+    SUCCESS: 200,
+    ERROR: 1
+}
+
+const setUserProfile = createAction(SET_USER_PROFILE, function prepare(id) {
     return {
-        payload: {
-            profile: userID
-        }
+        payload: { id }
     }
-});
+})
 
 const setUserStatus = createAction(SET_USER_STATUS, function prepare(statusText) {
     return {
@@ -42,57 +45,56 @@ const setUserStatus = createAction(SET_USER_STATUS, function prepare(statusText)
             status: statusText
         }
     }
-});
+})
 
 export const addNewPost = createAction(ADD_POST, function prepare(postText) {
     return {
         payload: { postText }
     }
-});
+})
 
-export const setProfile = (userID) => {
-    return (dispatch) => {
-        profile.getUserProfile(userID).then(data => dispatch(setUserProfile(data)));
-    }
-}
-
-export const setStatus = (userID) => {
-    return (dispatch) => {
-        profile.getUserStatus(userID).then((data) => {
-            if (data === null) {
-                dispatch(setUserStatus(''));
-            } else {
-                dispatch(setUserStatus(data));
-            }
-        });
-    }
-}
-
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        profile.updateUserStatus(status).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(setUserStatus(status));
-            }
-        }).catch((error) => {
-            Swal.fire({
-                title: 'Error!',
-                text: error,
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok',
-                customClass: {
-                    confirmButton: 'px-6 py-3 rounded-xl text-xl text-white bg-violet-500 transition-all ease-in hover:bg-violet-600 disabled:bg-gray-500 disabled:hover:bg-gray-500',
+export const setProfile = id => {
+    return dispatch => {
+        profile.getUserProfile(id)
+            .then(response => {
+                if (response.status === STATUS_CODE.SUCCESS) {
+                    dispatch(setUserProfile(response.data))
                 }
-            });
-        });
+            })
     }
 }
 
-const profilePage = createReducer(initialState, (builder) => {
+export const setStatus = id => {
+    return dispatch => {
+        profile.getUserStatus(id)
+            .then(response => {
+                if (response.data === null) {
+                    dispatch(setUserStatus(''))
+                } else {
+                    dispatch(setUserStatus(response.data))
+                }
+            })
+    }
+}
+
+export const updateStatus = status => {
+    return dispatch => {
+        profile.updateUserStatus(status)
+            .then(response => {
+                if (response.data.resultCode === STATUS_CODE.SUCCESS) {
+                    dispatch(setUserStatus(status))
+                }
+            })
+            .catch(error => {
+                swalError(error)
+            })
+    }
+}
+
+const profilePage = createReducer(initialState, builder => {
     builder
         .addCase(setUserProfile, (state = initialState, action) => {
-            return { ...state, profile: action.payload.profile }
+            return { ...state, profile: action.payload.id }
         })
         .addCase(setUserStatus, (state = initialState, action) => {
             return { ...state, status: action.payload.status }
@@ -103,11 +105,11 @@ const profilePage = createReducer(initialState, (builder) => {
                 text: action.payload.postText,
                 likesAmount: 0
             }
-            return { ...state, posts: [...state.posts, newPost] };
+            return { ...state, posts: [...state.posts, newPost] }
         })
         .addDefaultCase((state = initialState, action) => {
-            return state;
-        });
-});
+            return state
+        })
+})
 
-export default profilePage;
+export default profilePage

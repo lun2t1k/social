@@ -1,7 +1,7 @@
-import * as Yup from 'yup';
-import YupPassword from 'yup-password';
+import * as Yup from 'yup'
+import YupPassword from 'yup-password'
 
-YupPassword(Yup);
+YupPassword(Yup)
 
 export const LoginSchema = Yup.object().shape({
     email: Yup.string().required('This field is required').email('Invalid email'),
@@ -13,4 +13,4 @@ export const LoginSchema = Yup.object().shape({
         .minUppercase(1, 'Password must contain at least 1 upper case letter')
         .minNumbers(1, 'Password must contain at least 1 number')
         .minSymbols(1, 'Password must contain at least 1 special character')
-});
+})

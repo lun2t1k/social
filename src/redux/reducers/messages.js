@@ -1,6 +1,6 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit'
 
-const SEND_MESSAGE = 'SEND_MESSAGE';
+const SEND_MESSAGE = 'SEND_MESSAGE'
 
 let initialState = {
     chats: [
@@ -147,9 +147,9 @@ export const sendNewMessage = createAction(SEND_MESSAGE, function prepare(newMes
     return {
         payload: { newMessageText }
     }
-});
+})
 
-const messagesPage = createReducer(initialState, (builder) => {
+const messagesPage = createReducer(initialState, builder => {
     builder
         .addCase(sendNewMessage, (state = initialState, action) => {
             let newMessage = {
@@ -157,11 +157,11 @@ const messagesPage = createReducer(initialState, (builder) => {
                 type: 'user',
                 text: action.payload.newMessageText
             }
-            return { ...state, messages: [...state.messages, newMessage] };
+            return { ...state, messages: [...state.messages, newMessage] }
         })
         .addDefaultCase((state = initialState, action) => {
-            return state;
-        });
-});
+            return state
+        })
+})
 
-export default messagesPage;
+export default messagesPage
