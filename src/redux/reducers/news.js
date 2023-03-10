@@ -4,15 +4,14 @@ import news from '../../api/news'
 
 const SET_NEWS = 'SET_NEWS'
 const SET_IS_FETCHING_NEWS = 'SET_IS_FETCHING_NEWS'
+const STATUS_CODE = {
+    SUCCESS: 200,
+    ERROR: 1
+}
 
 let initialState = {
     news: [],
     isFetchingNews: false
-}
-
-const STATUS_CODE = {
-    SUCCESS: 200,
-    ERROR: 1
 }
 
 const setNews = createAction(SET_NEWS, function prepare(news) {

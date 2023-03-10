@@ -5,6 +5,10 @@ import profile from '../../api/profile'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_USER_STATUS = 'SET_USER_STATUS'
 const ADD_POST = 'ADD_POST'
+const STATUS_CODE = {
+    SUCCESS: 200,
+    ERROR: 1
+}
 
 let initialState = {
     profile: null,
@@ -26,11 +30,6 @@ let initialState = {
             likesAmount: 756
         }
     ]
-}
-
-const STATUS_CODE = {
-    SUCCESS: 200,
-    ERROR: 1
 }
 
 const setUserProfile = createAction(SET_USER_PROFILE, function prepare(id) {

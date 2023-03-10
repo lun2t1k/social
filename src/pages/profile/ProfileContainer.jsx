@@ -5,7 +5,7 @@ import { setProfile, setStatus, updateStatus } from '../../redux/reducers/profil
 import ProfileLoader from './ProfileLoader'
 import Profile from './Profile'
 
-export default function ProfileWrap(props) {
+export default function ProfileWrap() {
     const location = useLocation()
     const params = useParams()
     return <ProfileContainer location={ location } params={ params } />
@@ -13,11 +13,9 @@ export default function ProfileWrap(props) {
 
 class ProfileAPI extends React.Component {
     componentDidMount() {
-        let userID
-        if (!this.props.params.userID) {
-            userID = 27904
-        } else {
-            userID = this.props.params.userID
+        let userID = this.props.params.userID
+        if (!userID) {
+            userID = this.props.authorizedUserID
         }
         this.props.setProfile(userID)
         this.props.setStatus(userID)
@@ -33,6 +31,7 @@ class ProfileAPI extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        authorizedUserID: state.auth.authorizedUserID,
         profile: state.profilePage.profile,
         status: state.profilePage.status
     }

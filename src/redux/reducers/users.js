@@ -9,6 +9,10 @@ const FOLLOW_USER = 'FOLLOW_USER'
 const UNFOLLOW_USER = 'UNFOLLOW_USER'
 const SET_IS_FETCHING_USERS = 'SET_IS_FETCHING_USERS'
 const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS'
+const STATUS_CODE = {
+    SUCCESS: 0,
+    ERROR: 1
+}
 
 let initialState = {
     users: [],
@@ -18,11 +22,6 @@ let initialState = {
     isFetchingUsers: false,
     isFollowingProcess: false,
     followingQueue: []
-}
-
-const STATUS_CODE = {
-    SUCCESS: 0,
-    ERROR: 1
 }
 
 const setUsers = createAction(SET_USERS, function prepare(users) {

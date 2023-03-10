@@ -4,15 +4,15 @@ import friends from '../../api/friends'
 
 const SET_FRIENDS = 'SET_FRIENDS'
 const SET_IS_FETCHING = 'SET_IS_FETCHING'
+const STATUS_CODE = {
+    SUCCESS: 200,
+    ERROR: 1
+}
+
 
 let initialState = {
     friends: [],
     isFetching: false
-}
-
-const STATUS_CODE = {
-    SUCCESS: 200,
-    ERROR: 1
 }
 
 const setFriends = createAction(SET_FRIENDS, function prepare(friends) {

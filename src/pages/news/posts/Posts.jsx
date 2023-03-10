@@ -13,7 +13,7 @@ export default function Posts(props) {
                             <Post
                                 key={ post.id }
                                 id={ post.id }
-                                userId={ post.userId }
+                                userID={ post.userID }
                                 title={ post.title }
                                 body={ post.body }
                             />

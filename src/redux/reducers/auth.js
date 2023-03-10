@@ -3,22 +3,22 @@ import { swalError } from './../../helpers/swal'
 import auth from '../../api/auth'
 
 const SET_USER_DATA = 'SET_USER_DATA'
-
-let initialState = {
-    id: null,
-    login: null,
-    email: null,
-    isAuth: true
-}
-
 const STATUS_CODE = {
     SUCCESS: 0,
     ERROR: 1
 }
 
-const setUserData = createAction(SET_USER_DATA, function prepare(id, login, email, isAuth) {
+let initialState = {
+    userID: null,
+    login: null,
+    email: null,
+    isAuth: true,
+    authorizedUserID: 27904
+}
+
+const setUserData = createAction(SET_USER_DATA, function prepare(userID, login, email, isAuth) {
     return {
-        payload: { id, login, email, isAuth }
+        payload: { userID, login, email, isAuth }
     }
 })
 
@@ -29,8 +29,8 @@ export const authMe = () => {
             .then(response => {
                 console.log('getAuthStatus: ', response);
                 if (response.resultCode === STATUS_CODE.SUCCESS) {
-                    let { id, login, email } = response.data
-                    dispatch(setUserData(id, login, email, true))
+                    let { userID, login, email } = response.data
+                    dispatch(setUserData(userID, login, email, true))
                 }
             })
             .catch(error => {
