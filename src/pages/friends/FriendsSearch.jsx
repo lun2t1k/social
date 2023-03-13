@@ -6,7 +6,7 @@ export default function FriendsSearch() {
                 name=""
                 id=""
                 placeholder="Search friends"
-                className="flex-auto rounded-xl border dark:border-zinc-700 py-2 px-3 outline-none bg-transparent focus:border-violet-400"
+                className="flex-auto rounded-xl border dark:border-zinc-700 py-2 px-3 outline-none bg-transparent focus:border-violet-400 dark:focus:border-violet-400"
             />
             <button
                 type="submit"

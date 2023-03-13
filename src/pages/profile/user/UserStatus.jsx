@@ -31,7 +31,7 @@ class UserStatus extends React.Component {
                         onChange={ this.setStatusText }
                         onBlur={ () => this.saveStatus() }
                         value={ this.state.status }
-                        className="focus:border-violet-400 bg-transparent outline-none mb-4 w-full rounded-xl border dark:border-zinc-700 py-2 px-3"
+                        className="focus:border-violet-400 dark:focus:border-violet-400 bg-transparent outline-none mb-4 w-full rounded-xl border dark:border-zinc-700 py-2 px-3"
                     />
                 ) : (
                     <h3

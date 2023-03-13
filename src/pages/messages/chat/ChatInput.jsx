@@ -21,7 +21,7 @@ const ChatInputContainer = props => {
                         name="newMessageText"
                         placeholder="Message"
                         as="textarea"
-                        className="h-0 max-h-[150px] min-h-[36px] flex-auto rounded-2xl rounded-br-none border dark:border-zinc-700 dark:bg-transparent p-2 text-xs outline-none focus:border-violet-400 md:py-2 md:px-3"
+                        className="h-0 max-h-[150px] min-h-[36px] flex-auto rounded-2xl rounded-br-none border dark:border-zinc-700 dark:bg-transparent p-2 text-xs outline-none focus:border-violet-400 dark:focus:border-violet-400 md:py-2 md:px-3"
                     />
                     <button
                         type="submit"
