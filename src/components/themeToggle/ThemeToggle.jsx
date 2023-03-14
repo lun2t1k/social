@@ -3,7 +3,7 @@ import LightTheme from './icons/LightTheme'
 import DarkTheme from './icons/DarkTheme'
 import SystemTheme from './icons/SystemTheme'
 
-export default function ThemeToggle(props) {
+export default function ThemeToggle() {
     const [theme, setTheme] = useState(
         localStorage.getItem('theme') ? localStorage.getItem('theme') : 'system'
     )
@@ -51,7 +51,7 @@ export default function ThemeToggle(props) {
                 onWindowMatch()
                 break
         }
-    }, [theme, element, onWindowMatch, props])
+    }, [theme, element, onWindowMatch])
 
     darkQuery.addEventListener('change', event => {
         if (!('theme' in localStorage)) {
