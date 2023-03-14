@@ -68,7 +68,7 @@ export default function ThemeToggle(props) {
             {
                 options?.map(opt => (
                     <button
-                        key={ opt.text }
+                        key={ opt.theme }
                         onClick={ () => setTheme(opt.theme) }
                         className={ `p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 ${theme === opt.theme && 'text-violet-400'}` }
                     >
