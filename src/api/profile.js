@@ -9,7 +9,7 @@ const profile = {
     },
     updateUserStatus(status) {
         return instance.put('profile/status', { status })
-    },
+    }
 }
 
 export default profile

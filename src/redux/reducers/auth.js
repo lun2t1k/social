@@ -77,7 +77,7 @@ const authReducer = createReducer(initialState, builder => {
                 ...action.payload
             }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

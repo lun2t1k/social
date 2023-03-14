@@ -9,7 +9,7 @@ const auth = {
     },
     logoutRequest() {
         return instance.delete('auth/login')
-    },
+    }
 }
 
 export default auth

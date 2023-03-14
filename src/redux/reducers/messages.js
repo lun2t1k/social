@@ -159,7 +159,7 @@ const messagesPage = createReducer(initialState, builder => {
             }
             return { ...state, messages: [...state.messages, newMessage] }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

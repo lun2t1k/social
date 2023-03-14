@@ -57,7 +57,7 @@ const friendsPage = createReducer(initialState, builder => {
                 isFetchingFriends: action.payload.isFetchingFriends
             }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

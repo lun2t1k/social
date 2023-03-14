@@ -186,7 +186,7 @@ const usersPage = createReducer(initialState, builder => {
                     : state.followingQueue.filter(id => id !== action.payload.id)
             }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

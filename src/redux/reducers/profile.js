@@ -106,7 +106,7 @@ const profilePage = createReducer(initialState, builder => {
             }
             return { ...state, posts: [...state.posts, newPost] }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

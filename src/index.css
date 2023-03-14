@@ -11,7 +11,7 @@ a {
 }
 
 .container-props {
-    @apply container max-w-6xl min-w-[320px] px-3 mx-auto;
+    @apply container mx-auto min-w-[320px] max-w-6xl px-3;
 }
 
 .swal2-container {
@@ -22,7 +22,7 @@ a {
 }
 
 .swal2-popup {
-    @apply dark:text-zinc-100 dark:bg-zinc-900;
+    @apply dark:bg-zinc-900 dark:text-zinc-100;
     border-radius: 20px;
 }
 

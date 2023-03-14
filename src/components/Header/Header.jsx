@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import Logo from '../Logo'
 import UserActions from "./UserActions"
 
-export default function Header(props) {
+export default function Header() {
     return (
         <header className="fixed top-0 z-50 w-full bg-white dark:bg-zinc-900">
             <div className="container-props">
@@ -16,4 +16,4 @@ export default function Header(props) {
             </div>
         </header>
     )
-};
+}

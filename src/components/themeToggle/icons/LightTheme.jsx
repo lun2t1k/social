@@ -1,4 +1,4 @@
-export default function LightTheme(props) {
+export default function LightTheme() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -15,4 +15,4 @@ export default function LightTheme(props) {
             />
         </svg>
     )
-};
+}

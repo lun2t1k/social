@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import LightTheme from './icons/LightTheme'
 import DarkTheme from './icons/DarkTheme'
 import SystemTheme from './icons/SystemTheme'
@@ -23,7 +23,7 @@ export default function ThemeToggle(props) {
             theme: 'system'
         }
     ]
-    const onWindowMatch = () => {
+    const onWindowMatch = useCallback(() => {
         if (
             localStorage.theme === 'dark' ||
             (!('theme' in localStorage) && darkQuery.matches)
@@ -32,7 +32,7 @@ export default function ThemeToggle(props) {
         } else {
             element.classList.remove('dark')
         }
-    }
+    }, [darkQuery.matches, element.classList])
 
     onWindowMatch()
 
@@ -51,7 +51,7 @@ export default function ThemeToggle(props) {
                 onWindowMatch()
                 break
         }
-    }, [theme, element, onWindowMatch])
+    }, [theme, element, onWindowMatch, props])
 
     darkQuery.addEventListener('change', event => {
         if (!('theme' in localStorage)) {
@@ -64,7 +64,7 @@ export default function ThemeToggle(props) {
     })
 
     return (
-        <div className="flex items-center justify-center gap-2 p-1 mb-7 bg-white dark:bg-zinc-900 rounded-2xl">
+        <div className="flex items-center justify-center gap-2 p-1 mb-5 bg-white dark:bg-zinc-900 rounded-2xl">
             {
                 options?.map(opt => (
                     <button

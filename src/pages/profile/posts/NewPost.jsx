@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { Formik, Form, Field } from "formik"
 import { addNewPost } from "../../../redux/reducers/profile"
-import { NewPostSchema } from "../validationSchema"
+import { NewPostSchema } from "../../../helpers/yup"
 import UserDefaultAvatar from "../../../components/UserDefaultAvatar"
 
 const NewPostContainer = props => {

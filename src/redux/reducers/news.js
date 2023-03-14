@@ -57,7 +57,7 @@ const newsPage = createReducer(initialState, builder => {
                 isFetchingNews: action.payload.isFetchingNews
             }
         })
-        .addDefaultCase((state = initialState, action) => {
+        .addDefaultCase((state = initialState) => {
             return state
         })
 })

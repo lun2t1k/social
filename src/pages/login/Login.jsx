@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { Formik, Form } from "formik"
-import { LoginSchema } from "./validationSchema"
+import { LoginSchema } from "../../helpers/yup"
 import { login } from "../../redux/reducers/auth"
 import Input from "./Input"
 import Checkbox from './Checkbox'

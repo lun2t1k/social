@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { Formik, Form, Field } from "formik"
 import { sendNewMessage } from "../../../redux/reducers/messages"
-import { NewMessageSchema } from "./validationSchema"
+import { NewMessageSchema } from "../../../helpers/yup"
 
 const ChatInputContainer = props => {
     const onSubmit = (values, actions) => {
