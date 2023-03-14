@@ -4,7 +4,7 @@ export default function PostHeader(props) {
     return (
         <div className="mb-4 flex items-center">
             { props.userPhoto ? (
-                <div className="flex h-[70px] w-[70px] items-center justify-center overflow-hidden rounded-full bg-slate-400">
+                <div className="flex flex-[1_0_auto] h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-full bg-slate-400">
                     <img
                         src={ props.userPhoto }
                         alt=""

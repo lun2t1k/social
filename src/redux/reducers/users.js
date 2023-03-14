@@ -75,7 +75,7 @@ const setIsFollowingProcess = createAction(SET_IS_FOLLOWING_PROCESS, function pr
     }
 })
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
     return dispatch => {
         dispatch(setCurrentPage(currentPage))
         dispatch(setIsFetchingUsers(true))

@@ -1,24 +1,23 @@
 import React from "react"
 import { connect } from "react-redux"
-import { getFriends } from './../../redux/reducers/friends'
+import { requestFriends } from './../../redux/reducers/friends'
+import { getFriends, getIsFetchingFriends } from '../../redux/selectors/friends'
 import FriendsList from "./FriendsList"
 
-class FriendsListAPI extends React.Component {
+class FriendsListContainer extends React.Component {
     componentDidMount() {
-        this.props.getFriends()
+        this.props.requestFriends()
     }
     render() {
-        return <FriendsList friends={ this.props.friends } isFetching={ this.props.isFetching } />
+        return <FriendsList friends={ this.props.friends } isFetchingFriends={ this.props.isFetchingFriends } />
     }
 }
 
 const mapStateToProps = state => {
     return {
-        friends: state.friendsPage.friends,
-        isFetching: state.friendsPage.isFetching
+        friends: getFriends(state),
+        isFetchingFriends: getIsFetchingFriends(state)
     }
 }
 
-const FriendsListContainer = connect(mapStateToProps, { getFriends })(FriendsListAPI)
-
-export default FriendsListContainer
+export default connect(mapStateToProps, { requestFriends })(FriendsListContainer)

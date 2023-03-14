@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { follow, unfollow, getUsers } from '../../../redux/reducers/users'
+import { follow, unfollow, requestUsers } from '../../../redux/reducers/users'
+import { getUsers, getPageSize, getTotalCount, getCurrentPage, getIsFetchingUsers, getFollowingQueue } from '../../../redux/selectors/users'
 import UsersList from './UsersList'
 
-class UsersListAPI extends React.Component {
+class UsersListContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(1)
+        this.props.requestUsers(1)
     }
     onPageChange = pageNumber => {
-        this.props.getUsers(pageNumber)
+        this.props.requestUsers(pageNumber)
     }
     render() {
         return (
@@ -17,7 +18,7 @@ class UsersListAPI extends React.Component {
                 pageSize={ this.props.pageSize }
                 totalCount={ this.props.totalCount }
                 currentPage={ this.props.currentPage }
-                isFetching={ this.props.isFetching }
+                isFetchingUsers={ this.props.isFetchingUsers }
                 onPageChange={ this.onPageChange }
                 follow={ this.props.follow }
                 unfollow={ this.props.unfollow }
@@ -29,15 +30,13 @@ class UsersListAPI extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalCount: state.usersPage.totalCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingQueue: state.usersPage.followingQueue
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalCount: getTotalCount(state),
+        currentPage: getCurrentPage(state),
+        isFetchingUsers: getIsFetchingUsers(state),
+        followingQueue: getFollowingQueue(state)
     }
 }
 
-const UsersListContainer = connect(mapStateToProps, { follow, unfollow, getUsers })(UsersListAPI)
-
-export default UsersListContainer
+export default connect(mapStateToProps, { follow, unfollow, requestUsers })(UsersListContainer)

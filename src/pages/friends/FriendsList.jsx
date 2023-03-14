@@ -5,7 +5,7 @@ import FriendDefaultPhoto from "./FriendDefaultPhoto"
 export default function FriendsList(props) {
     return (
         <>
-            { props.isFetching ? (
+            { props.isFetchingFriends ? (
                 <FriendsLoader />
             ) : (
                 <ul className="w-full">

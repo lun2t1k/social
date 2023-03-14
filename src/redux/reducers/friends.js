@@ -3,7 +3,7 @@ import { swalError } from './../../helpers/swal'
 import friends from '../../api/friends'
 
 const SET_FRIENDS = 'SET_FRIENDS'
-const SET_IS_FETCHING = 'SET_IS_FETCHING'
+const SET_IS_FETCHING_FRIENDS = 'SET_IS_FETCHING_FRIENDS'
 const STATUS_CODE = {
     SUCCESS: 200,
     ERROR: 1
@@ -12,7 +12,7 @@ const STATUS_CODE = {
 
 let initialState = {
     friends: [],
-    isFetching: false
+    isFetchingFriends: false
 }
 
 const setFriends = createAction(SET_FRIENDS, function prepare(friends) {
@@ -21,21 +21,21 @@ const setFriends = createAction(SET_FRIENDS, function prepare(friends) {
     }
 })
 
-const setIsFetching = createAction(SET_IS_FETCHING, function prepare(boolean) {
+const setIsFetchingFriends = createAction(SET_IS_FETCHING_FRIENDS, function prepare(boolean) {
     return {
         payload: {
-            isFetching: boolean
+            isFetchingFriends: boolean
         }
     }
 })
 
-export const getFriends = () => {
+export const requestFriends = () => {
     return dispatch => {
-        dispatch(setIsFetching(true))
+        dispatch(setIsFetchingFriends(true))
         friends.getFriendsRequest().then(response => {
             if (response.status === STATUS_CODE.SUCCESS) {
                 dispatch(setFriends(response.data))
-                dispatch(setIsFetching(false))
+                dispatch(setIsFetchingFriends(false))
             }
         }).catch(error => {
             swalError(error)
@@ -51,10 +51,10 @@ const friendsPage = createReducer(initialState, builder => {
                 friends: action.payload.friends
             }
         })
-        .addCase(setIsFetching, (state = initialState, action) => {
+        .addCase(setIsFetchingFriends, (state = initialState, action) => {
             return {
                 ...state,
-                isFetching: action.payload.isFetching
+                isFetchingFriends: action.payload.isFetchingFriends
             }
         })
         .addDefaultCase((state = initialState, action) => {

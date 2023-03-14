@@ -8,7 +8,7 @@ export default function UsersList(props) {
         <>
             <h3 className="font-semibold mb-3">People you may know</h3>
 
-            { props.isFetching ? (
+            { props.isFetchingUsers ? (
                 <UsersLoader />
             ) : (
                 <>
