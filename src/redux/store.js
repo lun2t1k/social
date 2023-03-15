@@ -7,7 +7,14 @@ import messagesPage from './reducers/messages'
 import usersPage from './reducers/users'
 import friendsPage from './reducers/friends'
 
-const reducers = combineReducers({ auth, profilePage, newsPage, messagesPage, usersPage, friendsPage })
+const reducers = combineReducers({
+    auth,
+    profilePage,
+    newsPage,
+    messagesPage,
+    usersPage,
+    friendsPage
+})
 
 const store = configureStore({
     reducer: reducers,
