@@ -1,0 +1,6 @@
+export { default as login } from './login'
+export { default as profile } from './profile'
+export { default as news } from './news'
+export { default as messages } from './messages'
+export { default as friends } from './friends'
+// export { default as music } from './music'

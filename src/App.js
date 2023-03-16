@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import MainLayout from './layouts/main'
-import AuthLayout from './layouts/auth'
+import MainLayout from './views/layouts/main'
+import AuthLayout from './views/layouts/auth'
 
 const App = () => {
     return (
