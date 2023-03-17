@@ -9,7 +9,4 @@ const store = configureStore({
     middleware: [thunk]
 })
 
-// ! Remove when deploying on prod
-window.state = store.getState()
-
 export default store
