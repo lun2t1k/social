@@ -1,8 +1,11 @@
-import Profile from '../views/pages/profile/Profile'
-import News from '../views/pages/news/News'
-import Messages from '../views/pages/messages/Messages'
-import Friends from '../views/pages/friends/Friends'
-import Music from '../views/pages/music/Music'
+import { lazy } from 'react'
+import { withSuspense } from '../hoc/withSuspense'
+
+const Profile = withSuspense(lazy(() => import('../views/pages/profile/Profile')))
+const News = withSuspense(lazy(() => import('../views/pages/news/News')))
+const Messages = withSuspense(lazy(() => import('../views/pages/messages/Messages')))
+const Friends = withSuspense(lazy(() => import('../views/pages/friends/Friends')))
+const Music = withSuspense(lazy(() => import('../views/pages/music/Music')))
 
 const routes = [
     {

@@ -11,7 +11,6 @@ const News = ({ news, isFetchingNews, getNews }) => {
 
     return (
         <div className='flex flex-col gap-5'>
-            <NewsSkeleton />
             { isFetchingNews ? (
                 <NewsSkeleton />
             ) : (
