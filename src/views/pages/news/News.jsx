@@ -1,14 +1,35 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getNews } from '../../../redux/ducks/news'
-import Posts from './Posts'
+import NewsSkeleton from './NewsSkeleton'
+import Post from '../../components/post/Post'
 
-const News = ({ news, isFetchingNews, getNews}) => {
+const News = ({ news, isFetchingNews, getNews }) => {
     useEffect(() => {
         getNews()
     }, [getNews])
 
-    return <Posts news={ news } isFetchingNews={ isFetchingNews } />
+    return (
+        <div className='flex flex-col gap-5'>
+            <NewsSkeleton />
+            { isFetchingNews ? (
+                <NewsSkeleton />
+            ) : (
+                <>
+                    { news.map(post => {
+                        return (
+                            <Post
+                                key={ post.id }
+                                post={ post }
+                                userPhoto={ post.userPhoto }
+                                userName={ post.userName }
+                            />
+                        )
+                    }) }
+                </>
+            ) }
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
