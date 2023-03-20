@@ -1,41 +1,35 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { setProfile, setStatus, updateStatus } from '../../../redux/ducks/profile'
-import ProfileLoader from './ProfileLoader'
+import { setProfile, setStatus, updateStatus, getAuthorizedUserId, getProfile, getStatus } from '../../../redux/ducks/profile'
+import ProfileSkeleton from './ProfileSkeleton'
 import User from './user/User'
-import NewPost from './NewPost'
+import NewPostForm from './NewPostForm'
 import Posts from './Posts'
 
-const Profile = ({ authorizedUserId, profile, status, setProfile, setStatus, updateStatus }) => {
+const Profile = ({ setProfile, setStatus, updateStatus, profile, authorizedUserId, status }) => {
     const params = useParams()
 
     useEffect(() => {
-        let userId = params.userId
-        if (!userId) {
-            userId = authorizedUserId
+        let userID = params.userID
+        if (!userID) {
+            userID = authorizedUserId
         }
-        setProfile(userId)
-        setStatus(userId)
-    }, [authorizedUserId, params.userId, setProfile, setStatus])
+        setProfile(userID)
+        setStatus(userID)
+    }, [authorizedUserId, params.userID, setProfile, setStatus])
 
     if (!profile) {
-        return <ProfileLoader />
+        return <ProfileSkeleton />
     } else {
         return (
             <>
                 <User
-                    userCover={ profile.cover }
-                    userPhoto={ profile.photos.large }
-                    userName={ profile.fullName }
-                    userStatus={ status }
+                    profile={ profile }
+                    status={ status }
                     updateStatus={ updateStatus }
-                    userBirthday={ profile.birthday }
-                    userLocation={ profile.location }
-                    userEducation={ profile.education }
-                    userContacts={ profile.contacts }
                 />
-                <NewPost />
+                <NewPostForm userPhoto={ profile.photos.small } />
                 <Posts userPhoto={ profile.photos.small } userName={ profile.fullName } />
             </>
         )
@@ -44,9 +38,9 @@ const Profile = ({ authorizedUserId, profile, status, setProfile, setStatus, upd
 
 const mapStateToProps = state => {
     return {
-        authorizedUserId: state.login.authorizedUserId,
-        profile: state.profile.profile,
-        status: state.profile.status
+        authorizedUserId: getAuthorizedUserId(state),
+        profile: getProfile(state),
+        status: getStatus(state)
     }
 }
 

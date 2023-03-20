@@ -1,11 +1,9 @@
 import { createAction } from '@reduxjs/toolkit'
 import * as types from './types'
 
-export const setUserProfile = createAction(types.SET_USER_PROFILE, function prepare(id) {
+export const setUserProfile = createAction(types.SET_USER_PROFILE, function prepare(profile) {
     return {
-        payload: {
-            userId: id
-        }
+        payload: { profile }
     }
 })
 

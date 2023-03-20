@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import links from './links'
+import { mobileLinks } from './links'
 
 export default function MobileNavbar() {
     let defaultClassName =
@@ -9,7 +9,7 @@ export default function MobileNavbar() {
         <nav className="fixed bottom-0 w-full min-w-[320px] bg-white md:hidden z-50 dark:bg-zinc-900">
             <ul className="w-full py-1 px-3 flex justify-around">
                 {
-                    links.map(link => {
+                    mobileLinks.map(link => {
                         return (
                             <li key={ link.path }>
                                 <NavLink

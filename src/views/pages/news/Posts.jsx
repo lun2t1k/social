@@ -3,7 +3,7 @@ import Post from '../../components/post/Post'
 
 export default function Posts({ isFetchingNews, news }) {
     return (
-        <div>
+        <div className='flex flex-col gap-5'>
             { isFetchingNews ? (
                 <NewsLoader />
             ) : (
@@ -12,15 +12,9 @@ export default function Posts({ isFetchingNews, news }) {
                         return (
                             <Post
                                 key={ post.id }
-                                postId={ post.id }
-                                userId={ post.userId }
+                                post={ post }
                                 userPhoto={ post.userPhoto }
                                 userName={ post.userName }
-                                postTitle={ post.title }
-                                postBody={ post.body }
-                                postLikesAmount={ post.likesAmount }
-                                postCommentsAmount={ post.commentsAmount }
-                                postSharesAmount={ post.sharesAmount }
                             />
                         )
                     }) }

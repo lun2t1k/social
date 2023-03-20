@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { container } from '../../helpers/theme'
 import Login from '../pages/login/Login'
 
 const AuthLayout = ({ isAuth }) => {
@@ -8,7 +9,7 @@ const AuthLayout = ({ isAuth }) => {
     } else {
         return (
             <main className='flex h-[100vh] w-full items-center justify-center'>
-                <div className='container-props'>
+                <div className={ container.size.default }>
                     <Login />
                 </div>
             </main>

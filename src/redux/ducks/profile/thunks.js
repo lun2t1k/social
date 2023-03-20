@@ -3,8 +3,8 @@ import { setUserProfile, setUserStatus, addNewPost } from './actions'
 import profile from '../../../api/profile'
 import { swalError } from '../../../utils/swal'
 
-export const setProfile = id => dispatch => {
-    profile.getUserProfile(id)
+export const setProfile = userID => dispatch => {
+    profile.requestUserProfile(userID)
         .then(response => {
             if (response.status === types.STATUS_CODE.SUCCESS) {
                 dispatch(setUserProfile(response.data))
@@ -12,8 +12,8 @@ export const setProfile = id => dispatch => {
         })
 }
 
-export const setStatus = id => dispatch => {
-    profile.getUserStatus(id)
+export const setStatus = userID => dispatch => {
+    profile.requestUserStatus(userID)
         .then(response => {
             if (response.data === null) {
                 dispatch(setUserStatus(''))
@@ -24,7 +24,7 @@ export const setStatus = id => dispatch => {
 }
 
 export const updateStatus = status => dispatch => {
-    profile.updateUserStatus(status)
+    profile.requestUpdateUserStatus(status)
         .then(response => {
             if (response.data.resultCode === types.STATUS_CODE.SUCCESS) {
                 dispatch(setUserStatus(status))

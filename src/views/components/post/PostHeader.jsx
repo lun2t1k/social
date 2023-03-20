@@ -1,4 +1,4 @@
-import UserDefaultAvatar from "../UserDefaultAvatar"
+import UserDefaultAvatar from "../UserAvatar"
 
 export default function PostHeader({ userPhoto, userName }) {
     return (
@@ -12,7 +12,7 @@ export default function PostHeader({ userPhoto, userName }) {
                     />
                 </div>
             ) : (
-                <UserDefaultAvatar width='40' height='40' />
+                <UserDefaultAvatar size='md' />
             ) }
             <span className="ml-3 font-semibold capitalize w-full">{ userName }</span>
         </div>

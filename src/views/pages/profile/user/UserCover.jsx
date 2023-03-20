@@ -1,18 +1,16 @@
-import styles from "./User.module.css"
+import { image } from '../../../../helpers/theme'
+import styles from '../Profile.module.css'
 
 export default function UserCover({ userCover }) {
     return (
         <div
-            className={
-                styles.userCover +
-                " h-[250px] w-full bg-gradient-to-tr from-violet-400 to-fuchsia-400"
-            }
+            className={ styles.userCover }
         >
             { userCover ? (
                 <img
                     src={ userCover }
-                    alt=""
-                    className="h-full w-full object-cover"
+                    alt=''
+                    className={ image.size.full + image.objectFit.cover }
                 />
             ) : null }
         </div>

@@ -1,22 +1,17 @@
 import { connect } from 'react-redux'
+import { getPosts } from '../../../redux/ducks/profile/selectors'
 import Post from '../../components/post/Post'
 
 const Posts = ({ posts, ...props }) => {
     return (
-        <div className="posts flex flex-col-reverse">
+        <div className='flex flex-col-reverse gap-5'>
             { posts.map(post => {
                 return (
                     <Post
                         key={ post.id }
-                        postId={ post.id }
-                        userId={ post.userId }
+                        post={ post }
                         userPhoto={ props.userPhoto }
                         userName={ props.userName }
-                        postTitle={ post.title }
-                        postBody={ post.body }
-                        postLikesAmount={ post.likesAmount }
-                        postCommentsAmount={ post.commentsAmount }
-                        postSharesAmount={ post.sharesAmount }
                     />
                 )
             }) }
@@ -24,10 +19,6 @@ const Posts = ({ posts, ...props }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        posts: state.profile.posts,
-    }
-}
+const mapStateToProps = state => ({ posts: getPosts(state) })
 
-export default connect(mapStateToProps)(Posts)
+export default connect(mapStateToProps, null)(Posts)

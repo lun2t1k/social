@@ -10,10 +10,6 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-.container-props {
-    @apply container mx-auto min-w-[320px] max-w-6xl px-3;
-}
-
 .swal2-container {
     padding: 12px;
 }
@@ -23,7 +19,7 @@ a {
 
 .swal2-popup {
     @apply dark:bg-zinc-900 dark:text-zinc-100;
-    border-radius: 20px;
+    border-radius: 20px !important;
 }
 
 .swal2-popup .swal2-actions .swal2-styled {

@@ -1,6 +1,8 @@
+import { button } from '../../../../helpers/theme'
+
 export default function Comment({ postCommentsAmount }) {
     return (
-        <button className="flex items-center gap-1 rounded-xl bg-neutral-100 p-2 font-bold hover:bg-slate-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-all ease-in">
+        <button className={ button.type.postAction }>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

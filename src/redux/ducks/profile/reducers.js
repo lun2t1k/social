@@ -32,7 +32,7 @@ const initialState = {
 const profileReducer = createReducer(initialState, builder => {
     builder
         .addCase(setUserProfile, (state = initialState, action) => {
-            return { ...state, profile: action.payload.userId }
+            return { ...state, profile: action.payload.profile }
         })
         .addCase(setUserStatus, (state = initialState, action) => {
             return { ...state, status: action.payload.status }

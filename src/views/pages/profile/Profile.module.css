@@ -1,4 +1,5 @@
 .userCover {
+    @apply h-[250px] w-full bg-gradient-to-tr from-violet-400 to-fuchsia-400;
     background-size: 400%;
 
     -webkit-animation: userCoverAnimation 5s ease-in-out infinite;
@@ -18,5 +19,6 @@
 }
 
 .userAvatar {
+    @apply absolute -top-[70px] md:!left-5 flex items-center justify-center overflow-hidden rounded-full border-[5px] border-white bg-slate-400;
     left: calc(50% - 95px);
 }

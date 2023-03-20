@@ -1,29 +1,27 @@
+import { componentWrapper } from '../../../helpers/theme'
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostFooter from './PostFooter'
 
 export default function Post({
-    postId,
+    post,
     userPhoto,
-    userName = '__username__',
-    postTitle,
-    postBody,
-    postLikesAmount,
-    postCommentsAmount,
-    postSharesAmount
+    userName = '__username__'
 }) {
     return (
         <div
-            id={ postId }
-            className='mb-5 w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-5'
+            id={ post.id }
+            className={ componentWrapper.default }
         >
-            <PostHeader userPhoto={ userPhoto } userName={ userName } />
-            <PostBody postTitle={ postTitle } postBody={ postBody } />
-            <PostFooter
-                postLikesAmount={ postLikesAmount }
-                postCommentsAmount={ postCommentsAmount }
-                postSharesAmount={ postSharesAmount }
-            />
+            <div className='p-5'>
+                <PostHeader userPhoto={ userPhoto } userName={ userName } />
+                <PostBody postTitle={ post.title } postBody={ post.body } />
+                <PostFooter
+                    postLikesAmount={ post.likesAmount }
+                    postCommentsAmount={ post.commentsAmount }
+                    postSharesAmount={ post.sharesAmount }
+                />
+            </div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import links from './links'
+import { desktopLinks } from './links'
 import Footer from '../footer/Footer'
 import ThemeToggle from '../themeToggle/ThemeToggle'
 
@@ -8,7 +8,7 @@ export default function Navbar() {
         <nav className="sticky top-[76px] hidden h-fit flex-col md:flex md:min-w-[220px] md:max-w-[220px]">
             <ul className="mb-2 w-full rounded-2xl bg-white dark:bg-zinc-900 p-3">
                 {
-                    links.map(link => {
+                    desktopLinks.map(link => {
                         return (
                             <li key={ link.path }>
                                 <NavLink

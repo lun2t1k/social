@@ -1,13 +1,13 @@
 import { instance } from './axios'
 
 const profile = {
-    getUserProfile(userID) {
+    requestUserProfile(userID) {
         return instance.get(`profile/${userID}`)
     },
-    getUserStatus(userID) {
+    requestUserStatus(userID) {
         return instance.get(`profile/status/${userID}`)
     },
-    updateUserStatus(status) {
+    requestUpdateUserStatus(status) {
         return instance.put('profile/status', { status })
     }
 }

@@ -1,6 +1,6 @@
-import LightThemeIcon from './icons/LightThemeIcon'
-import DarkThemeIcon from './icons/DarkThemeIcon'
-import SystemThemeIcon from './icons/SystemThemeIcon'
+import LightThemeIcon from '../icons/LightThemeIcon'
+import DarkThemeIcon from '../icons/DarkThemeIcon'
+import SystemThemeIcon from '../icons/SystemThemeIcon'
 
 const options = [
     {

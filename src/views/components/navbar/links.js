@@ -1,10 +1,10 @@
-import ProfileIcon from './icons/ProfileIcon'
-import NewsIcon from './icons/NewsIcon'
-import MessagesIcon from './icons/MessagesIcon'
-import FriendsIcon from './icons/FriendsIcon'
-import MusicIcon from './icons/MusicIcon'
+import ProfileIcon from '../icons/ProfileIcon'
+import NewsIcon from '../icons/NewsIcon'
+import MessagesIcon from '../icons/MessagesIcon'
+import FriendsIcon from '../icons/FriendsIcon'
+import MusicIcon from '../icons/MusicIcon'
 
-const links = [
+export const desktopLinks = [
     {
         path: '/profile',
         title: 'My Profile',
@@ -13,23 +13,27 @@ const links = [
     {
         path: '/news',
         title: 'News',
-        icon: <NewsIcon />
+        icon: <NewsIcon />,
+        mobile: true
     },
     {
         path: '/messages',
         title: 'Messages',
-        icon: <MessagesIcon />
+        icon: <MessagesIcon />,
+        mobile: true
     },
     {
         path: '/friends',
         title: 'Friends',
-        icon: <FriendsIcon />
+        icon: <FriendsIcon />,
+        mobile: true
     },
     {
         path: '/music',
         title: 'Music',
-        icon: <MusicIcon />
+        icon: <MusicIcon />,
+        mobile: true
     }
 ]
 
-export default links
+export const mobileLinks = desktopLinks.filter(link => link.mobile == true)
