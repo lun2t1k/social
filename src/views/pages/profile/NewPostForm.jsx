@@ -35,7 +35,12 @@ const NewPostForm = ({ userPhoto, addPost }) => {
                                 <button
                                     type='submit'
                                     disabled={ !isValid || isSubmitting }
-                                    className={ button.condition.active + button.condition.disabled + button.size.md + (dirty ? 'inline' : 'hidden') }
+                                    className={
+                                        button.condition.active +
+                                        button.condition.disabled +
+                                        button.size.md +
+                                        (dirty ? 'inline' : 'hidden')
+                                    }
                                 >
                                     Post
                                 </button>

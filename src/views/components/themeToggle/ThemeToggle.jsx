@@ -49,19 +49,17 @@ export default function ThemeToggle() {
     })
 
     return (
-        <ul className="flex items-center justify-center gap-2 p-1 mb-5 bg-white dark:bg-zinc-900 rounded-2xl">
-            {
-                options?.map(opt => (
-                    <li key={ opt.theme }>
-                        <button
-                            onClick={ () => setTheme(opt.theme) }
-                            className={ `p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 ${theme === opt.theme && 'text-violet-400'}` }
-                        >
-                            { opt.icon }
-                        </button>
-                    </li>
-                ))
-            }
+        <ul className='mb-5 flex items-center justify-center gap-2 rounded-2xl bg-white p-1 dark:bg-zinc-900'>
+            { options?.map(opt => (
+                <li key={ opt.theme }>
+                    <button
+                        onClick={ () => setTheme(opt.theme) }
+                        className={ 'rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 ' + (theme === opt.theme && 'text-violet-400') }
+                    >
+                        { opt.icon }
+                    </button>
+                </li>
+            )) }
         </ul>
     )
 }

@@ -29,28 +29,23 @@ export default function UserInfo({ profile, status, updateStatus }) {
     ]
 
     return (
-        <div className='w-full pt-[110px] md:pt-0 md:pl-[200px] text-center md:text-left'>
+        <div className='w-full pt-[110px] text-center md:pt-0 md:pl-[200px] md:text-left'>
             <h2 className='mb-2 block w-full text-2xl font-semibold capitalize'>
                 { profile.fullName }
             </h2>
-            <UserStatus
-                status={ status }
-                updateStatus={ updateStatus }
-            />
-            <ul className='flex flex-wrap gap-4 justify-center md:justify-start mt-4'>
-                {
-                    userInfo.map(i => {
-                        return (
-                            <li
-                                key={ i.id }
-                                className='flex items-center gap-1 text-zinc-500'
-                            >
-                                { i.icon }
-                                { i.info }
-                            </li>
-                        )
-                    })
-                }
+            <UserStatus status={ status } updateStatus={ updateStatus } />
+            <ul className='mt-4 flex flex-wrap justify-center gap-4 md:justify-start'>
+                { userInfo.map(i => {
+                    return (
+                        <li
+                            key={ i.id }
+                            className='flex items-center gap-1 text-zinc-500'
+                        >
+                            { i.icon }
+                            { i.info }
+                        </li>
+                    )
+                }) }
             </ul>
         </div>
     )

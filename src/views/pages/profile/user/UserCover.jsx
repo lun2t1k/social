@@ -3,9 +3,7 @@ import styles from '../Profile.module.css'
 
 export default function UserCover({ userCover }) {
     return (
-        <div
-            className={ styles.userCover }
-        >
+        <div className={ styles.userCover }>
             { userCover ? (
                 <img
                     src={ userCover }

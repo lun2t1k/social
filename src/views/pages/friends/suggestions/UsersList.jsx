@@ -1,72 +1,66 @@
-import { NavLink } from "react-router-dom"
-import UserDefaultPhoto from './UserDefaultPhoto'
-import UsersLoader from "./UsersLoader"
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import {
+    getUsers,
+    getFriendsSuggestions,
+    follow,
+    unfollow,
+    requestUsers
+} from '../../../../redux/ducks/friends'
+import UsersSkeleton from './UsersSkeleton'
 import Navigation from '../navigation/Navigation'
+import User from './User'
 
-export default function UsersList(props) {
+const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
+    const onPageChange = pageNumber => {
+        requestUsers(pageNumber)
+    }
+
+    useEffect(() => {
+        requestUsers(1)
+    }, [requestUsers])
+
     return (
         <>
-            <h3 className="font-semibold mb-3">People you may know</h3>
+            <h3 className='mb-3 font-semibold'>People you may know</h3>
 
-            { props.isFetchingUsers ? (
-                <UsersLoader />
+            { friendsSuggestions.isFetchingUsers ? (
+                <UsersSkeleton />
             ) : (
-                <>
-                    <ul className="w-full">
-                        { props.users.map((user) => {
-                            return (
-                                <li
-                                    key={ user.id }
-                                    id={ user.id }
-                                    className="flex items-center justify-between border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800"
-                                >
-                                    <div className="flex items-center min-w-0">
-                                        <NavLink
-                                            to={ `/profile/${user.id}` }
-                                            className="mr-2 flex h-[40px] w-[40px] flex-[1_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400"
-                                        >
-                                            { user.photos.small ? (
-                                                <img
-                                                    src={ user.photos.small }
-                                                    alt=""
-                                                    className="h-full w-full object-cover"
-                                                />
-                                            ) : (
-                                                <UserDefaultPhoto />
-                                            ) }
-                                        </NavLink>
-                                        <NavLink to={ `/profile/${user.id}` } className="truncate">
-                                            { user.name }
-                                        </NavLink>
-                                    </div>
-                                    <button
-                                        onClick={ () =>
-                                            user.followed
-                                                ? props.unfollow(user.id)
-                                                : props.follow(user.id)
-                                        }
-                                        disabled={ props.followingQueue.some(
-                                            (userID) => userID === user.id
-                                        ) }
-                                        className="ml-3 rounded-xl bg-violet-400 px-2 py-1 text-white text-xs font-semibold transition-all ease-in hover:bg-violet-500"
-                                    >
-                                        { props.followingQueue.some(
-                                            (userID) => userID === user.id
-                                        ) ? (
-                                            <span className="block h-4 w-4 animate-spin rounded-full border border-transparent border-t-white" />
-                                        ) : user.followed ? (
-                                            "Unfollow"
-                                        ) : (
-                                            "Follow"
-                                        ) }
-                                    </button>
-                                </li>
-                            )
-                        }) }
-                    </ul>
-                    <Navigation totalCount={ props.totalCount } pageSize={ props.pageSize } currentPage={ props.currentPage } onPageChange={ props.onPageChange } />
-                </>
+                <ul className='w-full'>
+                    { users.map(user => {
+                        return (
+                            <User
+                                key={ user.id }
+                                user={ user }
+                                follow={ props.follow }
+                                unfollow={ props.unfollow }
+                                followingQueue={
+                                    friendsSuggestions.followingQueue
+                                }
+                            />
+                        )
+                    }) }
+                </ul>
             ) }
+
+            <Navigation
+                totalCount={ friendsSuggestions.totalCount }
+                pageSize={ friendsSuggestions.pageSize }
+                currentPage={ friendsSuggestions.currentPage }
+                onPageChange={ onPageChange }
+            />
         </>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        users: getUsers(state),
+        friendsSuggestions: getFriendsSuggestions(state)
+    }
+}
+
+export default connect(mapStateToProps, { follow, unfollow, requestUsers })(
+    UsersList
+)

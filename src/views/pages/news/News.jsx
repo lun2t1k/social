@@ -34,7 +34,7 @@ const News = ({ news, isFetchingNews, getNews }) => {
 const mapStateToProps = state => {
     return {
         news: state.news.news,
-        isFetchingNews: state.news.isFetchingNews,
+        isFetchingNews: state.news.isFetchingNews
     }
 }
 

@@ -19,6 +19,6 @@
 }
 
 .userAvatar {
-    @apply absolute -top-[70px] md:!left-5 flex items-center justify-center overflow-hidden rounded-full border-[5px] border-white bg-slate-400;
+    @apply absolute -top-[70px] flex items-center justify-center overflow-hidden rounded-full border-[5px] border-white bg-slate-400 md:!left-5;
     left: calc(50% - 95px);
 }

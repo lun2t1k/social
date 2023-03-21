@@ -5,7 +5,7 @@ export default function Music() {
         <div className={ componentWrapper.default }>
             <div className='p-5'>
                 <iframe
-                    style={{ borderRadius: '12px' }}
+                    style={ { borderRadius: '12px' } }
                     src='https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0'
                     width='100%'
                     height='550'

@@ -1,13 +1,27 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { setProfile, setStatus, updateStatus, getAuthorizedUserId, getProfile, getStatus } from '../../../redux/ducks/profile'
+import {
+    setProfile,
+    setStatus,
+    updateStatus,
+    getAuthorizedUserId,
+    getProfile,
+    getStatus
+} from '../../../redux/ducks/profile'
 import ProfileSkeleton from './ProfileSkeleton'
 import User from './user/User'
 import NewPostForm from './NewPostForm'
 import Posts from './Posts'
 
-const Profile = ({ setProfile, setStatus, updateStatus, profile, authorizedUserId, status }) => {
+const Profile = ({
+    setProfile,
+    setStatus,
+    updateStatus,
+    profile,
+    authorizedUserId,
+    status
+}) => {
     const params = useParams()
 
     useEffect(() => {
@@ -30,7 +44,10 @@ const Profile = ({ setProfile, setStatus, updateStatus, profile, authorizedUserI
                     updateStatus={ updateStatus }
                 />
                 <NewPostForm userPhoto={ profile.photos.small } />
-                <Posts userPhoto={ profile.photos.small } userName={ profile.fullName } />
+                <Posts
+                    userPhoto={ profile.photos.small }
+                    userName={ profile.fullName }
+                />
             </>
         )
     }
@@ -44,4 +61,8 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { setProfile, setStatus, updateStatus })(Profile)
+export default connect(mapStateToProps, {
+    setProfile,
+    setStatus,
+    updateStatus
+})(Profile)

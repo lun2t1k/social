@@ -24,20 +24,35 @@ export default function UserStatus({ status, updateStatus }) {
                     { ({ touched, errors, isSubmitting, isValid }) => {
                         return (
                             <Form className='flex flex-col gap-3 xs:flex-row'>
-                                <div className='flex flex-auto gap-1 flex-col'>
+                                <div className='flex flex-auto flex-col gap-1'>
                                     <Field
                                         name='newStatusText'
-                                        className={ input.default + ((touched.newStatusText && errors.newStatusText) ? input.error : '') }
+                                        className={
+                                            input.default +
+                                            input.size.md +
+                                            (touched.newStatusText &&
+                                                errors.newStatusText
+                                                ? input.error
+                                                : '')
+                                        }
                                         autoFocus
                                     />
-                                    { touched.newStatusText && errors.newStatusText && (
-                                        <div className={ error.color }>{ errors.newStatusText }</div>
-                                    ) }
+                                    { touched.newStatusText &&
+                                        errors.newStatusText && (
+                                            <div className={ error.color }>
+                                                { errors.newStatusText }
+                                            </div>
+                                        ) }
                                 </div>
                                 <button
                                     type='submit'
                                     disabled={ !isValid || isSubmitting }
-                                    className={ button.condition.active + button.condition.disabled + button.size.sm + 'border border-transparent' }
+                                    className={
+                                        button.condition.active +
+                                        button.condition.disabled +
+                                        button.size.sm +
+                                        'border border-transparent'
+                                    }
                                 >
                                     Save
                                 </button>
@@ -50,9 +65,7 @@ export default function UserStatus({ status, updateStatus }) {
                     onClick={ () => setEditMode(true) }
                     className='group flex cursor-pointer select-none items-center justify-center md:justify-start'
                 >
-                    <span>
-                        { status ? status : 'Set your status' }
-                    </span>
+                    <span>{ status ? status : 'Set your status' }</span>
                     <EditIcon classes='ml-2 hidden h-4 w-4 group-hover:inline-block' />
                 </h3>
             ) }
