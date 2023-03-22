@@ -7,12 +7,14 @@ import ChatsList from './chats/ChatsList'
 import ChatsSearch from './chats/ChatsSearch'
 import { componentWrapper } from '../../../helpers/theme'
 
-const Messages = ({ selectChat, selectedChat }) => {
+const Messages = ({ selectChat, selectedChat, chats }) => {
     useEffect(() => {
         document.title = 'Messages'
     }, [])
 
     let params = useParams()
+
+    const activeChat = chats.find(chat => chat.id == selectedChat)
 
     useEffect(() => {
         document.body.classList.add('overflow-hidden')
@@ -33,7 +35,7 @@ const Messages = ({ selectChat, selectedChat }) => {
             <div className='flex h-full w-full flex-col border-l dark:border-l-zinc-800'>
                 {
                     selectedChat ? (
-                        <Chat />
+                        <Chat activeChat={ activeChat } />
                     ) : (
                         <div className='flex items-center justify-center h-full p-5'>
                             <h2 className='text-center'>Select a chat to start messaging</h2>
@@ -47,7 +49,8 @@ const Messages = ({ selectChat, selectedChat }) => {
 
 const mapStateToProps = state => {
     return {
-        selectedChat: state.messages.selectedChat
+        selectedChat: state.messages.selectedChat,
+        chats: state.messages.chats
     }
 }
 

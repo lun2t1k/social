@@ -1,9 +1,9 @@
 import { userAvatar, image } from '../../helpers/theme'
 
-export default function UserAvatar({ img, size }) {
+export default function UserAvatar({ img, size, extraClasses }) {
     return (
         <div
-            className={ `flex ${userAvatar.size[size]} flex-[0_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400` }
+            className={ `flex ${userAvatar.size[size]} flex-[0_0_auto] items-center justify-center overflow-hidden rounded-full bg-slate-400 ${extraClasses}` }
         >
             { img ? (
                 <img

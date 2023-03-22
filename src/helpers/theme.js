@@ -14,7 +14,7 @@ export const userAvatar = {
     size: {
         sm: ' h-[30px] w-[30px] ',
         md: ' h-[40px] w-[40px] ',
-        '2md': ' h-[50px] w-[50px] ',
+        '2md': ' h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] ',
         lg: ' h-[70px] w-[70px] ',
         xl: ' h-[180px] w-[180px] '
     }

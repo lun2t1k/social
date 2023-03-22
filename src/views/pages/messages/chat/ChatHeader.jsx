@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import UserAvatar from '../../../components/UserAvatar'
 
-export default function MessageHeader() {
+export default function MessageHeader({ userName, userAvatar }) {
     return (
         <div className='relative flex items-center justify-center p-2 md:justify-between'>
             <NavLink
@@ -22,12 +22,12 @@ export default function MessageHeader() {
                         d='M15.75 19.5L8.25 12l7.5-7.5'
                     />
                 </svg>
-                <span>Back</span>
+                <span className='hidden sm:inline'>Back</span>
             </NavLink>
             <span className='w-full text-center text-sm font-semibold md:text-md'>
-                User Name
+                { userName }
             </span>
-            <UserAvatar img={ null } size='sm' />
+            <UserAvatar img={ userAvatar } size='sm' />
         </div>
     )
 }
