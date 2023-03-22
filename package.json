@@ -1,6 +1,21 @@
 {
     "name": "social",
     "version": "1.0.0",
+    "description": "The Social media app",
+    "keywords": [
+        "social",
+        "social app"
+    ],
+    "homepage": "https://lun2t1k.github.io/social",
+    "bugs": {
+        "url": "https://lun2t1k.github.io/social",
+        "email": "lun2t1k@gmail.com"
+    },
+    "author": "Dmitry Krutkin",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lun2t1k/social"
+    },
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.2",
@@ -24,6 +39,8 @@
         "yup-password": "^0.2.2"
     },
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "PORT=3001 react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
@@ -60,6 +77,7 @@
         "eslint-config-prettier": "^8.7.0",
         "eslint-plugin-react": "^7.32.2",
         "eslint-plugin-react-hooks": "^5.0.0-next-f828bad38-20230313",
+        "gh-pages": "^5.0.0",
         "prettier": "^2.8.4",
         "prettier-plugin-tailwindcss": "^0.2.4",
         "tailwindcss": "^3.2.4"

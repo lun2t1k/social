@@ -4,17 +4,15 @@ import { container } from '../../helpers/theme'
 import Login from '../pages/login/Login'
 
 const AuthLayout = ({ isAuth }) => {
-    if (isAuth) {
-        return <Navigate replace to='/news' />
-    } else {
-        return (
-            <main className='flex tall:h-[100vh] w-full items-center justify-center p-10'>
-                <div className={ container.size.default }>
-                    <Login />
-                </div>
-            </main>
-        )
-    }
+    if (isAuth) return <Navigate replace to='/news' />
+
+    return (
+        <main className='flex tall:h-[100vh] w-full items-center justify-center p-10'>
+            <div className={ container.size.default }>
+                <Login />
+            </div>
+        </main>
+    )
 }
 
 const mapStateToProps = state => {

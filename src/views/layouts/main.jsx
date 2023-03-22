@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { container } from '../../helpers/theme'
 import Header from '../components/header/Header'
@@ -7,36 +7,37 @@ import MobileNavbar from '../components/navbar/MobileNavbar'
 import routes from '../../routes'
 
 const MainLayout = ({ isAuth }) => {
-    if (isAuth) {
-        return (
-            <>
-                <Header />
-                <main className='pb-[88px] pt-[76px] md:pb-[20px]'>
-                    <div className={ container.size.default }>
-                        <div className='flex flex-col gap-5 md:flex-row'>
-                            <Navbar />
-                            <section className='flex flex-auto flex-col gap-5'>
-                                <Routes>
-                                    { routes.map(route => {
-                                        return (
-                                            <Route
-                                                key={ route.path }
-                                                path={ route.path }
-                                                element={ route.component }
-                                            />
-                                        )
-                                    }) }
-                                </Routes>
-                            </section>
-                        </div>
+    let params = useParams()
+
+    if (!isAuth) return <Navigate replace to='/login' />
+    if (params['*'] === '') return <Navigate replace to='/news' />
+
+    return (
+        <>
+            <Header />
+            <main className='pb-[88px] pt-[76px] md:pb-[20px]'>
+                <div className={ container.size.default }>
+                    <div className='flex flex-col gap-5 md:flex-row'>
+                        <Navbar />
+                        <section className='flex flex-auto flex-col gap-5'>
+                            <Routes>
+                                { routes.map(route => {
+                                    return (
+                                        <Route
+                                            key={ route.path }
+                                            path={ route.path }
+                                            element={ route.component }
+                                        />
+                                    )
+                                }) }
+                            </Routes>
+                        </section>
                     </div>
-                </main>
-                <MobileNavbar />
-            </>
-        )
-    } else {
-        return <Navigate replace to='/login' />
-    }
+                </div>
+            </main>
+            <MobileNavbar />
+        </>
+    )
 }
 
 const mapStateToProps = state => {
