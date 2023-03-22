@@ -6,6 +6,10 @@ import Post from '../../components/post/Post'
 
 const News = ({ news, isFetchingNews, getNews }) => {
     useEffect(() => {
+        document.title = 'News'
+    }, [])
+
+    useEffect(() => {
         getNews()
     }, [getNews])
 

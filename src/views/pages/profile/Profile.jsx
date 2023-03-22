@@ -22,6 +22,10 @@ const Profile = ({
     authorizedUserId,
     status
 }) => {
+    useEffect(() => {
+        document.title = 'Profile'
+    }, [])
+    
     let params = useParams()
 
     useEffect(() => {

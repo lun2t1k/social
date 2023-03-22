@@ -6,6 +6,16 @@ export default function ThemeToggle() {
         localStorage.getItem('theme') ? localStorage.getItem('theme') : 'system'
     )
     const element = document.documentElement
+
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+    const setMetaThemeColor = useCallback(theme => {
+        if (theme === 'dark') {
+            metaThemeColor.setAttribute('content', '#18181b') // zinc-900
+        } else {
+            metaThemeColor.setAttribute('content', '#ffffff') // white
+        }
+    }, [metaThemeColor])
+    
     const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     const onWindowMatch = useCallback(() => {
@@ -14,10 +24,12 @@ export default function ThemeToggle() {
             (!('theme' in localStorage) && darkQuery.matches)
         ) {
             element.classList.add('dark')
+            setMetaThemeColor('dark')
         } else {
             element.classList.remove('dark')
+            setMetaThemeColor('light')
         }
-    }, [darkQuery.matches, element.classList])
+    }, [darkQuery.matches, element.classList, setMetaThemeColor])
 
     onWindowMatch()
 
@@ -25,10 +37,12 @@ export default function ThemeToggle() {
         switch (theme) {
             case 'light':
                 element.classList.remove('dark')
+                setMetaThemeColor('light')
                 localStorage.setItem('theme', 'light')
                 break
             case 'dark':
                 element.classList.add('dark')
+                setMetaThemeColor('dark')
                 localStorage.setItem('theme', 'dark')
                 break
             default:
@@ -36,14 +50,16 @@ export default function ThemeToggle() {
                 onWindowMatch()
                 break
         }
-    }, [theme, element, onWindowMatch])
+    }, [theme, element, onWindowMatch, setMetaThemeColor])
 
     darkQuery.addEventListener('change', event => {
         if (!('theme' in localStorage)) {
             if (event.matches) {
                 element.classList.add('dark')
+                setMetaThemeColor('dark')
             } else {
                 element.classList.remove('dark')
+                setMetaThemeColor('light')
             }
         }
     })

@@ -1,9 +1,14 @@
+import { useEffect } from 'react'
 import { componentWrapper } from '../../../helpers/theme'
 import FriendsSearch from './FriendsSearch'
 import FriendsList from './FriendsList'
 import UsersList from './suggestions/UsersList'
 
 export default function Friends() {
+    useEffect(() => {
+        document.title = 'Friends'
+    }, [])
+
     return (
         <>
             <div className='relative flex w-full flex-col gap-5 lg:flex-row'>

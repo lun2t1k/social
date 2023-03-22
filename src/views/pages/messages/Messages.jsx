@@ -8,6 +8,10 @@ import ChatsSearch from './chats/ChatsSearch'
 import { componentWrapper } from '../../../helpers/theme'
 
 const Messages = ({ selectChat, selectedChat }) => {
+    useEffect(() => {
+        document.title = 'Messages'
+    }, [])
+
     let params = useParams()
 
     useEffect(() => {

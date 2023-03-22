@@ -1,6 +1,11 @@
+import { useEffect } from 'react'
 import { componentWrapper } from '../../../helpers/theme'
 
 export default function Music() {
+    useEffect(() => {
+        document.title = 'Music'
+    }, [])
+
     return (
         <div className={ componentWrapper.default }>
             <div className='p-5'>

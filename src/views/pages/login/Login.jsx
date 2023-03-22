@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Formik, Form } from 'formik'
 import { LoginSchema } from '../../../helpers/yup'
@@ -8,6 +9,10 @@ import Input from './Input'
 import Checkbox from './Checkbox'
 
 const Login = ({ login }) => {
+    useEffect(() => {
+        document.title = 'Profile'
+    }, [])
+
     const onSubmit = (values, actions) => {
         login(values.email, values.password, values.rememberMe)
         actions.resetForm()
