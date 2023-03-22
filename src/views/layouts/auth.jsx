@@ -8,7 +8,7 @@ const AuthLayout = ({ isAuth }) => {
         return <Navigate replace to='/news' />
     } else {
         return (
-            <main className='flex h-[100vh] w-full items-center justify-center'>
+            <main className='flex tall:h-[100vh] w-full items-center justify-center p-10'>
                 <div className={ container.size.default }>
                     <Login />
                 </div>

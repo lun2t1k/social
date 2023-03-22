@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
 import { Formik, Form } from 'formik'
 import { LoginSchema } from '../../../helpers/yup'
+import { componentWrapper, button } from '../../../helpers/theme'
 import { login } from '../../../redux/ducks/login'
+import Spinner from '../../components/Spinner'
 import Input from './Input'
 import Checkbox from './Checkbox'
 
@@ -12,7 +14,7 @@ const Login = ({ login }) => {
     }
 
     return (
-        <div className='mx-auto max-w-[600px] overflow-hidden rounded-3xl bg-white p-5 dark:bg-zinc-900'>
+        <div className={ componentWrapper.default + 'mx-auto max-w-[600px] p-5' }>
             <h1 className='mb-6 text-center text-4xl'>Login</h1>
 
             <Formik
@@ -54,10 +56,14 @@ const Login = ({ login }) => {
                         <button
                             type='submit'
                             disabled={ !isValid || isSubmitting }
-                            className='active h-[60px] w-full rounded-xl bg-violet-400 p-3 text-center text-xl font-bold text-white transition-all ease-in hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400'
+                            className={
+                                button.default +
+                                button.disabled +
+                                'mt-10 flex items-center justify-center h-[60px] w-full text-center text-xl font-bold'
+                            }
                         >
                             { isSubmitting ? (
-                                <span className='inline-block h-9 w-9 animate-spin rounded-full border-2 border-transparent border-t-white' />
+                                <Spinner size='lg' />
                             ) : (
                                 'Log in'
                             ) }

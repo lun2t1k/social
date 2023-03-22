@@ -20,9 +20,9 @@ export const userAvatar = {
     }
 }
 
-export const error = {
-    color: 'text-rose-600'
-}
+// export const error = {
+//     color: 'text-rose-600'
+// }
 
 export const button = {
     type: {
@@ -37,9 +37,7 @@ export const button = {
     disabled: ' disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-violet-400 ',
     size: {
         sm: ' py-1 px-2 ',
-        md: ' py-2 px-3 ',
-        lg: '',
-        xl: ''
+        md: ' py-2 px-3 '
     }
 }
 
@@ -49,7 +47,7 @@ export const textarea = {
 
 export const input = {
     default: ' w-full rounded-xl border dark:border-zinc-700 bg-transparent focus:border-violet-400 dark:focus:border-violet-400 outline-none ',
-    error: ' border-rose-600 dark:border-rose-600 ',
+    error: ' border-rose-600 focus:border-rose-600 dark:border-rose-600 dark:focus:border-rose-600',
     size: {
         md: ' py-1 px-2 ',
         lg: ' py-2 px-3 '

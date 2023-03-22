@@ -11,10 +11,14 @@ module.exports = {
             'sm': '640px',
             'md': '768px',
             'lg': '1024px',
-            'xl': '1536px'
+            'xl': '1536px',
+            'tall': {
+                'raw': '(min-height: 640px)'
+            }
         },
         fontSize: {
             base: ['14px', '20px'],
+            '2xs': ['10px', '14px'],
             xs: ['12px', '16px'],
             sm: ['14px', '20px'],
             md: ['16px', '24px'],

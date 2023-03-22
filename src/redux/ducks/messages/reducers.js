@@ -70,79 +70,79 @@ const initialState = {
             id: 'message' + 1,
             type: 'contact',
             text: 'Lorem ipsum',
-            time: '12:47'
+            time: '01:52 am'
         },
         {
             id: 'message' + 2,
             type: 'contact',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores qui odit unde corporis.',
-            time: '12:47'
+            time: '03:22 am'
         },
         {
             id: 'message' + 3,
             type: 'user',
             text: 'Lorem ipsum dolor sit amet consectetur',
-            time: '12:47'
+            time: '03:47 am'
         },
         {
             id: 'message' + 4,
             type: 'contact',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-            time: '12:47'
+            time: '03:55 am'
         },
         {
             id: 'message' + 5,
             type: 'user',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores qui odit unde corporis. Perspiciatis culpa, magnam corrupti obcaecati repellendus quidem velit voluptatum iure, deserunt cupiditate.',
-            time: '12:47'
+            time: '06:52 am'
         },
         {
             id: 'message' + 6,
             type: 'contact',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores qui odit unde corporis.',
-            time: '12:47'
+            time: '06:59 am'
         },
         {
             id: 'message' + 7,
             type: 'user',
             text: 'Lorem ipsum dolor sit amet consectetur',
-            time: '12:47'
+            time: '08:32 am'
         },
         {
             id: 'message' + 8,
             type: 'Contact',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-            time: '12:47'
+            time: '09:00 am'
         },
         {
             id: 'message' + 9,
             type: 'user',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores qui odit unde corporis. Perspiciatis culpa, magnam corrupti obcaecati repellendus quidem velit voluptatum iure, deserunt cupiditate.',
-            time: '12:47'
+            time: '09:47 am'
         },
         {
             id: 'message' + 10,
             type: 'contact',
             text: 'Lorem ipsum',
-            time: '12:47'
+            time: '11:33 am'
         },
         {
             id: 'message' + 11,
             type: 'user',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores qui odit unde corporis.',
-            time: '12:47'
+            time: '01:39 pm'
         },
         {
             id: 'message' + 12,
             type: 'contact',
             text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-            time: '12:47'
+            time: '01:54 pm'
         },
         {
             id: 'message' + 13,
             type: 'user',
             text: 'Perspiciatis culpa, magnam corrupti obcaecati repellendus quidem velit voluptatum iure, deserunt cupiditate.',
-            time: '12:47'
+            time: '04:42 pm'
         }
     ]
 }

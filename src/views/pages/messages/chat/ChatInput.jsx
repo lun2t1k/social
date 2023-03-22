@@ -9,7 +9,7 @@ import SendIcon from '../../../components/icons/SendIcon'
 
 const ChatInput = ({ sendMessage }) => {
     const onSubmit = (values, actions) => {
-        let time = moment().format('hh:mm')
+        let time = moment().format('hh:mm a')
         sendMessage(values.newMessageText, time)
         actions.resetForm()
     }
