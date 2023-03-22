@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import ChatUserDefaultPhoto from './ChatUserDefaultPhoto'
+import UserAvatar from '../../../components/UserAvatar'
 
 export default function MessageHeader() {
     return (
@@ -12,7 +12,7 @@ export default function MessageHeader() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    strokeWidth={2}
+                    strokeWidth={ 2 }
                     stroke='currentColor'
                     className='h-4 w-4'
                 >
@@ -27,7 +27,7 @@ export default function MessageHeader() {
             <span className='w-full text-center text-sm font-semibold md:text-md'>
                 User Name
             </span>
-            <ChatUserDefaultPhoto />
+            <UserAvatar img={ null } size='sm' />
         </div>
     )
 }

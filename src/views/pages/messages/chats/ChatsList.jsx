@@ -1,18 +1,15 @@
 import { connect } from 'react-redux'
 import ChatsItem from './ChatsItem'
 
-const ChatsListContainer = props => {
+const ChatsList = ({ chats }) => {
     return (
-        <div className='h-full overflow-scroll lg:pb-[62px]'>
-            {props.chats.map(chat => (
+        <div className='h-full overflow-scroll lg:pb-[62px] divide-y dark:divide-zinc-800'>
+            { chats.map(chat => (
                 <ChatsItem
-                    key={chat.id}
-                    userID={chat.id}
-                    userName={chat.name}
-                    userAvatar={chat.avatar}
-                    lastMessage={chat.lastMessage}
+                    key={ chat.id }
+                    chat={ chat }
                 />
-            ))}
+            )) }
         </div>
     )
 }
@@ -23,6 +20,4 @@ const mapStateToProps = state => {
     }
 }
 
-const ChatsList = connect(mapStateToProps)(ChatsListContainer)
-
-export default ChatsList
+export default connect(mapStateToProps, null)(ChatsList)

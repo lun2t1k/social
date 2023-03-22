@@ -22,7 +22,7 @@ const Profile = ({
     authorizedUserId,
     status
 }) => {
-    const params = useParams()
+    let params = useParams()
 
     useEffect(() => {
         let userID = params.userID

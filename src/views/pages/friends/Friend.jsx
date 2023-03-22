@@ -25,7 +25,7 @@ export default function Friend({ friend }) {
                         { friend.email }
                     </NavLink>
                     <NavLink
-                        to={ '/' }
+                        to={ `/messages/${friend.id}` }
                         className='text-xs text-violet-400 transition-all ease-in hover:text-violet-500'
                     >
                         Write a message

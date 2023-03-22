@@ -1,11 +1,12 @@
-export default function ContactMessage(props) {
+export default function ContactMessage({ message }) {
     return (
         <div
-            id={props.messageID}
+            id={ message.id }
             className='contactMessage flex w-full justify-start py-2'
         >
-            <div className='max-w-[250px] rounded-2xl rounded-bl-none bg-gray-200 py-2 px-3 text-xs dark:bg-zinc-700 sm:max-w-[400px]'>
-                <span className=''>{props.messageText}</span>
+            <div className='flex flex-wrap justify-start gap-2 max-w-[250px] sm:max-w-[400px] rounded-2xl rounded-bl-none bg-gray-200 py-2 px-3 text-xs dark:bg-zinc-700'>
+                <span>{ message.text }</span>
+                <span>{ message.time }</span>
             </div>
         </div>
     )

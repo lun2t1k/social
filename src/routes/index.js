@@ -23,7 +23,7 @@ const routes = [
         component: <News />
     },
     {
-        path: '/messages/*',
+        path: '/messages/:userID?',
         component: <Messages />
     },
     {
