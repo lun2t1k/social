@@ -3,7 +3,7 @@ import { mobileLinks } from './links'
 
 export default function MobileNavbar() {
     let defaultClassName =
-        'flex w-full flex-col items-center gap-2 p-2 text-xs dark:text-zinc-500 '
+        'flex w-full flex-col items-center gap-2 p-2 text-xs dark:text-zinc-400 '
 
     return (
         <nav className='fixed bottom-0 z-50 w-full min-w-[320px] bg-white dark:bg-zinc-900 md:hidden'>
@@ -16,7 +16,7 @@ export default function MobileNavbar() {
                                 className={ ({ isActive }) =>
                                     isActive
                                         ? defaultClassName +
-                                        'text-violet-400 dark:!text-zinc-100'
+                                        'text-violet-400 dark:!text-violet-400'
                                         : defaultClassName
                                 }
                             >
