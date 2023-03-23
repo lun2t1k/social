@@ -3,37 +3,59 @@ import NewsIcon from '../icons/NewsIcon'
 import MessagesIcon from '../icons/MessagesIcon'
 import FriendsIcon from '../icons/FriendsIcon'
 import MusicIcon from '../icons/MusicIcon'
+import HubIcon from '../icons/HubIcon'
 
-export const desktopLinks = [
+export const links = [
     {
         path: '/profile',
-        title: 'My Profile',
-        icon: <ProfileIcon />
+        title: 'Profile',
+        icon: <ProfileIcon />,
+        desktop: true,
+        mobile: false,
+        hub: true
     },
     {
         path: '/news',
         title: 'News',
         icon: <NewsIcon />,
-        mobile: true
+        desktop: true,
+        mobile: true,
+        hub: true
     },
     {
         path: '/messages',
         title: 'Messages',
         icon: <MessagesIcon />,
-        mobile: true
+        desktop: true,
+        mobile: true,
+        hub: true
     },
     {
         path: '/friends',
         title: 'Friends',
         icon: <FriendsIcon />,
-        mobile: true
+        desktop: true,
+        mobile: false,
+        hub: true
     },
     {
         path: '/music',
         title: 'Music',
         icon: <MusicIcon />,
-        mobile: true
+        desktop: true,
+        mobile: true,
+        hub: true
+    },
+    {
+        path: '/hub',
+        title: 'Hub',
+        icon: <HubIcon />,
+        desktop: false,
+        mobile: true,
+        hub: false
     }
 ]
 
-export const mobileLinks = desktopLinks.filter(link => link.mobile == true)
+export const mobileLinks = links.filter(link => link.mobile == true)
+export const desktopLinks = links.filter(link => link.desktop == true)
+export const hubLinks = links.filter(link => link.hub == true)

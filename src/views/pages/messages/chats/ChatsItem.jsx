@@ -3,7 +3,7 @@ import UserAvatar from '../../../components/UserAvatar'
 
 export default function ChatsItem({ chat }) {
     let defaultClassName =
-        ' p-2 lg:pl-5 lg:pr-2 first:pt-2 last:pb-2 flex gap-3 items-center hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all ease-in '
+        ' p-2 lg:pl-5 lg:pr-2 first:pt-2 last:pb-2 flex gap-3 items-center md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 transition-all ease-in '
 
     return (
         <NavLink

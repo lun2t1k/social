@@ -6,7 +6,7 @@ export default function MobileMenu() {
             viewBox='0 0 24 24'
             strokeWidth={ 1.5 }
             stroke='currentColor'
-            className='mr-2 h-7 w-7 md:hidden'
+            className='h-5 w-5'
         >
             <path
                 strokeLinecap='round'

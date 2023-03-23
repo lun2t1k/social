@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 import { withSuspense } from '../hoc/withSuspense'
+import Hub from '../views/pages/hub/Hub'
 
 const Profile = withSuspense(lazy(() => import('../views/pages/profile/Profile')))
 const News = withSuspense(lazy(() => import('../views/pages/news/News')))
@@ -27,6 +28,10 @@ const routes = [
     {
         path: '/music',
         component: <Music />
+    },
+    {
+        path: '/hub',
+        component: <Hub />
     }
 ]
 

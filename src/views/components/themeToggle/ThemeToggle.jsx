@@ -70,7 +70,10 @@ export default function ThemeToggle() {
                 <li key={ opt.theme }>
                     <button
                         onClick={ () => setTheme(opt.theme) }
-                        className={ 'rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 ' + (theme === opt.theme && 'text-violet-400') }
+                        className={
+                            'rounded-lg p-2 md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 ' +
+                            (theme === opt.theme && 'text-violet-400')
+                        }
                     >
                         { opt.icon }
                     </button>

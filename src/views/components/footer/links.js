@@ -1,4 +1,4 @@
-const links = [
+export const footerLinks = [
     {
         path: '/blog',
         title: 'Blog'
@@ -13,7 +13,7 @@ const links = [
     },
     {
         path: '/data-protection',
-        title: 'Data Protection'
+        title: 'Data protection'
     },
     {
         path: '/help',
@@ -25,8 +25,6 @@ const links = [
     },
     {
         path: '/privicy-policy',
-        title: 'Privicy Policy'
+        title: 'Privicy policy'
     }
 ]
-
-export default links

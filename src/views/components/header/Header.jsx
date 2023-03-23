@@ -3,7 +3,6 @@ import { container } from '../../../helpers/theme'
 import Logo from '../Logo'
 import Notifications from './Notifications'
 import UserAvatar from '../UserAvatar'
-import MobileMenu from './MobileMenu'
 
 export default function Header() {
     return (
@@ -16,7 +15,6 @@ export default function Header() {
 
                     <div className='flex items-center'>
                         <Notifications />
-                        <MobileMenu />
                         <NavLink to={ '/profile' }>
                             <UserAvatar img={ '' } size='md' />
                         </NavLink>
