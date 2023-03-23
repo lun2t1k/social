@@ -39,22 +39,22 @@ const Profile = ({
 
     if (!profile) {
         return <ProfileSkeleton />
-    } else {
-        return (
-            <>
-                <User
-                    profile={ profile }
-                    status={ status }
-                    updateStatus={ updateStatus }
-                />
-                <NewPostForm userPhoto={ profile.photos.small } />
-                <Posts
-                    userPhoto={ profile.photos.small }
-                    userName={ profile.fullName }
-                />
-            </>
-        )
     }
+
+    return (
+        <>
+            <User
+                profile={ profile }
+                status={ status }
+                updateStatus={ updateStatus }
+            />
+            <NewPostForm userPhoto={ profile.photos.small } />
+            <Posts
+                userPhoto={ profile.photos.small }
+                userName={ profile.fullName }
+            />
+        </>
+    )
 }
 
 const mapStateToProps = state => {

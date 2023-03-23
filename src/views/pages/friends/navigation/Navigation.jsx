@@ -6,7 +6,6 @@ import NextPage from './NextPage'
 export default function Navigation({
     totalCount,
     pageSize,
-    currentPage,
     onPageChange
 }) {
     const pageCount = Math.ceil(totalCount / pageSize)
@@ -29,7 +28,6 @@ export default function Navigation({
             nextLinkClassName={ button.pagination.default }
             onPageChange={ handlePageClick }
             pageCount={ pageCount }
-            forcePage={ currentPage }
             renderOnZeroPageCount={ null }
         />
     )

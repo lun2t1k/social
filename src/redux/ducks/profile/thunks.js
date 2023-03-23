@@ -10,6 +10,9 @@ export const setProfile = userID => dispatch => {
                 dispatch(setUserProfile(response.data))
             }
         })
+        .catch(error => {
+            swalError(error)
+        })
 }
 
 export const setStatus = userID => dispatch => {

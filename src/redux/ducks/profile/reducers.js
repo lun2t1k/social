@@ -40,7 +40,8 @@ const profileReducer = createReducer(initialState, builder => {
         .addCase(addNewPost, (state = initialState, action) => {
             let newPost = {
                 id: 'post' + (state.posts.length + 1),
-                text: action.payload.text,
+                title: '',
+                body: action.payload.text,
                 likesAmount: 0
             }
             return { ...state, posts: [...state.posts, newPost] }

@@ -21,7 +21,7 @@ const initialSuggestionsState = {
     isFetchingUsers: false,
     pageSize: 5,
     totalCount: 0,
-    currentPage: 1,
+    currentPage: 0,
     isFollowingProcess: false,
     followingQueue: []
 }

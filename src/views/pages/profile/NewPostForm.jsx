@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
-import addPost from '../../../redux/ducks/profile'
+import { addPost } from '../../../redux/ducks/profile'
 import { NewPostSchema } from '../../../helpers/yup'
 import { componentWrapper, button, textarea } from '../../../helpers/theme'
 import UserAvatar from '../../components/UserAvatar'
@@ -36,8 +36,8 @@ const NewPostForm = ({ userPhoto, addPost }) => {
                                     type='submit'
                                     disabled={ !isValid || isSubmitting }
                                     className={
-                                        button.condition.active +
-                                        button.condition.disabled +
+                                        button.default +
+                                        button.disabled +
                                         button.size.md +
                                         (dirty ? 'inline' : 'hidden')
                                     }

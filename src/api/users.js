@@ -1,8 +1,8 @@
 import { instance } from './axios'
 
 const users = {
-    getUsersRequest(currentPage = 1, pageSize = 5) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+    getUsersRequest(currentPage = 0, pageSize = 5) {
+        return instance.get(`users?page=${currentPage + 1}&count=${pageSize}`)
     },
     followUserRequest(userID) {
         return instance.post(`follow/${userID}`)

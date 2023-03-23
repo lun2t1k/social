@@ -17,7 +17,7 @@ const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
     }
 
     useEffect(() => {
-        requestUsers(1)
+        requestUsers(0)
     }, [requestUsers])
 
     return (
@@ -47,7 +47,6 @@ const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
             <Navigation
                 totalCount={ friendsSuggestions.totalCount }
                 pageSize={ friendsSuggestions.pageSize }
-                currentPage={ friendsSuggestions.currentPage }
                 onPageChange={ onPageChange }
             />
         </>
