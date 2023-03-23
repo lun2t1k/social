@@ -1,5 +1,5 @@
 import { useField } from 'formik'
-import { input } from '../../../helpers/theme'
+import { input, errorStyles } from '../../../helpers/theme'
 
 const Input = ({ label, id, ...props }) => {
     const [field, { touched, error }] = useField(props)
@@ -20,7 +20,7 @@ const Input = ({ label, id, ...props }) => {
                     'mb-1 text-lg'
                 }
             />
-            { touched && error && <div className='text-rose-600'>{ error }</div> }
+            { touched && error && <div className={ errorStyles.color }>{ error }</div> }
         </div>
     )
 }

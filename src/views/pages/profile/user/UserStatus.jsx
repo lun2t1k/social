@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { NewStatusSchema } from '../../../../helpers/yup'
-import { button, input } from '../../../../helpers/theme'
+import { button, input, errorStyles } from '../../../../helpers/theme'
 import EditIcon from '../../../components/icons/EditIcon'
 
 export default function UserStatus({ status, updateStatus }) {
@@ -39,7 +39,7 @@ export default function UserStatus({ status, updateStatus }) {
                                     />
                                     { touched.newStatusText &&
                                         errors.newStatusText && (
-                                            <div className='text-rose-600'>
+                                            <div className={ errorStyles.color }>
                                                 { errors.newStatusText }
                                             </div>
                                         ) }

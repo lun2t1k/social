@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { linkStyles } from '../../../helpers/theme'
+import { linkStyles, errorStyles } from '../../../helpers/theme'
 import { hubLinks } from '../../components/navbar/links'
 import { footerLinks } from '../../components/footer/links'
 import UserAvatar from '../../components/UserAvatar'
@@ -24,7 +24,7 @@ const Hub = () => {
                     <li>
                         <NavLink
                             to='/logout'
-                            className={ linkStyles.hub + 'text-rose-600' }
+                            className={ linkStyles.hub + errorStyles.color }
                         >
                             Log out
                         </NavLink>

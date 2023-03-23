@@ -22,9 +22,9 @@ export const userAvatar = {
     }
 }
 
-// export const error = {
-//     color: 'text-rose-600'
-// }
+export const errorStyles = {
+    color: 'text-rose-600'
+}
 
 export const button = {
     type: {
@@ -33,7 +33,7 @@ export const button = {
     pagination: {
         default: ' flex h-[30px] w-[30px] items-center justify-center rounded-xl border-2 p-1 text-center transition-all ease-in md:hover:bg-gray-200 dark:border-zinc-800 dark:md:hover:bg-zinc-800 select-none ',
         active: ' border-violet-400 bg-violet-400 text-white md:hover:bg-violet-400 dark:border-violet-400 dark:md:hover:bg-violet-400 ',
-        disabled: ' bg-gray-200 hover:bg-gray-200 opacity-50 '
+        disabled: ' !bg-gray-200 hover:!bg-gray-200 dark:!bg-zinc-800 dark:hover:!bg-zinc-800 opacity-50 cursor-not-allowed '
     },
     default: ' h-fit rounded-xl bg-violet-400 text-center font-semibold text-white transition-all ease-in md:hover:bg-violet-500 ',
     disabled: ' disabled:cursor-not-allowed disabled:opacity-50 disabled:md:hover:bg-violet-400 ',
