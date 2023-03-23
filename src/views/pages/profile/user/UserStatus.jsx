@@ -48,8 +48,8 @@ export default function UserStatus({ status, updateStatus }) {
                                     type='submit'
                                     disabled={ !isValid || isSubmitting }
                                     className={
-                                        button.condition.active +
-                                        button.condition.disabled +
+                                        button.default +
+                                        button.disabled +
                                         button.size.sm +
                                         'border border-transparent'
                                     }
