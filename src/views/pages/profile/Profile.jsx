@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {
     setProfile,
+    updateUserPhoto,
     setStatus,
     updateStatus,
     getAuthorizedUserId,
@@ -16,6 +17,7 @@ import Posts from './Posts'
 
 const Profile = ({
     setProfile,
+    updateUserPhoto,
     setStatus,
     updateStatus,
     profile,
@@ -35,7 +37,7 @@ const Profile = ({
         }
         setProfile(userID)
         setStatus(userID)
-    }, [authorizedUserId, params.userID, setProfile, setStatus])
+    }, [authorizedUserId, params, setProfile, setStatus])
 
     if (!profile) {
         return <ProfileSkeleton />
@@ -44,7 +46,9 @@ const Profile = ({
     return (
         <>
             <User
+                isOwner={ (profile.userId == authorizedUserId) }
                 profile={ profile }
+                updateUserPhoto={ updateUserPhoto }
                 status={ status }
                 updateStatus={ updateStatus }
             />
@@ -67,6 +71,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setProfile,
+    updateUserPhoto,
     setStatus,
     updateStatus
 })(Profile)

@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { setUserProfile, setUserStatus, addNewPost } from './actions'
+import { setUserProfile, setUserPhoto, setUserStatus, addNewPost } from './actions'
 
 const initialState = {
     profile: null,
@@ -33,6 +33,9 @@ const profileReducer = createReducer(initialState, builder => {
     builder
         .addCase(setUserProfile, (state = initialState, action) => {
             return { ...state, profile: action.payload.profile }
+        })
+        .addCase(setUserPhoto, (state = initialState, action) => {
+            return { ...state, profile: { ...state.profile, photos: action.payload.photos } }
         })
         .addCase(setUserStatus, (state = initialState, action) => {
             return { ...state, status: action.payload.status }

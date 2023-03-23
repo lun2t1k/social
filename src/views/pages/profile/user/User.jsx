@@ -1,14 +1,18 @@
 import { componentWrapper } from '../../../../helpers/theme'
-import UserAvatar from './UserAvatar'
+import UserAvatarWrapper from './UserAvatarWrapper'
 import UserCover from './UserCover'
 import UserInfo from './UserInfo'
 
-export default function User({ profile, status, updateStatus }) {
+export default function User({ isOwner, profile, updateUserPhoto, status, updateStatus }) {
     return (
         <div className={ componentWrapper.default }>
             <UserCover userCover={ profile.cover } />
             <div className='relative flex p-5'>
-                <UserAvatar userPhoto={ profile.photos.large } />
+                <UserAvatarWrapper
+                    isOwner={ isOwner }
+                    userPhoto={ profile.photos.large }
+                    updateUserPhoto={ updateUserPhoto }
+                />
                 <UserInfo
                     profile={ profile }
                     status={ status }

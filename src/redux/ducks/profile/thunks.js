@@ -1,13 +1,26 @@
 import * as types from './types'
-import { setUserProfile, setUserStatus, addNewPost } from './actions'
+import { setUserProfile, setUserPhoto, setUserStatus, addNewPost } from './actions'
 import profile from '../../../api/profile'
 import { swalError } from '../../../utils/swal'
 
 export const setProfile = userID => dispatch => {
+    dispatch(setUserProfile(null))
     profile.requestUserProfile(userID)
         .then(response => {
             if (response.status === types.STATUS_CODE.SUCCESS) {
                 dispatch(setUserProfile(response.data))
+            }
+        })
+        .catch(error => {
+            swalError(error)
+        })
+}
+
+export const updateUserPhoto = photo => dispatch => {
+    profile.requestUpdateUserPhoto(photo)
+        .then(response => {
+            if (response.status === types.STATUS_CODE.SUCCESS) {
+                dispatch(setUserPhoto(response.data.photos))
             }
         })
         .catch(error => {
