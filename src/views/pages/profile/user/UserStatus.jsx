@@ -23,7 +23,7 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                 >
                     { ({ touched, errors, isSubmitting, isValid }) => {
                         return (
-                            <Form className='flex flex-col gap-3 xs:flex-row'>
+                            <Form className='mb-4 flex flex-col gap-3 xs:flex-row'>
                                 <div className='flex flex-auto flex-col gap-1'>
                                     <Field
                                         name='newStatusText'
