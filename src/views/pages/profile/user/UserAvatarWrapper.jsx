@@ -2,7 +2,7 @@ import styles from '../Profile.module.css'
 import UserAvatar from '../../../components/UserAvatar'
 
 export default function UserAvatarWrapper({ isOwner, userPhoto, updateUserPhoto }) {
-    const handleChange = (event) => {
+    const handleChange = event => {
         updateUserPhoto(event.target.files[0])
     }
 
@@ -15,7 +15,7 @@ export default function UserAvatarWrapper({ isOwner, userPhoto, updateUserPhoto 
                     <div className='pt-1 pb-5 text-center bg-black/70'>
                         <label
                             htmlFor='uploadPhoto'
-                            className='block cursor-pointer md:hover:underline md:hover:underline-offset-2 p-1'
+                            className='block cursor-pointer text-white md:hover:underline md:hover:underline-offset-2 p-1'
                         >
                             <span>
                                 { userPhoto ? 'Update photo' : 'Upload photo' }
