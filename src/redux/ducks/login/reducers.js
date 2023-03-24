@@ -2,11 +2,10 @@ import { createReducer } from '@reduxjs/toolkit'
 import { setUserData } from './actions'
 
 const initialState = {
-    userId: null,
+    userId: 27904,
     login: null,
     email: null,
-    isAuth: true,
-    authorizedUserId: 27904
+    isAuth: true
 }
 
 const loginReducer = createReducer(initialState, builder => {

@@ -10,7 +10,7 @@ import Checkbox from './Checkbox'
 
 const Login = ({ login }) => {
     useEffect(() => {
-        document.title = 'Profile'
+        document.title = 'Login'
     }, [])
 
     const onSubmit = (values, actions) => {

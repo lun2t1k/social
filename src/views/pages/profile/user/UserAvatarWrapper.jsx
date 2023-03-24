@@ -7,49 +7,34 @@ export default function UserAvatarWrapper({ isOwner, userPhoto, updateUserPhoto 
     }
 
     return (
-        <div className={ styles.userAvatar + ' dark:border-zinc-900' }>
+        <div className={ styles.userAvatar + ' dark:border-zinc-900 overflow-hidden' }>
             <UserAvatar img={ userPhoto } size='xl' />
 
             { isOwner &&
-                <div className='flex flex-col justify-end opacity-0 hover:opacity-100 transition-all ease-in absolute bottom-0 h-full w-full'>
+                <div className='flex flex-col justify-end opacity-0 hover:opacity-100 transition-all ease-in absolute bottom-0 h-full w-full overflow-hidden rounded-full'>
                     <div className='pt-1 pb-5 text-center bg-black/70'>
-                        { userPhoto ? (
-                            <>
-                                <label
-                                    htmlFor='updatePhoto'
-                                    className='block cursor-pointer md:hover:underline md:hover:underline-offset-2 p-1'
-                                >
-                                    <span>Update photo</span>
-                                    <input
-                                        type='file'
-                                        name='updatePhoto'
-                                        id='updatePhoto'
-                                        className='hidden'
-                                        onChange={ handleChange }
-                                    />
-                                </label>
-
-                                <button
-                                    className='w-full text-rose-600 md:hover:underline md:hover:underline-offset-2 p-1'
-                                >
-                                    Delete photo
-                                </button>
-                            </>
-                        ) : (
-                            <label
-                                htmlFor='uploadPhoto'
-                                className='block cursor-pointer md:hover:underline md:hover:underline-offset-2 p-1'
+                        <label
+                            htmlFor='uploadPhoto'
+                            className='block cursor-pointer md:hover:underline md:hover:underline-offset-2 p-1'
+                        >
+                            <span>
+                                { userPhoto ? 'Update photo' : 'Upload photo' }
+                            </span>
+                            <input
+                                type='file'
+                                name='uploadPhoto'
+                                id='uploadPhoto'
+                                className='hidden'
+                                onChange={ handleChange }
+                            />
+                        </label>
+                        { userPhoto &&
+                            <button
+                                className='w-full text-rose-600 md:hover:underline md:hover:underline-offset-2 p-1'
                             >
-                                <span>Upload photo</span>
-                                <input
-                                    type='file'
-                                    name='uploadPhoto'
-                                    id='uploadPhoto'
-                                    className='hidden'
-                                    onChange={ handleChange }
-                                />
-                            </label>
-                        ) }
+                                Delete photo
+                            </button>
+                        }
                     </div>
                 </div>
             }
