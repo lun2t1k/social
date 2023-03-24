@@ -7,24 +7,8 @@ export const setUserProfile = createAction(types.SET_USER_PROFILE, function prep
     }
 })
 
-export const setUserPhoto = createAction(types.SET_USER_PHOTO, function prepare(photos) {
+export const setUserStatus = createAction(types.SET_USER_STATUS, function prepare(status) {
     return {
-        payload: { photos }
-    }
-})
-
-export const setUserStatus = createAction(types.SET_USER_STATUS, function prepare(statusText) {
-    return {
-        payload: {
-            status: statusText
-        }
-    }
-})
-
-export const addNewPost = createAction(types.ADD_NEW_POST, function prepare(newPostText) {
-    return {
-        payload: {
-            text: newPostText
-        }
+        payload: { status }
     }
 })

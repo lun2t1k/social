@@ -4,7 +4,7 @@ import LocationIcon from '../../../components/icons/LocationIcon'
 import EducationIcon from '../../../components/icons/EducationIcon'
 import LinkIcon from '../../../components/icons/LinkIcon'
 
-export default function UserInfo({ profile, status, updateStatus }) {
+export default function UserInfo({ isOwner, profile, status, updateStatus }) {
     const userInfo = [
         {
             id: 'userBirthday',
@@ -33,8 +33,12 @@ export default function UserInfo({ profile, status, updateStatus }) {
             <h2 className='mb-2 block w-full text-2xl font-semibold capitalize'>
                 { profile.fullName }
             </h2>
-            <UserStatus status={ status } updateStatus={ updateStatus } />
-            <ul className='mt-4 flex flex-wrap justify-center gap-4 md:justify-start'>
+            <UserStatus
+                isOwner={ isOwner }
+                status={ status }
+                updateStatus={ updateStatus }
+            />
+            <ul className='flex flex-wrap justify-center gap-4 md:justify-start'>
                 { userInfo.map(i => {
                     return (
                         <li

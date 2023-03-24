@@ -3,13 +3,19 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {
     setProfile,
-    updateUserPhoto,
+    setAuthorizedProfile,
     setStatus,
-    updateStatus,
-    getAuthorizedUserId,
     getProfile,
     getStatus
 } from '../../../redux/ducks/profile'
+import {
+    getAuthorizedUserId,
+    getAuthorizedUserProfile,
+    getAuthorizedUserPosts,
+    updateUserPhoto,
+    updateStatus,
+    addPost,
+} from '../../../redux/ducks/login'
 import ProfileSkeleton from './ProfileSkeleton'
 import User from './user/User'
 import NewPostForm from './NewPostForm'
@@ -17,12 +23,16 @@ import Posts from './Posts'
 
 const Profile = ({
     setProfile,
+    setAuthorizedProfile,
     updateUserPhoto,
     setStatus,
     updateStatus,
     profile,
     authorizedUserId,
-    status
+    authorizedUserProfile,
+    authorizedUserPosts,
+    status,
+    addPost
 }) => {
     useEffect(() => {
         document.title = 'Profile'
@@ -33,11 +43,13 @@ const Profile = ({
     useEffect(() => {
         let userID = params.userID
         if (!userID) {
-            userID = authorizedUserId
+            setAuthorizedProfile(authorizedUserProfile)
+        } else {
+            setProfile(userID)
+            setStatus(userID)
         }
-        setProfile(userID)
-        setStatus(userID)
-    }, [authorizedUserId, params, setProfile, setStatus])
+    }, [authorizedUserId, params, setProfile, setAuthorizedProfile, authorizedUserProfile, setStatus])
+
 
     if (!profile) {
         return <ProfileSkeleton />
@@ -49,11 +61,20 @@ const Profile = ({
                 isOwner={ (profile.userId == authorizedUserId) }
                 profile={ profile }
                 updateUserPhoto={ updateUserPhoto }
-                status={ status }
+                status={
+                    (profile.userId == authorizedUserId)
+                        ? authorizedUserProfile.status
+                        : status
+                }
                 updateStatus={ updateStatus }
             />
-            <NewPostForm userPhoto={ profile.photos.small } />
+            <NewPostForm
+                isOwner={ (profile.userId == authorizedUserId) }
+                userPhoto={ profile.photos.small }
+                addPost={ addPost }
+            />
             <Posts
+                posts={ authorizedUserPosts }
                 userPhoto={ profile.photos.small }
                 userName={ profile.fullName }
             />
@@ -64,6 +85,8 @@ const Profile = ({
 const mapStateToProps = state => {
     return {
         authorizedUserId: getAuthorizedUserId(state),
+        authorizedUserProfile: getAuthorizedUserProfile(state),
+        authorizedUserPosts: getAuthorizedUserPosts(state),
         profile: getProfile(state),
         status: getStatus(state)
     }
@@ -71,7 +94,9 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     setProfile,
+    setAuthorizedProfile,
     updateUserPhoto,
     setStatus,
-    updateStatus
+    updateStatus,
+    addPost
 })(Profile)

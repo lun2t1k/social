@@ -17,7 +17,7 @@ import users from '../../../api/users'
 export const requestFriends = () => dispatch => {
     dispatch(setIsFetchingFriends(true))
     friends.getFriendsRequest().then(response => {
-        if (response.status === types.STATUS_CODE.SUCCESS) {
+        if (response.status === 200) {
             dispatch(setFriends(response.data))
             dispatch(setIsFetchingFriends(false))
         }

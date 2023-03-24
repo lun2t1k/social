@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { container } from '../../helpers/theme'
+import { getIsAuth } from '../../redux/ducks/login'
 import Login from '../pages/login/Login'
 
 const AuthLayout = ({ isAuth }) => {
@@ -17,7 +18,7 @@ const AuthLayout = ({ isAuth }) => {
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.login.isAuth
+        isAuth: getIsAuth(state)
     }
 }
 

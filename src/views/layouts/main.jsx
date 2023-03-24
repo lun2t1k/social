@@ -1,12 +1,13 @@
 import { Route, Routes, Navigate, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { container } from '../../helpers/theme'
+import { getIsAuth, getAuthorizedUserProfile } from '../../redux/ducks/login'
 import Header from '../components/header/Header'
 import Navbar from '../components/navbar/Navbar'
 import MobileNavbar from '../components/navbar/MobileNavbar'
 import routes from '../../routes'
 
-const MainLayout = ({ isAuth }) => {
+const MainLayout = ({ isAuth, authorizedUserProfile }) => {
     let params = useParams()
 
     if (!isAuth) return <Navigate replace to='/login' />
@@ -14,7 +15,7 @@ const MainLayout = ({ isAuth }) => {
 
     return (
         <>
-            <Header />
+            <Header authorizedUserAvatar={ authorizedUserProfile.photos.small } />
             <main className='pb-[88px] pt-[76px] md:pb-[20px]'>
                 <div className={ container.size.default }>
                     <div className='flex flex-col gap-5 md:flex-row'>
@@ -42,7 +43,8 @@ const MainLayout = ({ isAuth }) => {
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.login.isAuth
+        isAuth: getIsAuth(state),
+        authorizedUserProfile: getAuthorizedUserProfile(state)
     }
 }
 

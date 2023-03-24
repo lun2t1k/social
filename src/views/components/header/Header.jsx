@@ -4,7 +4,7 @@ import Logo from '../Logo'
 import Notifications from './Notifications'
 import UserAvatar from '../UserAvatar'
 
-export default function Header() {
+export default function Header({ authorizedUserAvatar }) {
     return (
         <header className='fixed top-0 z-50 w-full bg-white dark:bg-zinc-900'>
             <div className={ container.size.default }>
@@ -16,7 +16,10 @@ export default function Header() {
                     <div className='flex items-center'>
                         <Notifications />
                         <NavLink to={ '/profile' }>
-                            <UserAvatar img={ '' } size='md' />
+                            <UserAvatar
+                                img={ authorizedUserAvatar }
+                                size='md'
+                            />
                         </NavLink>
                     </div>
                 </div>

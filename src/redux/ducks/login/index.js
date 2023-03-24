@@ -1,4 +1,5 @@
 import reducer from './reducers'
 
-export { authMe, login, logout } from './thunks'
+export { login, logout, updateUserPhoto, updateStatus, addPost } from './thunks'
+export { getIsAuth, getAuthorizedUserId, getAuthorizedUserProfile, getAuthorizedUserPosts } from './selectors'
 export default reducer

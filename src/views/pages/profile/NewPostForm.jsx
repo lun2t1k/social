@@ -1,14 +1,16 @@
-import { connect } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
-import { addPost } from '../../../redux/ducks/profile'
 import { NewPostSchema } from '../../../helpers/yup'
 import { componentWrapper, button, textarea } from '../../../helpers/theme'
 import UserAvatar from '../../components/UserAvatar'
 
-const NewPostForm = ({ userPhoto, addPost }) => {
-    const onSubmit = (values, actions) => {
+export default function NewPostForm({ isOwner, userPhoto, addPost }) {
+    const handleSubmit = (values, actions) => {
         addPost(values.newPostText)
         actions.resetForm()
+    }
+
+    if (!isOwner) {
+        return null
     }
 
     return (
@@ -17,7 +19,7 @@ const NewPostForm = ({ userPhoto, addPost }) => {
                 <Formik
                     initialValues={ { newPostText: '' } }
                     validationSchema={ NewPostSchema }
-                    onSubmit={ onSubmit }
+                    onSubmit={ handleSubmit }
                 >
                     { ({ dirty, isSubmitting, isValid }) => {
                         return (
@@ -52,5 +54,3 @@ const NewPostForm = ({ userPhoto, addPost }) => {
         </div>
     )
 }
-
-export default connect(null, { addPost })(NewPostForm)

@@ -8,6 +8,6 @@ export const UNFOLLOW_USER = 'friends/suggestions/UNFOLLOW_USER'
 export const SET_IS_FETCHING_USERS = 'friends/suggestions/SET_IS_FETCHING_USERS'
 export const SET_IS_FOLLOWING_PROCESS = 'friends/suggestions/SET_IS_FOLLOWING_PROCESS'
 export const STATUS_CODE = {
-    SUCCESS: 200 || 0,
+    SUCCESS: 0,
     ERROR: 1
 }
