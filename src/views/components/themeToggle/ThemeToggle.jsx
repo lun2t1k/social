@@ -8,14 +8,17 @@ export default function ThemeToggle() {
     const element = document.documentElement
 
     const metaThemeColor = document.querySelector('meta[name="theme-color"]')
-    const setMetaThemeColor = useCallback(theme => {
-        if (theme === 'dark') {
-            metaThemeColor.setAttribute('content', '#18181b') // zinc-900
-        } else {
-            metaThemeColor.setAttribute('content', '#ffffff') // white
-        }
-    }, [metaThemeColor])
-    
+    const setMetaThemeColor = useCallback(
+        theme => {
+            if (theme === 'dark') {
+                metaThemeColor.setAttribute('content', '#18181b') // zinc-900
+            } else {
+                metaThemeColor.setAttribute('content', '#ffffff') // white
+            }
+        },
+        [metaThemeColor]
+    )
+
     const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     const onWindowMatch = useCallback(() => {

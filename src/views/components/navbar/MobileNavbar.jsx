@@ -15,7 +15,7 @@ export default function MobileNavbar() {
                             className={ ({ isActive }) =>
                                 isActive
                                     ? defaultClassName +
-                                    'text-violet-400 dark:!text-violet-400'
+                                      'text-violet-400 dark:!text-violet-400'
                                     : defaultClassName
                             }
                         >

@@ -33,15 +33,15 @@ const Messages = ({ selectChat, selectedChat, chats }) => {
                 <ChatsList />
             </div>
             <div className='flex h-full w-full flex-col border-l dark:border-l-zinc-800'>
-                {
-                    selectedChat ? (
-                        <Chat activeChat={ activeChat } />
-                    ) : (
-                        <div className='flex items-center justify-center h-full p-5'>
-                            <h2 className='text-center'>Select a chat to start messaging</h2>
-                        </div>
-                    )
-                }
+                { selectedChat ? (
+                    <Chat activeChat={ activeChat } />
+                ) : (
+                    <div className='flex h-full items-center justify-center p-5'>
+                        <h2 className='text-center'>
+                            Select a chat to start messaging
+                        </h2>
+                    </div>
+                ) }
             </div>
         </div>
     )

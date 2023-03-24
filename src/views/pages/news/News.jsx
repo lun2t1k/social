@@ -19,16 +19,14 @@ const News = ({ news, isFetchingNews, getNews }) => {
                 <NewsSkeleton />
             ) : (
                 <>
-                    { news.map(post => {
-                        return (
-                            <Post
-                                key={ post.id }
-                                post={ post }
-                                userPhoto={ post.userPhoto }
-                                userName={ post.userName }
-                            />
-                        )
-                    }) }
+                    { news.map(post => (
+                        <Post
+                            key={ post.id }
+                            post={ post }
+                            userPhoto={ post.userPhoto }
+                            userName={ post.userName }
+                        />
+                    )) }
                 </>
             ) }
         </div>

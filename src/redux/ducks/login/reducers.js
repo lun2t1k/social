@@ -44,21 +44,21 @@ const initialProfileState = {
     location: 'Russia, Omsk',
     education: 'Technical college',
     lookingForAJob: null,
-    lookingForAJobDescription: null,
+    lookingForAJobDescription: 'React, Redux, UX/UI',
+    cover: 'https://media4.giphy.com/media/kjETcOXKdbYLS/giphy.webp?cid=ecf05e47wgys6eq5i7pdkjo68cqjbykiw68fcl955uax8ywm&rid=giphy.webp&ct=g',
     contacts: {
-        github: '@lun2t1k',
+        github: null,
         vk: null,
         facebook: null,
         instagram: null,
         twitter: null,
         website: null,
         youtube: null,
-        mainLink: null
+        mainLink: 'https://t.me/lun2t1k'
     },
     photos: {
         small: 'https://sun4-15.userapi.com/s/v1/ig2/hr1Xf-A3Nzmvvbsguaj-6SnjqeiWUtDhn19P_OC9jFLdKbtuTOM7xNHkTvUz-nRBRTDypWXBHt-Vsdtt1BBX3OsD.jpg?size=200x200&quality=95&crop=0,144,1279,1279&ava=1',
-        large: 'https://sun4-15.userapi.com/s/v1/ig2/hr1Xf-A3Nzmvvbsguaj-6SnjqeiWUtDhn19P_OC9jFLdKbtuTOM7xNHkTvUz-nRBRTDypWXBHt-Vsdtt1BBX3OsD.jpg?size=200x200&quality=95&crop=0,144,1279,1279&ava=1',
-        cover: 'https://media4.giphy.com/media/kjETcOXKdbYLS/giphy.webp?cid=ecf05e47wgys6eq5i7pdkjo68cqjbykiw68fcl955uax8ywm&rid=giphy.webp&ct=g'
+        large: 'https://sun4-15.userapi.com/s/v1/ig2/hr1Xf-A3Nzmvvbsguaj-6SnjqeiWUtDhn19P_OC9jFLdKbtuTOM7xNHkTvUz-nRBRTDypWXBHt-Vsdtt1BBX3OsD.jpg?size=200x200&quality=95&crop=0,144,1279,1279&ava=1'
     },
     posts: [
         {

@@ -33,3 +33,33 @@ export const NewStatusSchema = Yup.object().shape({
         'Status must contain 150 or less characters'
     )
 })
+
+const dateRegExp = /^(\d{1,2}).(\d{1,2}).(\d{4})$/
+
+export const EditProfileSchema = Yup.object().shape({
+    fullName: Yup.string().required('Required'),
+    status: Yup.string().max(150, 'Status must contain 150 or less characters'),
+    location: Yup.string().max(
+        150,
+        'Location must contain 150 or less characters'
+    ),
+    birthday: Yup.string().matches(dateRegExp, 'Invalid date'),
+    education: Yup.string().max(
+        150,
+        'Education must contain 150 or less characters'
+    ),
+    lookingForAJobDescription: Yup.string().max(
+        150,
+        'Professional skills must contain 150 or less characters'
+    ),
+    contacts: Yup.object({
+        github: Yup.string().url('Invalid URL'),
+        vk: Yup.string().url('Invalid URL'),
+        facebook: Yup.string().url('Invalid URL'),
+        instagram: Yup.string().url('Invalid URL'),
+        twitter: Yup.string().url('Invalid URL'),
+        youtube: Yup.string().url('Invalid URL'),
+        website: Yup.string().url('Invalid URL'),
+        mainLink: Yup.string().url('Invalid URL')
+    })
+})

@@ -13,7 +13,7 @@ const Login = ({ login }) => {
         document.title = 'Login'
     }, [])
 
-    const onSubmit = (values, actions) => {
+    const handleSubmit = (values, actions) => {
         login(values.email, values.password, values.rememberMe)
         actions.resetForm()
     }
@@ -29,7 +29,7 @@ const Login = ({ login }) => {
                     rememberMe: false
                 } }
                 validationSchema={ LoginSchema }
-                onSubmit={ onSubmit }
+                onSubmit={ handleSubmit }
             >
                 { ({ isSubmitting, isValid }) => (
                     <Form>
@@ -64,14 +64,10 @@ const Login = ({ login }) => {
                             className={
                                 button.default +
                                 button.disabled +
-                                'mt-10 flex items-center justify-center h-[60px] w-full text-center text-xl font-bold'
+                                'mt-10 flex h-[60px] w-full items-center justify-center text-center text-xl font-bold'
                             }
                         >
-                            { isSubmitting ? (
-                                <Spinner size='lg' />
-                            ) : (
-                                'Log in'
-                            ) }
+                            { isSubmitting ? <Spinner size='lg' /> : 'Log in' }
                         </button>
                     </Form>
                 ) }

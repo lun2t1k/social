@@ -22,15 +22,13 @@ const MainLayout = ({ isAuth, authorizedUserProfile }) => {
                         <Navbar />
                         <section className='flex flex-auto flex-col gap-5'>
                             <Routes>
-                                { routes.map(route => {
-                                    return (
-                                        <Route
-                                            key={ route.path }
-                                            path={ route.path }
-                                            element={ route.component }
-                                        />
-                                    )
-                                }) }
+                                { routes.map(route => (
+                                    <Route
+                                        key={ route.path }
+                                        path={ route.path }
+                                        element={ route.component }
+                                    />
+                                )) }
                             </Routes>
                         </section>
                     </div>

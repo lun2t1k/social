@@ -12,9 +12,10 @@ import {
     getAuthorizedUserId,
     getAuthorizedUserProfile,
     getAuthorizedUserPosts,
+    updateUserProfile,
     updateUserPhoto,
     updateStatus,
-    addPost,
+    addPost
 } from '../../../redux/ducks/login'
 import ProfileSkeleton from './ProfileSkeleton'
 import User from './user/User'
@@ -24,6 +25,7 @@ import Posts from './Posts'
 const Profile = ({
     setProfile,
     setAuthorizedProfile,
+    updateUserProfile,
     updateUserPhoto,
     setStatus,
     updateStatus,
@@ -37,7 +39,7 @@ const Profile = ({
     useEffect(() => {
         document.title = 'Profile'
     }, [])
-    
+
     let params = useParams()
 
     useEffect(() => {
@@ -48,8 +50,14 @@ const Profile = ({
             setProfile(userID)
             setStatus(userID)
         }
-    }, [authorizedUserId, params, setProfile, setAuthorizedProfile, authorizedUserProfile, setStatus])
-
+    }, [
+        authorizedUserId,
+        params,
+        setProfile,
+        setAuthorizedProfile,
+        authorizedUserProfile,
+        setStatus
+    ])
 
     if (!profile) {
         return <ProfileSkeleton />
@@ -58,18 +66,19 @@ const Profile = ({
     return (
         <>
             <User
-                isOwner={ (profile.userId == authorizedUserId) }
+                isOwner={ profile.userId == authorizedUserId }
                 profile={ profile }
+                updateUserProfile={ updateUserProfile }
                 updateUserPhoto={ updateUserPhoto }
                 status={
-                    (profile.userId == authorizedUserId)
+                    profile.userId == authorizedUserId
                         ? authorizedUserProfile.status
                         : status
                 }
                 updateStatus={ updateStatus }
             />
             <NewPostForm
-                isOwner={ (profile.userId == authorizedUserId) }
+                isOwner={ profile.userId == authorizedUserId }
                 userPhoto={ profile.photos.small }
                 addPost={ addPost }
             />
@@ -95,6 +104,7 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     setProfile,
     setAuthorizedProfile,
+    updateUserProfile,
     updateUserPhoto,
     setStatus,
     updateStatus,

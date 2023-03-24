@@ -19,9 +19,7 @@ const FriendsList = ({ requestFriends, isFetchingFriends, friends }) => {
                 <FriendsSkeleton />
             ) : (
                 <ul className='w-full'>
-                    { friends.map(friend => {
-                        return <Friend key={ friend.id } friend={ friend } />
-                    }) }
+                    { friends.map(friend => <Friend key={ friend.id } friend={ friend } />) }
                 </ul>
             ) }
         </>

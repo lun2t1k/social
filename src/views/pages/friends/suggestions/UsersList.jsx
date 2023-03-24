@@ -28,19 +28,17 @@ const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
                 <UsersSkeleton />
             ) : (
                 <ul className='w-full'>
-                    { users.map(user => {
-                        return (
-                            <User
-                                key={ user.id }
-                                user={ user }
-                                follow={ props.follow }
-                                unfollow={ props.unfollow }
-                                followingQueue={
-                                    friendsSuggestions.followingQueue
-                                }
-                            />
-                        )
-                    }) }
+                    { users.map(user => (
+                        <User
+                            key={ user.id }
+                            user={ user }
+                            follow={ props.follow }
+                            unfollow={ props.unfollow }
+                            followingQueue={
+                                friendsSuggestions.followingQueue
+                            }
+                        />
+                    )) }
                 </ul>
             ) }
 

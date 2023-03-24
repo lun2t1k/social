@@ -20,7 +20,9 @@ const Input = ({ label, id, ...props }) => {
                     'mb-1 text-lg'
                 }
             />
-            { touched && error && <div className={ errorStyles.color }>{ error }</div> }
+            {touched && error && (
+                <div className={ errorStyles.color }>{ error }</div>
+            )}
         </div>
     )
 }

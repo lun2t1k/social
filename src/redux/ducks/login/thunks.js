@@ -55,6 +55,23 @@ export const logout = () => dispatch => {
         })
 }
 
+// export const updateUserProfile = profileData => (dispatch, getState) => {
+export const updateUserProfile = profileData => dispatch => {
+    dispatch(setUserProfile(profileData))
+
+    // const getAuthorizedUserId = getState().login.login.userId
+
+    // profile.requestUpdateUserProfile(profileData)
+    //     .then(response => {
+    //         if (response.data.resultCode === types.STATUS_CODE.SUCCESS) {
+    //             dispatch(setProfile(getAuthorizedUserId))
+    //         }
+    //     })
+    //     .catch(error => {
+    //         swalError(error)
+    //     })
+}
+
 export const updateUserPhoto = photo => dispatch => {
     profile.requestUpdateUserPhoto(photo)
         .then(response => {
@@ -73,7 +90,7 @@ export const updateStatus = status => dispatch => {
     // profile.requestUpdateUserStatus(status)
     //     .then(response => {
     //         if (response.data.resultCode === types.STATUS_CODE.SUCCESS) {
-    //             dispatch(setUserStatus(status))
+    //             dispatch(setUserStatus(response.data.data))
     //         }
     //     })
     //     .catch(error => {

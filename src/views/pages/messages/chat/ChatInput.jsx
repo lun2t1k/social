@@ -8,7 +8,7 @@ import Spinner from '../../../components/Spinner'
 import SendIcon from '../../../components/icons/SendIcon'
 
 const ChatInput = ({ sendMessage }) => {
-    const onSubmit = (values, actions) => {
+    const handleSubmit = (values, actions) => {
         let time = moment().format('hh:mm a')
         sendMessage(values.newMessageText, time)
         actions.resetForm()
@@ -18,7 +18,7 @@ const ChatInput = ({ sendMessage }) => {
         <Formik
             initialValues={ { newMessageText: '' } }
             validationSchema={ NewMessageSchema }
-            onSubmit={ onSubmit }
+            onSubmit={ handleSubmit }
         >
             { ({ isSubmitting, isValid }) => (
                 <Form className='flex w-full items-end gap-2 p-2'>
@@ -34,7 +34,12 @@ const ChatInput = ({ sendMessage }) => {
                     <button
                         type='submit'
                         disabled={ !isValid || isSubmitting }
-                        className={ button.size.md + button.default + button.disabled + 'rounded-full !p-2' }
+                        className={
+                            button.size.md +
+                            button.default +
+                            button.disabled +
+                            'rounded-full !p-2'
+                        }
                     >
                         { isSubmitting ? (
                             <Spinner size='md' />

@@ -3,12 +3,9 @@ import ChatsItem from './ChatsItem'
 
 const ChatsList = ({ chats }) => {
     return (
-        <div className='h-full overflow-scroll lg:pb-[62px] divide-y dark:divide-zinc-800'>
+        <div className='h-full divide-y overflow-scroll dark:divide-zinc-800 lg:pb-[62px]'>
             { chats.map(chat => (
-                <ChatsItem
-                    key={ chat.id }
-                    chat={ chat }
-                />
+                <ChatsItem key={ chat.id } chat={ chat } />
             )) }
         </div>
     )

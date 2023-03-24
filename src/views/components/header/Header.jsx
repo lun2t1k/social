@@ -16,10 +16,7 @@ export default function Header({ authorizedUserAvatar }) {
                     <div className='flex items-center'>
                         <Notifications />
                         <NavLink to={ '/profile' }>
-                            <UserAvatar
-                                img={ authorizedUserAvatar }
-                                size='md'
-                            />
+                            <UserAvatar img={ authorizedUserAvatar } size='md' />
                         </NavLink>
                     </div>
                 </div>

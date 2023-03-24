@@ -5,7 +5,10 @@ import ChatInput from './ChatInput'
 export default function Chat({ activeChat }) {
     return (
         <>
-            <ChatHeader userName={ activeChat.name } userAvatar={ activeChat.avatar } />
+            <ChatHeader
+                userName={ activeChat.name }
+                userAvatar={ activeChat.avatar }
+            />
             <ChatMessages />
             <ChatInput />
         </>

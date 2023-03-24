@@ -3,11 +3,7 @@ import ReactPaginate from 'react-paginate'
 import PrevPage from './PrevPage'
 import NextPage from './NextPage'
 
-export default function Navigation({
-    totalCount,
-    pageSize,
-    onPageChange
-}) {
+export default function Navigation({ totalCount, pageSize, onPageChange }) {
     const pageCount = Math.ceil(totalCount / pageSize)
     const handlePageClick = event => {
         onPageChange(event.selected)

@@ -21,57 +21,55 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                     validationSchema={ NewStatusSchema }
                     onSubmit={ handleSubmit }
                 >
-                    { ({ touched, errors, isSubmitting, isValid }) => {
-                        return (
-                            <Form className='mb-4 flex flex-col gap-3 xs:flex-row'>
-                                <div className='flex flex-auto flex-col gap-1'>
-                                    <Field
-                                        name='newStatusText'
-                                        className={
-                                            input.default +
-                                            input.size.md +
-                                            (touched.newStatusText &&
-                                                errors.newStatusText
-                                                ? input.error
-                                                : '')
-                                        }
-                                        autoFocus
-                                    />
-                                    { touched.newStatusText &&
-                                        errors.newStatusText && (
-                                            <div className={ errorStyles.color }>
-                                                { errors.newStatusText }
-                                            </div>
-                                        ) }
-                                </div>
-                                <button
-                                    type='submit'
-                                    disabled={ !isValid || isSubmitting }
+                    { ({ touched, errors, isSubmitting, isValid }) => (
+                        <Form className='mx-auto mb-4 flex max-w-[70%] flex-col gap-3 xs:flex-row md:mx-0 md:max-w-[100%] lg:max-w-[60%]'>
+                            <div className='flex flex-auto flex-col gap-1'>
+                                <Field
+                                    name='newStatusText'
                                     className={
-                                        button.default +
-                                        button.disabled +
-                                        button.size.sm +
-                                        'border border-transparent'
+                                        input.default +
+                                        input.size.md +
+                                        (touched.newStatusText &&
+                                            errors.newStatusText
+                                            ? input.error
+                                            : '')
                                     }
-                                >
-                                    Save
-                                </button>
-                            </Form>
-                        )
-                    } }
+                                    autoFocus
+                                />
+                                { touched.newStatusText &&
+                                    errors.newStatusText && (
+                                        <div className={ errorStyles.color }>
+                                            { errors.newStatusText }
+                                        </div>
+                                    ) }
+                            </div>
+                            <button
+                                type='submit'
+                                disabled={ !isValid || isSubmitting }
+                                className={
+                                    button.default +
+                                    button.disabled +
+                                    button.size.sm +
+                                    'border border-transparent'
+                                }
+                            >
+                                Save
+                            </button>
+                        </Form>
+                    ) }
                 </Formik>
             ) : (
                 <>
                     { isOwner ? (
                         <h3
                             onClick={ () => setEditMode(true) }
-                            className='group mb-4 flex gap-2 cursor-pointer select-none items-center justify-center md:justify-start'
+                            className='group mb-4 flex cursor-pointer select-none items-center justify-center gap-2 break-all md:w-fit md:justify-start'
                         >
                             <span>{ status ? status : 'Set your status' }</span>
-                            <EditIcon classes='hidden h-4 w-4 group-hover:inline-block' />
+                            <EditIcon classes='hidden h-4 w-4 group-hover:inline-block flex-[0_0_auto]' />
                         </h3>
                     ) : (
-                        <h3 className='mb-4'>
+                        <h3 className='mb-4 md:w-fit'>
                             { status ? status : '' }
                         </h3>
                     ) }

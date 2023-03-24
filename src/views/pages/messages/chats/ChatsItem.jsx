@@ -11,13 +11,15 @@ export default function ChatsItem({ chat }) {
             className={ ({ isActive }) =>
                 isActive
                     ? defaultClassName +
-                    'bg-violet-400 text-white hover:bg-violet-400 dark:bg-violet-400 dark:hover:bg-violet-400'
+                      'bg-violet-400 text-white hover:!bg-violet-400 dark:bg-violet-400 dark:hover:!bg-violet-400'
                     : defaultClassName
             }
         >
             <UserAvatar img={ chat.avatar } size='2md' />
-            <div className='hidden min-w-0 flex-col lg:flex gap-1'>
-                <h5 className='font-semibold'>{ chat.name ? chat.name : 'Undefined' }</h5>
+            <div className='hidden min-w-0 flex-col gap-1 lg:flex'>
+                <h5 className='font-semibold'>
+                    { chat.name ? chat.name : 'Undefined' }
+                </h5>
                 <span className='truncate text-xs'>{ chat.lastMessage }</span>
             </div>
         </NavLink>

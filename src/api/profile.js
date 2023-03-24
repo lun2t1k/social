@@ -7,6 +7,9 @@ const profile = {
     requestUserStatus(userID) {
         return instance.get(`profile/status/${userID}`)
     },
+    requestUpdateUserProfile(profileData) {
+        return instance.put('profile', profileData)
+    },
     requestUpdateUserStatus(status) {
         return instance.put('profile/status', { status })
     },

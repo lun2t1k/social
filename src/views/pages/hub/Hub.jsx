@@ -17,14 +17,22 @@ const Hub = ({ authorizedUserProfile }) => {
     return (
         <div className='w-full overflow-hidden rounded-2xl'>
             <div className='flex flex-col items-center p-5'>
-                <UserAvatar img={ authorizedUserProfile.photos.large } size='3lg' extraClasses='mb-3' />
-                <h3 className='text-2xl mb-4 capitalize'>
+                <UserAvatar
+                    img={ authorizedUserProfile.photos.large }
+                    size='3lg'
+                    extraClasses='mb-3'
+                />
+                <h3 className='mb-4 text-2xl capitalize'>
                     { authorizedUserProfile.fullName }
                 </h3>
                 <ThemeToggle />
-                <ul className='w-full flex flex-col gap-3'>
-                    { hubLinks.map(link => <HubLink key={ link.path } link={ link } />) }
-                    { footerLinks.map(link => <HubLink key={ link.path } link={ link } />) }
+                <ul className='flex w-full flex-col gap-3'>
+                    {hubLinks.map(link => (
+                        <HubLink key={ link.path } link={ link } />
+                    ))}
+                    {footerLinks.map(link => (
+                        <HubLink key={ link.path } link={ link } />
+                    ))}
                     <li>
                         <NavLink
                             to='/logout'
