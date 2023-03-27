@@ -1,7 +1,7 @@
 import { useField } from 'formik'
 
 export default function Checkbox({ label, id, ...props }) {
-    const [field] = useField(props)
+    const [ field ] = useField(props)
 
     return (
         <label

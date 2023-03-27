@@ -7,7 +7,7 @@ const ChatMessages = ({ messages }) => {
     const messagesWindow = useRef(null)
     useLayoutEffect(() => {
         messagesWindow.current.scrollTo(0, 1000)
-    }, [messages])
+    }, [ messages ])
 
     return (
         <div

@@ -18,7 +18,7 @@ const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
 
     useEffect(() => {
         requestUsers(0)
-    }, [requestUsers])
+    }, [ requestUsers ])
 
     return (
         <>
@@ -34,9 +34,7 @@ const UsersList = ({ users, friendsSuggestions, requestUsers, ...props }) => {
                             user={ user }
                             follow={ props.follow }
                             unfollow={ props.unfollow }
-                            followingQueue={
-                                friendsSuggestions.followingQueue
-                            }
+                            followingQueue={ friendsSuggestions.followingQueue }
                         />
                     )) }
                 </ul>

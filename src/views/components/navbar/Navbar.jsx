@@ -10,7 +10,7 @@ export default function Navbar() {
             <ul className='mb-2 w-full rounded-2xl bg-white p-3 dark:bg-zinc-900'>
                 { desktopLinks.map(link => (
                     <li key={ link.path }>
-                        <NavLink  to={ link.path } className={ linkStyles.navBar }>
+                        <NavLink to={ link.path } className={ linkStyles.navBar }>
                             { link.icon }
                             { link.title }
                         </NavLink>

@@ -37,7 +37,7 @@ export default function UserInfo({ isOwner, profile, status, updateStatus }) {
     return (
         <div className='w-full pt-[110px] md:pt-0 md:pl-[200px] md:text-left'>
             <div className='mx-auto flex max-w-[435px] flex-col md:mx-0 md:max-w-full'>
-                <h2 className='mb-2 block w-full break-all text-2xl text-center md:text-left font-semibold capitalize lg:max-w-[70%]'>
+                <h2 className='mb-2 block w-full break-all text-center text-2xl font-semibold capitalize md:text-left lg:max-w-[70%]'>
                     { profile.fullName }
                 </h2>
                 <UserStatus
@@ -47,13 +47,8 @@ export default function UserInfo({ isOwner, profile, status, updateStatus }) {
                 />
                 <ul className='flex flex-wrap justify-center gap-4 md:justify-start'>
                     { userInfo.map(i => (
-                        <li
-                            key={ i.id }
-                            className='flex gap-1 text-zinc-500'
-                        >
-                            <div className='flex-[0_0_auto]'>
-                                { i.icon }
-                            </div>
+                        <li key={ i.id } className='flex gap-1 text-zinc-500'>
+                            <div className='flex-[0_0_auto]'>{ i.icon }</div>
                             { i.info }
                         </li>
                     )) }

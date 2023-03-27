@@ -11,7 +11,7 @@ const News = ({ news, isFetchingNews, getNews }) => {
 
     useEffect(() => {
         getNews()
-    }, [getNews])
+    }, [ getNews ])
 
     return (
         <div className='flex flex-col gap-5'>

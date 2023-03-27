@@ -6,7 +6,7 @@ export default function InfoIcon({ classes }) {
             viewBox='0 0 24 24'
             strokeWidth={ 1.5 }
             stroke='currentColor'
-            className={classes + ' h-5 w-5'}
+            className={ classes + ' h-5 w-5' }
         >
             <path
                 strokeLinecap='round'

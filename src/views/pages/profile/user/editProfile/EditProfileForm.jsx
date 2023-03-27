@@ -30,8 +30,7 @@ export default function EditProfileForm({
                 location: profile.location,
                 education: profile.education,
                 lookingForAJob: profile.lookingForAJob,
-                lookingForAJobDescription:
-                    profile.lookingForAJobDescription,
+                lookingForAJobDescription: profile.lookingForAJobDescription,
                 contacts: {
                     github: profile.contacts.github,
                     vk: profile.contacts.vk,

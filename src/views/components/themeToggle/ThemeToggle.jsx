@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import options from './options'
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState(
+    const [ theme, setTheme ] = useState(
         localStorage.getItem('theme') ? localStorage.getItem('theme') : 'system'
     )
     const element = document.documentElement
@@ -16,7 +16,7 @@ export default function ThemeToggle() {
                 metaThemeColor.setAttribute('content', '#ffffff') // white
             }
         },
-        [metaThemeColor]
+        [ metaThemeColor ]
     )
 
     const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -32,7 +32,7 @@ export default function ThemeToggle() {
             element.classList.remove('dark')
             setMetaThemeColor('light')
         }
-    }, [darkQuery.matches, element.classList, setMetaThemeColor])
+    }, [ darkQuery.matches, element.classList, setMetaThemeColor ])
 
     onWindowMatch()
 
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
                 onWindowMatch()
                 break
         }
-    }, [theme, element, onWindowMatch, setMetaThemeColor])
+    }, [ theme, element, onWindowMatch, setMetaThemeColor ])
 
     darkQuery.addEventListener('change', event => {
         if (!('theme' in localStorage)) {

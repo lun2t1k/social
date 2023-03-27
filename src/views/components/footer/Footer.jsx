@@ -8,15 +8,11 @@ export default function Footer() {
             <ul className='flex flex-wrap justify-center gap-3'>
                 { footerLinks.map(link => (
                     <li key={ link.path }>
-                        <NavLink
-                            to={ link.path }
-                            className={ linkStyles.footer }
-                        >
+                        <NavLink to={ link.path } className={ linkStyles.footer }>
                             { link.title }
                         </NavLink>
                     </li>
-                )
-                ) }
+                )) }
             </ul>
         </footer>
     )

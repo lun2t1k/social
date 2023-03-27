@@ -2,7 +2,7 @@ import { useField } from 'formik'
 import { input, errorStyles } from '../../../../../helpers/theme'
 
 export default function Input({ label, id, ...props }) {
-    const [field, { touched, error }] = useField(props)
+    const [ field, { touched, error } ] = useField(props)
 
     return (
         <div className='flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2'>

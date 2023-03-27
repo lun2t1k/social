@@ -120,7 +120,7 @@ const setProfileReducer = createReducer(initialProfileState, builder => {
                 body: action.payload.text,
                 likesAmount: 0
             }
-            return { ...state, posts: [...state.posts, newPost] }
+            return { ...state, posts: [ ...state.posts, newPost ] }
         })
         .addDefaultCase((state = initialProfileState) => {
             return state

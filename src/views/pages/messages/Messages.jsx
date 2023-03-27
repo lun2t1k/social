@@ -24,7 +24,7 @@ const Messages = ({ selectChat, selectedChat, chats }) => {
     useEffect(() => {
         let userID = params.userID
         selectChat(userID)
-    }, [params.userID, selectChat])
+    }, [ params.userID, selectChat ])
 
     return (
         <div className={ componentWrapper.default + 'flex h-[75vh] lg:h-[80vh]' }>

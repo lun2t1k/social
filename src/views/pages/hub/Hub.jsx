@@ -27,12 +27,12 @@ const Hub = ({ authorizedUserProfile }) => {
                 </h3>
                 <ThemeToggle />
                 <ul className='flex w-full flex-col gap-3'>
-                    {hubLinks.map(link => (
+                    { hubLinks.map(link => (
                         <HubLink key={ link.path } link={ link } />
-                    ))}
-                    {footerLinks.map(link => (
+                    )) }
+                    { footerLinks.map(link => (
                         <HubLink key={ link.path } link={ link } />
-                    ))}
+                    )) }
                     <li>
                         <NavLink
                             to='/logout'

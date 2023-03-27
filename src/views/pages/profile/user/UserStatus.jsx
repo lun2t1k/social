@@ -5,7 +5,7 @@ import { button, input, errorStyles } from '../../../../helpers/theme'
 import EditIcon from '../../../components/icons/EditIcon'
 
 export default function UserStatus({ isOwner, status, updateStatus }) {
-    const [editMode, setEditMode] = useState(false)
+    const [ editMode, setEditMode ] = useState(false)
 
     const handleSubmit = (values, actions) => {
         updateStatus(values.newStatusText)
@@ -30,18 +30,18 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                                         input.default +
                                         input.size.md +
                                         (touched.newStatusText &&
-                                            errors.newStatusText
+                                        errors.newStatusText
                                             ? input.error
                                             : '')
                                     }
                                     autoFocus
                                 />
                                 { touched.newStatusText &&
-                                    errors.newStatusText && 
+                                    errors.newStatusText && (
                                         <div className={ errorStyles.color }>
                                             { errors.newStatusText }
                                         </div>
-                                }
+                                    ) }
                             </div>
                             <button
                                 type='submit'
@@ -60,21 +60,19 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                 </Formik>
             ) : (
                 <>
-                    { isOwner ? 
+                    { isOwner ? (
                         <h3
                             onClick={ () => setEditMode(true) }
-                            className='group mb-4 lg:max-w-[60%] flex cursor-pointer select-none items-center justify-center md:justify-start text-center md:text-left gap-2 break-word'
+                            className='break-word group mb-4 flex cursor-pointer select-none items-center justify-center gap-2 text-center md:justify-start md:text-left lg:max-w-[60%]'
                         >
                             <span>{ status ? status : 'Set your status' }</span>
                             <EditIcon classes='hidden h-4 w-4 group-hover:inline-block flex-[0_0_auto]' />
                         </h3>
-                    : 
-                        <h3 className='group flex justify-center md:justify-start text-center md:text-left mb-4 lg:max-w-[60%] break-word'>
-                            <span>
-                                { status ? status : '' }
-                            </span>
+                    ) : (
+                        <h3 className='break-word group mb-4 flex justify-center text-center md:justify-start md:text-left lg:max-w-[60%]'>
+                            <span>{ status ? status : '' }</span>
                         </h3>
-                    }
+                    ) }
                 </>
             ) }
         </>

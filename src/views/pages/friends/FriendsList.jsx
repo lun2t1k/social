@@ -11,7 +11,7 @@ import Friend from './Friend'
 const FriendsList = ({ requestFriends, isFetchingFriends, friends }) => {
     useEffect(() => {
         requestFriends()
-    }, [requestFriends])
+    }, [ requestFriends ])
 
     return (
         <>
@@ -19,7 +19,9 @@ const FriendsList = ({ requestFriends, isFetchingFriends, friends }) => {
                 <FriendsSkeleton />
             ) : (
                 <ul className='w-full'>
-                    { friends.map(friend => <Friend key={ friend.id } friend={ friend } />) }
+                    { friends.map(friend => (
+                        <Friend key={ friend.id } friend={ friend } />
+                    )) }
                 </ul>
             ) }
         </>

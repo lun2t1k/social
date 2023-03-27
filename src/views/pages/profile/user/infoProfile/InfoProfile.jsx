@@ -125,9 +125,7 @@ export default function InfoProfile({ profile, status }) {
                             key={ info.title }
                             className='flex gap-3 text-zinc-500'
                         >
-                            <div className='flex-[0_0_auto]'>
-                                { info.icon }
-                            </div>
+                            <div className='flex-[0_0_auto]'>{ info.icon }</div>
                             <div>
                                 <span>{ info.title }: </span>
                                 <span className='text-black dark:text-zinc-100'>
