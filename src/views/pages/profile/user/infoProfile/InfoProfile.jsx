@@ -15,7 +15,7 @@ import YoutubeIcon from '../../../../components/icons/YoutubeIcon'
 import MenstionIcon from '../../../../components/icons/MenstionIcon'
 
 export default function InfoProfile({ profile, status }) {
-    const PROFILE_PATH = 'social/#/profile'
+    const MAIN_PATH = `${location.origin}${location.pathname}`
 
     const infos = [
         {
@@ -109,7 +109,7 @@ export default function InfoProfile({ profile, status }) {
                         </div>
                         <span className='text-black dark:text-zinc-100'>
                             <a
-                                href={ `${PROFILE_PATH}/${profile.userId}` }
+                                href={ `${MAIN_PATH}#/profile/${profile.userId}` }
                                 target='_blank'
                                 rel='noreferrer'
                                 className='text-violet-400 transition-all ease-in hover:text-violet-500'
