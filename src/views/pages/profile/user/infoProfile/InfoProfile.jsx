@@ -92,8 +92,10 @@ export default function InfoProfile({ profile }) {
                     <h2 className='block w-full break-all text-center text-2xl font-semibold capitalize md:text-left lg:max-w-[70%]'>
                         { profile.fullName }
                     </h2>
-                    <div className='flex items-center gap-3 text-zinc-500'>
-                        <BarsBottomLeftIcon />
+                    <div className='flex gap-3 text-zinc-500'>
+                        <div className='flex-[0_0_auto]'>
+                            <BarsBottomLeftIcon />
+                        </div>
                         <span className='text-black dark:text-zinc-100'>
                             { profile.status }
                         </span>
@@ -103,9 +105,11 @@ export default function InfoProfile({ profile }) {
                     { infos.map(info => (
                         <li
                             key={ info.title }
-                            className='flex items-center gap-3 text-zinc-500'
+                            className='flex gap-3 text-zinc-500'
                         >
-                            { info.icon }
+                            <div className='flex-[0_0_auto]'>
+                                { info.icon }
+                            </div>
                             <div>
                                 <span>{ info.title }: </span>
                                 <span className='text-black dark:text-zinc-100'>
@@ -119,9 +123,11 @@ export default function InfoProfile({ profile }) {
                     { contacts.map(contact => (
                         <li
                             key={ contact.title }
-                            className='flex items-center gap-3 text-zinc-500'
+                            className='flex gap-3 text-zinc-500'
                         >
-                            { contact.icon }
+                            <div className='flex-[0_0_auto]'>
+                                { contact.icon }
+                            </div>
                             <div>
                                 <span>{ contact.title }: </span>
                                 <a

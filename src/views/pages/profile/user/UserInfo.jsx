@@ -36,25 +36,29 @@ export default function UserInfo({ isOwner, profile, status, updateStatus }) {
 
     return (
         <div className='w-full pt-[110px] text-center md:pt-0 md:pl-[200px] md:text-left'>
-            <h2 className='mb-2 block w-full break-all text-2xl font-semibold capitalize lg:max-w-[70%]'>
-                { profile.fullName }
-            </h2>
-            <UserStatus
-                isOwner={ isOwner }
-                status={ status }
-                updateStatus={ updateStatus }
-            />
-            <ul className='flex flex-wrap justify-center gap-4 md:justify-start'>
-                { userInfo.map(i => (
-                    <li
-                        key={ i.id }
-                        className='flex items-center gap-1 text-zinc-500'
-                    >
-                        { i.icon }
-                        { i.info }
-                    </li>
-                )) }
-            </ul>
+            <div className='mx-auto flex max-w-[435px] flex-col md:mx-0 md:max-w-full lg:max-w-[65%]'>
+                <h2 className='mb-2 block w-full break-all text-2xl font-semibold capitalize lg:max-w-[70%]'>
+                    { profile.fullName }
+                </h2>
+                <UserStatus
+                    isOwner={ isOwner }
+                    status={ status }
+                    updateStatus={ updateStatus }
+                />
+                <ul className='flex flex-wrap justify-center gap-4 md:justify-start'>
+                    { userInfo.map(i => (
+                        <li
+                            key={ i.id }
+                            className='flex gap-1 text-zinc-500'
+                        >
+                            <div className='flex-[0_0_auto]'>
+                                { i.icon }
+                            </div>
+                            { i.info }
+                        </li>
+                    )) }
+                </ul>
+            </div>
         </div>
     )
 }

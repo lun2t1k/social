@@ -59,21 +59,21 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                     ) }
                 </Formik>
             ) : (
-                <>
+                <h3
+                    onClick={ () => setEditMode(true) }
+                    className='group mb-4 lg:max-w-[60%] flex cursor-pointer select-none items-center justify-center gap-2 break-word md:justify-start'
+                >
                     { isOwner ? (
-                        <h3
-                            onClick={ () => setEditMode(true) }
-                            className='group mb-4 flex cursor-pointer select-none items-center justify-center gap-2 break-all md:w-fit md:justify-start'
-                        >
+                        <>
                             <span>{ status ? status : 'Set your status' }</span>
                             <EditIcon classes='hidden h-4 w-4 group-hover:inline-block flex-[0_0_auto]' />
-                        </h3>
+                        </>
                     ) : (
-                        <h3 className='mb-4 md:w-fit'>
+                        <>
                             { status ? status : '' }
-                        </h3>
+                        </>
                     ) }
-                </>
+                </h3>
             ) }
         </>
     )
