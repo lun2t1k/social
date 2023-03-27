@@ -1,4 +1,4 @@
-import { userAvatar, image } from '../../helpers/theme'
+import { userAvatar, imageStyles } from '../../helpers/theme'
 
 export default function UserAvatar({ img, size, extraClasses }) {
     return (
@@ -9,7 +9,7 @@ export default function UserAvatar({ img, size, extraClasses }) {
                 <img
                     src={ img }
                     alt=''
-                    className={ image.size.full + image.objectFit.cover }
+                    className={ imageStyles.size.full + imageStyles.objectFit.cover }
                 />
             ) : (
                 <svg

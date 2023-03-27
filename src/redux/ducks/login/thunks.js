@@ -1,7 +1,8 @@
-import { setUserData, setUserProfile, setUserPhoto, setUserStatus, addNewPost } from './actions'
+import { setUserData, setUserProfile, setUserPhoto, setUserStatus, addNewPost, setCaptchaURL } from './actions'
 import * as types from './types'
 import { swalError } from '../../../utils/swal'
 import auth from '../../../api/auth'
+import security from '../../../api/security'
 import profile from '../../../api/profile'
 
 const authMe = () => dispatch => {
@@ -29,12 +30,14 @@ const setProfile = userID => dispatch => {
         })
 }
 
-export const login = (email, password, rememberMe) => dispatch => {
-    auth.loginRequest(email, password, rememberMe)
+export const login = (email, password, rememberMe, captcha) => dispatch => {
+    auth.loginRequest(email, password, rememberMe, captcha)
         .then(response => {
             if (response.data.resultCode === types.STATUS_CODE.SUCCESS) {
                 dispatch(setProfile(response.data.data.userId))
                 dispatch(authMe())
+            } else if (response.data.resultCode === types.STATUS_CODE.VERIFICATION) {
+                dispatch(getCaptchaURL())
             }
         })
         .catch(error => {
@@ -100,4 +103,16 @@ export const updateStatus = status => dispatch => {
 
 export const addPost = postText => dispatch => {
     dispatch(addNewPost(postText))
+}
+
+export const getCaptchaURL = () => dispatch => {
+    security.getCaptcha()
+        .then(response => {
+            if (response.status === 200) {
+                dispatch(setCaptchaURL(response.data.url))
+            }
+        })
+        .catch(error => {
+            swalError(error)
+        })
 }

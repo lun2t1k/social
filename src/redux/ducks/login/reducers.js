@@ -1,18 +1,21 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit'
-import { setUserData, setUserProfile, setUserPhoto, setUserStatus, addNewPost } from './actions'
+import { setUserData, setUserProfile, setUserPhoto, setUserStatus, addNewPost, setCaptchaURL } from './actions'
 
 // const initialLoginState = {
 //     userId: null,
 //     login: null,
 //     email: null,
-//     isAuth: false
+//     isAuth: false,
+//     captcha: null
 // }
 
 // const initialProfileState = {
 //     userId: null,
+//     fullName: null,
+//     status: null,
+//     aboutMe: null,
 //     lookingForAJob: null,
 //     lookingForAJobDescription: null,
-//     fullName: null,
 //     contacts: {
 //         github: null,
 //         vk: null,
@@ -33,7 +36,8 @@ const initialLoginState = {
     userId: 27904,
     login: 'lun2t1k@gmail.com',
     email: 'lun2t1k@gmail.com',
-    isAuth: true
+    isAuth: true,
+    captcha: null
 }
 
 const initialProfileState = {
@@ -92,6 +96,12 @@ const loginReducer = createReducer(initialLoginState, builder => {
             return {
                 ...state,
                 ...action.payload
+            }
+        })
+        .addCase(setCaptchaURL, (state = initialLoginState, action) => {
+            return {
+                ...state,
+                captcha: action.payload.captcha
             }
         })
         .addDefaultCase((state = initialLoginState) => {

@@ -62,7 +62,7 @@ export const input = {
     }
 }
 
-export const image = {
+export const imageStyles = {
     size: {
         full: ' h-full w-full '
     },

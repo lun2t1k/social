@@ -32,3 +32,9 @@ export const addNewPost = createAction(types.ADD_NEW_POST, function prepare(newP
         }
     }
 })
+
+export const setCaptchaURL = createAction(types.SET_CAPTCHA_URL, function prepare(captcha) {
+    return {
+        payload: { captcha }
+    }
+})

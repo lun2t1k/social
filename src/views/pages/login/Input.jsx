@@ -5,25 +5,22 @@ const Input = ({ label, id, ...props }) => {
     const [ field, { touched, error } ] = useField(props)
 
     return (
-        <div className='mb-4'>
-            <label htmlFor={ id } className='block cursor-pointer text-xl'>
-                { label }
-            </label>
+        <label htmlFor={ id } className='flex flex-col gap-1 cursor-pointer'>
+            { label }
             <input
                 id={ id }
                 { ...field }
                 { ...props }
                 className={
                     input.default +
-                    input.size.lg +
-                    (touched && error && input.error) +
-                    'mb-1 text-lg'
+                    input.size.md +
+                    (touched && error && input.error)
                 }
             />
             { touched && error && (
                 <div className={ errorStyles.color }>{ error }</div>
             ) }
-        </div>
+        </label>
     )
 }
 
