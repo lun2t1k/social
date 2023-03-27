@@ -25,6 +25,7 @@ export default function EditProfileForm({
             initialValues={ {
                 fullName: profile.fullName,
                 status: profile.status || '',
+                aboutMe: profile.aboutMe || '',
                 birthday: profile.birthday || '',
                 location: profile.location || '',
                 education: profile.education || '',
@@ -169,6 +170,17 @@ export default function EditProfileForm({
                             name='contacts.mainLink'
                             id='mainLink'
                             placeholder='https://link.com'
+                        />
+                    </div>
+
+                    <div className='flex flex-col gap-3'>
+                        <h3 className='text-lg font-semibold'>Interests</h3>
+
+                        <Input
+                            label='About me'
+                            type='text'
+                            name='aboutMe'
+                            id='aboutMe'
                         />
                     </div>
 

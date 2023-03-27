@@ -39,6 +39,7 @@ const dateRegExp = /^(\d{1,2}).(\d{1,2}).(\d{4})$/
 export const EditProfileSchema = Yup.object().shape({
     fullName: Yup.string().required('Required'),
     status: Yup.string().max(150, 'Status must contain 150 or less characters'),
+    aboutMe: Yup.string().max(150, 'Status must contain 150 or less characters'),
     location: Yup.string().max(
         150,
         'Location must contain 150 or less characters'
