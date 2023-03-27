@@ -48,13 +48,13 @@ const initialProfileState = {
     lookingForAJobDescription: 'React, Redux, UX/UI',
     cover: 'https://media4.giphy.com/media/kjETcOXKdbYLS/giphy.webp?cid=ecf05e47wgys6eq5i7pdkjo68cqjbykiw68fcl955uax8ywm&rid=giphy.webp&ct=g',
     contacts: {
-        github: '',
-        vk: '',
-        facebook: '',
-        instagram: '',
-        twitter: '',
+        github: 'https://github.com/lun2t1k',
+        vk: 'https://vk.com/lun2t1k',
+        facebook: 'https://facebook.com/lun2t1k',
+        instagram: 'https://instagram.com/lun2t1k',
+        twitter: 'https://twitter.com/lun2t1k',
+        youtube: 'https://youtube.com/@lun2t1k',
         website: '',
-        youtube: '',
         mainLink: 'https://t.me/lun2t1k'
     },
     photos: {
