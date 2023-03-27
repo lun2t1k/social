@@ -24,23 +24,23 @@ export default function EditProfileForm({
         <Formik
             initialValues={ {
                 fullName: profile.fullName,
-                status: profile.status || '',
-                aboutMe: profile.aboutMe || '',
-                birthday: profile.birthday || '',
-                location: profile.location || '',
-                education: profile.education || '',
-                lookingForAJob: profile.lookingForAJob || false,
+                status: profile.status,
+                aboutMe: profile.aboutMe,
+                birthday: profile.birthday,
+                location: profile.location,
+                education: profile.education,
+                lookingForAJob: profile.lookingForAJob,
                 lookingForAJobDescription:
-                    profile.lookingForAJobDescription || '',
+                    profile.lookingForAJobDescription,
                 contacts: {
-                    github: profile.contacts.github || '',
-                    vk: profile.contacts.vk || '',
-                    facebook: profile.contacts.facebook || '',
-                    instagram: profile.contacts.instagram || '',
-                    twitter: profile.contacts.twitter || '',
-                    website: profile.contacts.website || '',
-                    youtube: profile.contacts.youtube || '',
-                    mainLink: profile.contacts.mainLink || ''
+                    github: profile.contacts.github,
+                    vk: profile.contacts.vk,
+                    facebook: profile.contacts.facebook,
+                    instagram: profile.contacts.instagram,
+                    twitter: profile.contacts.twitter,
+                    website: profile.contacts.website,
+                    youtube: profile.contacts.youtube,
+                    mainLink: profile.contacts.mainLink
                 }
             } }
             validationSchema={ EditProfileSchema }
