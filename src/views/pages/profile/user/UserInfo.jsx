@@ -23,21 +23,21 @@ export default function UserInfo({ isOwner, profile, status, updateStatus }) {
             icon: <EducationIcon />
         },
         {
-            id: 'userContacts',
-            info: profile.contacts.mainLink,
-            icon: <LinkIcon />
-        },
-        {
             id: 'userSkills',
             info: profile.lookingForAJobDescription,
             icon: <BriefcaseIcon />
+        },
+        {
+            id: 'userContacts',
+            info: profile.contacts.mainLink,
+            icon: <LinkIcon />
         }
     ]
 
     return (
-        <div className='w-full pt-[110px] text-center md:pt-0 md:pl-[200px] md:text-left'>
-            <div className='mx-auto flex max-w-[435px] flex-col md:mx-0 md:max-w-full lg:max-w-[65%]'>
-                <h2 className='mb-2 block w-full break-all text-2xl font-semibold capitalize lg:max-w-[70%]'>
+        <div className='w-full pt-[110px] md:pt-0 md:pl-[200px] md:text-left'>
+            <div className='mx-auto flex max-w-[435px] flex-col md:mx-0 md:max-w-full'>
+                <h2 className='mb-2 block w-full break-all text-2xl text-center md:text-left font-semibold capitalize lg:max-w-[70%]'>
                     { profile.fullName }
                 </h2>
                 <UserStatus

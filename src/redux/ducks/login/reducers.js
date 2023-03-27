@@ -40,6 +40,7 @@ const initialProfileState = {
     userId: 27904,
     fullName: 'Dmitry Krutkin',
     status: 'Hello',
+    aboutMe: '🖤 💜 🤍',
     birthday: '25.07.2000',
     location: 'Russia, Omsk',
     education: 'Technical college',

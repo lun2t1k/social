@@ -50,26 +50,30 @@ export default function User({
                     updateUserPhoto={ updateUserPhoto }
                 />
 
-                { (editMode && (
+                { (
+                    editMode &&
                     <EditProfileForm
                         profile={ profile }
+                        status={ status }
                         setEditMode={ setEditMode }
                         updateUserProfile={ updateUserProfile }
                     />
-                )) ||
-                    (viewMode && <InfoProfile profile={ profile } />) || (
-                        <UserInfo
-                            isOwner={ isOwner }
-                            profile={ profile }
-                            status={ status }
-                            updateStatus={ updateStatus }
-                        />
-                    ) }
+                ) || (
+                    viewMode &&
+                    <InfoProfile profile={ profile } status={ status } />
+                ) || 
+                    <UserInfo
+                        isOwner={ isOwner }
+                        profile={ profile }
+                        status={ status }
+                        updateStatus={ updateStatus }
+                    />
+                }
             </div>
 
             <div className='absolute top-5 right-5 flex gap-2 lg:top-[270px]'>
                 { isOwner &&
-                    (editMode || (
+                    (editMode ||
                         <button
                             className={ button.default + 'p-2 lg:py-2 lg:px-3' }
                             onClick={ () => handleEditClick() }
@@ -79,8 +83,9 @@ export default function User({
                                 Edit profile
                             </span>
                         </button>
-                    )) }
-                { editMode || (
+                    )
+                }
+                { editMode ||
                     <button
                         className={
                             button.default +
@@ -92,20 +97,16 @@ export default function User({
                                 : handleInfoClick(true)
                         }
                     >
-                        { viewMode ? (
-                            <XMarkIcon classes='lg:hidden' />
-                        ) : (
+                        { viewMode ? <XMarkIcon classes='lg:hidden' /> :
                             <InfoIcon classes='lg:hidden' />
-                        ) }
+                        }
                         <span className='hidden lg:inline'>
-                            { viewMode ? (
-                                <XMarkIcon classes='hidden lg:block' />
-                            ) : (
+                            { viewMode ? <XMarkIcon classes='hidden lg:block' /> :
                                 'More info'
-                            ) }
+                            }
                         </span>
                     </button>
-                ) }
+                }
             </div>
         </div>
     )

@@ -4,13 +4,14 @@ import styles from '../Profile.module.css'
 export default function UserCover({ userCover }) {
     return (
         <div className={ styles.userCover }>
-            { userCover ? (
+            { userCover ?
                 <img
                     src={ userCover }
                     alt=''
                     className={ image.size.full + image.objectFit.cover }
                 />
-            ) : null }
+                : null
+            }
         </div>
     )
 }

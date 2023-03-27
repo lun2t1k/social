@@ -37,11 +37,11 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                                     autoFocus
                                 />
                                 { touched.newStatusText &&
-                                    errors.newStatusText && (
+                                    errors.newStatusText && 
                                         <div className={ errorStyles.color }>
                                             { errors.newStatusText }
                                         </div>
-                                    ) }
+                                }
                             </div>
                             <button
                                 type='submit'
@@ -59,21 +59,23 @@ export default function UserStatus({ isOwner, status, updateStatus }) {
                     ) }
                 </Formik>
             ) : (
-                <h3
-                    onClick={ () => setEditMode(true) }
-                    className='group mb-4 lg:max-w-[60%] flex cursor-pointer select-none items-center justify-center gap-2 break-word md:justify-start'
-                >
-                    { isOwner ? (
-                        <>
+                <>
+                    { isOwner ? 
+                        <h3
+                            onClick={ () => setEditMode(true) }
+                            className='group mb-4 lg:max-w-[60%] flex cursor-pointer select-none items-center justify-center md:justify-start text-center md:text-left gap-2 break-word'
+                        >
                             <span>{ status ? status : 'Set your status' }</span>
                             <EditIcon classes='hidden h-4 w-4 group-hover:inline-block flex-[0_0_auto]' />
-                        </>
-                    ) : (
-                        <>
-                            { status ? status : '' }
-                        </>
-                    ) }
-                </h3>
+                        </h3>
+                    : 
+                        <h3 className='group flex justify-center md:justify-start text-center md:text-left mb-4 lg:max-w-[60%] break-word'>
+                            <span>
+                                { status ? status : '' }
+                            </span>
+                        </h3>
+                    }
+                </>
             ) }
         </>
     )

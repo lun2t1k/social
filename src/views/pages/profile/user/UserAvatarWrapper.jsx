@@ -18,7 +18,7 @@ export default function UserAvatarWrapper({
         >
             <UserAvatar img={ userPhoto } size='xl' />
 
-            { isOwner && (
+            { isOwner &&
                 <div className='absolute bottom-0 flex h-full w-full flex-col justify-end overflow-hidden rounded-full opacity-0 transition-all ease-in hover:opacity-100'>
                     <div className='bg-black/70 pt-1 pb-5 text-center'>
                         <label
@@ -36,14 +36,14 @@ export default function UserAvatarWrapper({
                                 onChange={ handleChange }
                             />
                         </label>
-                        { userPhoto && (
+                        { userPhoto &&
                             <button className='w-full p-1 text-rose-600 md:hover:underline md:hover:underline-offset-2'>
                                 Delete photo
                             </button>
-                        ) }
+                        }
                     </div>
                 </div>
-            ) }
+            }
         </div>
     )
 }

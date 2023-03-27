@@ -12,8 +12,11 @@ import FacebookIcon from '../../../../components/icons/FacebookIcon'
 import InstagramIcon from '../../../../components/icons/InstagramIcon'
 import TwitterIcon from '../../../../components/icons/TwitterIcon'
 import YoutubeIcon from '../../../../components/icons/YoutubeIcon'
+import MenstionIcon from '../../../../components/icons/MenstionIcon'
 
-export default function InfoProfile({ profile }) {
+export default function InfoProfile({ profile, status }) {
+    const PROFILE_PATH = 'social/#/profile'
+
     const infos = [
         {
             icon: <BirthdayIcon />,
@@ -87,9 +90,9 @@ export default function InfoProfile({ profile }) {
 
     return (
         <div className='w-full pt-[110px] md:pt-0 md:pl-[200px]'>
-            <div className='mx-auto flex max-w-[435px] flex-col gap-3 divide-y dark:divide-zinc-800 md:mx-0 md:max-w-full lg:max-w-[65%]'>
-                <div className='flex flex-col gap-2'>
-                    <h2 className='block w-full break-all text-center text-2xl font-semibold capitalize md:text-left lg:max-w-[70%]'>
+            <div className='mx-auto flex max-w-[435px] flex-col gap-3 divide-y dark:divide-zinc-800 md:mx-0 md:max-w-full'>
+                <div className='flex flex-col gap-2 lg:max-w-[65%]'>
+                    <h2 className='block w-full break-all text-center text-2xl font-semibold capitalize md:text-left'>
                         { profile.fullName }
                     </h2>
                     <div className='flex gap-3 text-zinc-500'>
@@ -97,7 +100,22 @@ export default function InfoProfile({ profile }) {
                             <BarsBottomLeftIcon />
                         </div>
                         <span className='text-black dark:text-zinc-100'>
-                            { profile.status }
+                            { status }
+                        </span>
+                    </div>
+                    <div className='flex gap-3 text-zinc-500'>
+                        <div className='flex-[0_0_auto]'>
+                            <MenstionIcon />
+                        </div>
+                        <span className='text-black dark:text-zinc-100'>
+                            <a
+                                href={ `${PROFILE_PATH}/${profile.userId}` }
+                                target='_blank'
+                                rel='noreferrer'
+                                className='text-violet-400 transition-all ease-in hover:text-violet-500'
+                            >
+                                { profile.userId }
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -141,6 +159,14 @@ export default function InfoProfile({ profile }) {
                             </div>
                         </li>
                     )) }
+                </ul>
+                <ul className='flex flex-col gap-2 pt-3'>
+                    <li className='flex gap-3 text-zinc-500'>
+                        <span className='flex-[0_0_auto]'>About me: </span>
+                        <span className='text-black dark:text-zinc-100'>
+                            { profile.aboutMe }
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>
