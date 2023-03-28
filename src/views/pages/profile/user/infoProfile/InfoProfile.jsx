@@ -150,7 +150,7 @@ export default function InfoProfile({ profile, status }) {
                                     href={ contact.value }
                                     target='_blank'
                                     rel='noreferrer'
-                                    className='text-violet-400 transition-all ease-in hover:text-violet-500'
+                                    className='text-violet-400 transition-all ease-in hover:text-violet-500 break-all'
                                 >
                                     { contact.value }
                                 </a>
