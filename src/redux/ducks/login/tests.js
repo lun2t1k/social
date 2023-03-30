@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import profilePage, { addNewPost } from '../profile'
 
 test('adding a new post', () => {
