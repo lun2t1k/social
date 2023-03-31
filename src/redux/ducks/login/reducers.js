@@ -58,7 +58,7 @@ const initialProfileState = {
         instagram: 'https://instagram.com/lun2t1k',
         twitter: 'https://twitter.com/lun2t1k',
         youtube: 'https://youtube.com/@lun2t1k',
-        website: '',
+        website: 'https://lun2t1k.github.io/portfolio/',
         mainLink: 'https://t.me/lun2t1k'
     },
     photos: {
