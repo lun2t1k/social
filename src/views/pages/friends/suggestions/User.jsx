@@ -1,31 +1,31 @@
-import { NavLink } from 'react-router-dom'
-import { button } from '../../../../helpers/theme'
+import {NavLink} from 'react-router-dom'
+import {button} from '../../../../helpers/theme'
 import Spinner from '../../../components/Spinner'
 import UserAvatar from '../../../components/UserAvatar'
 
-export default function User({ user, followingQueue, ...props }) {
+export default function User({user, followingQueue, ...props}) {
     const disabled = () => followingQueue.some(userID => userID === user.id)
 
     return (
         <li
-            id={ user.id }
+            id={user.id}
             className='flex items-center justify-between border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800'
         >
             <div className='flex min-w-0 items-center gap-2'>
-                <NavLink to={ `/profile/${user.id}` }>
-                    <UserAvatar img={ user.photos.small } size='md' />
+                <NavLink to={`/profile/${user.id}`}>
+                    <UserAvatar img={user.photos.small} size='md' />
                 </NavLink>
-                <NavLink to={ `/profile/${user.id}` } className='truncate'>
-                    { user.name }
+                <NavLink to={`/profile/${user.id}`} className='truncate'>
+                    {user.name}
                 </NavLink>
             </div>
             <button
-                onClick={ () =>
+                onClick={() =>
                     user.followed
                         ? props.unfollow(user.id)
                         : props.follow(user.id)
                 }
-                disabled={ disabled() }
+                disabled={disabled()}
                 className={
                     button.default +
                     button.disabled +
@@ -33,13 +33,13 @@ export default function User({ user, followingQueue, ...props }) {
                     'ml-3 text-xs'
                 }
             >
-                { disabled() ? (
+                {disabled() ? (
                     <Spinner size='sm' />
                 ) : user.followed ? (
                     'Unfollow'
                 ) : (
                     'Follow'
-                ) }
+                )}
             </button>
         </li>
     )

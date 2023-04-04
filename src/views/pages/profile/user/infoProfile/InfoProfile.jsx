@@ -14,7 +14,7 @@ import TwitterIcon from '../../../../components/icons/TwitterIcon'
 import YoutubeIcon from '../../../../components/icons/YoutubeIcon'
 import MenstionIcon from '../../../../components/icons/MenstionIcon'
 
-export default function InfoProfile({ profile, status }) {
+export default function InfoProfile({profile, status}) {
     const MAIN_PATH = `${location.origin}${location.pathname}`
 
     const infos = [
@@ -93,14 +93,14 @@ export default function InfoProfile({ profile, status }) {
             <div className='mx-auto flex max-w-[435px] flex-col gap-3 divide-y dark:divide-zinc-800 md:mx-0 md:max-w-full'>
                 <div className='flex flex-col gap-2 lg:max-w-[65%]'>
                     <h2 className='block w-full break-all text-center text-2xl font-semibold capitalize md:text-left'>
-                        { profile.fullName }
+                        {profile.fullName}
                     </h2>
                     <div className='flex gap-3 text-zinc-500'>
                         <div className='flex-[0_0_auto]'>
                             <BarsBottomLeftIcon />
                         </div>
                         <span className='text-black dark:text-zinc-100'>
-                            { status }
+                            {status}
                         </span>
                     </div>
                     <div className='flex gap-3 text-zinc-500'>
@@ -109,60 +109,60 @@ export default function InfoProfile({ profile, status }) {
                         </div>
                         <span className='text-black dark:text-zinc-100'>
                             <a
-                                href={ `${MAIN_PATH}#/profile/${profile.userId}` }
+                                href={`${MAIN_PATH}#/profile/${profile.userId}`}
                                 target='_blank'
                                 rel='noreferrer'
                                 className='text-violet-400 transition-all ease-in hover:text-violet-500'
                             >
-                                { profile.userId }
+                                {profile.userId}
                             </a>
                         </span>
                     </div>
                 </div>
                 <ul className='flex flex-col gap-2 pt-3'>
-                    { infos.map(info => (
+                    {infos.map(info => (
                         <li
-                            key={ info.title }
+                            key={info.title}
                             className='flex gap-3 text-zinc-500'
                         >
-                            <div className='flex-[0_0_auto]'>{ info.icon }</div>
+                            <div className='flex-[0_0_auto]'>{info.icon}</div>
                             <div>
-                                <span>{ info.title }: </span>
+                                <span>{info.title}: </span>
                                 <span className='text-black dark:text-zinc-100'>
-                                    { info.value }
+                                    {info.value}
                                 </span>
                             </div>
                         </li>
-                    )) }
+                    ))}
                 </ul>
                 <ul className='flex flex-col gap-2 pt-3'>
-                    { contacts.map(contact => (
+                    {contacts.map(contact => (
                         <li
-                            key={ contact.title }
+                            key={contact.title}
                             className='flex gap-3 text-zinc-500'
                         >
                             <div className='flex-[0_0_auto]'>
-                                { contact.icon }
+                                {contact.icon}
                             </div>
                             <div>
-                                <span>{ contact.title }: </span>
+                                <span>{contact.title}: </span>
                                 <a
-                                    href={ contact.value }
+                                    href={contact.value}
                                     target='_blank'
                                     rel='noreferrer'
-                                    className='text-violet-400 transition-all ease-in hover:text-violet-500 break-all'
+                                    className='break-all text-violet-400 transition-all ease-in hover:text-violet-500'
                                 >
-                                    { contact.value }
+                                    {contact.value}
                                 </a>
                             </div>
                         </li>
-                    )) }
+                    ))}
                 </ul>
                 <ul className='flex flex-col gap-2 pt-3'>
                     <li className='flex gap-3 text-zinc-500'>
                         <span className='flex-[0_0_auto]'>About me: </span>
                         <span className='text-black dark:text-zinc-100'>
-                            { profile.aboutMe }
+                            {profile.aboutMe}
                         </span>
                     </li>
                 </ul>

@@ -1,4 +1,4 @@
-import { input, button } from '../../../helpers/theme'
+import {input, button} from '../../../helpers/theme'
 import SearchIcon from '../../components/icons/SearchIcon'
 
 export default function FriendsSearch() {
@@ -9,11 +9,11 @@ export default function FriendsSearch() {
                 name=''
                 id=''
                 placeholder='Search friends'
-                className={ input.default + input.size.lg }
+                className={input.default + input.size.lg}
             />
             <button
                 type='submit'
-                className={ button.default + button.disabled + 'p-2' }
+                className={button.default + button.disabled + 'p-2'}
             >
                 <SearchIcon />
             </button>

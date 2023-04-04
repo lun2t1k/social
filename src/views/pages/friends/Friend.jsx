@@ -1,31 +1,31 @@
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import UserAvatar from '../../components/UserAvatar'
 
-export default function Friend({ friend }) {
+export default function Friend({friend}) {
     return (
         <li
-            id={ friend.id }
+            id={friend.id}
             className='relative flex items-center justify-between border-b py-5 last:border-b-0 last:pb-0 dark:border-zinc-800'
         >
             <div className='flex gap-3'>
-                <NavLink to={ `/profile/${friend.id}` }>
-                    <UserAvatar img={ friend.avatar } size='lg' />
+                <NavLink to={`/profile/${friend.id}`}>
+                    <UserAvatar img={friend.avatar} size='lg' />
                 </NavLink>
                 <div className='flex flex-col'>
                     <NavLink
-                        to={ `/profile/${friend.id}` }
+                        to={`/profile/${friend.id}`}
                         className='mb-1 font-semibold'
                     >
-                        { friend.name }
+                        {friend.name}
                     </NavLink>
                     <NavLink
-                        to={ `mailto:${friend.email}` }
+                        to={`mailto:${friend.email}`}
                         className='mb-3 text-xs'
                     >
-                        { friend.email }
+                        {friend.email}
                     </NavLink>
                     <NavLink
-                        to={ `/messages/${friend.id}` }
+                        to={`/messages/${friend.id}`}
                         className='text-xs text-violet-400 transition-all ease-in md:hover:text-violet-500'
                     >
                         Write a message
@@ -38,7 +38,7 @@ export default function Friend({ friend }) {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    strokeWidth={ 2 }
+                    strokeWidth={2}
                     stroke='currentColor'
                     className='h-6 w-6'
                 >

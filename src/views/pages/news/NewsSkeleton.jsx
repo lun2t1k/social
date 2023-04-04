@@ -1,15 +1,15 @@
-import { componentWrapper, skeleton } from '../../../helpers/theme'
+import {componentWrapper, skeleton} from '../../../helpers/theme'
 
 export default function NewsSkeleton() {
     return (
         <>
-            { Array(5)
+            {Array(5)
                 .fill(0)
                 .map((item, index) => {
                     return (
                         <div
-                            key={ `${index}-post-skeleton` }
-                            className={ componentWrapper.default }
+                            key={`${index}-post-skeleton`}
+                            className={componentWrapper.default}
                         >
                             <div className='p-5'>
                                 <div className='mb-4 flex items-center gap-3'>
@@ -77,7 +77,7 @@ export default function NewsSkeleton() {
                             </div>
                         </div>
                     )
-                }) }
+                })}
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { instance } from './axios'
+import {instance} from './axios'
 
 const users = {
     getUsersRequest(currentPage = 0, pageSize = 5) {

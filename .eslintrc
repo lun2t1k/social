@@ -28,30 +28,30 @@
                 "caughtErrors": "none"
             }
         ],
-        "object-curly-spacing": [
-            "warn",
-            "always",
-            {
-                "arraysInObjects": true,
-                "objectsInObjects": true
-            }
-        ],
-        "array-bracket-spacing": [
-            "warn",
-            "always",
-            {
-                "singleValue": true,
-                "objectsInArrays": true,
-                "arraysInArrays": true
-            }
-        ],
-        "react/jsx-curly-spacing": [
-            "warn",
-            {
-                "when": "always",
-                "children": true
-            }
-        ],
+        // "object-curly-spacing": [
+        //     "warn",
+        //     "always",
+        //     {
+        //         "arraysInObjects": true,
+        //         "objectsInObjects": true
+        //     }
+        // ],
+        // "array-bracket-spacing": [
+        //     "warn",
+        //     "always",
+        //     {
+        //         "singleValue": true,
+        //         "objectsInArrays": true,
+        //         "arraysInArrays": true
+        //     }
+        // ],
+        // "react/jsx-curly-spacing": [
+        //     "warn",
+        //     {
+        //         "when": "always",
+        //         "children": true
+        //     }
+        // ],
         "react/jsx-uses-react": "warn",
         "react/jsx-uses-vars": "warn",
         "react/react-in-jsx-scope": "off",

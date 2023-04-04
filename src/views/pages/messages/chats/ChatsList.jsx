@@ -1,12 +1,12 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import ChatsItem from './ChatsItem'
 
-const ChatsList = ({ chats }) => {
+const ChatsList = ({chats}) => {
     return (
         <div className='h-full divide-y overflow-scroll dark:divide-zinc-800 lg:pb-[62px]'>
-            { chats.map(chat => (
-                <ChatsItem key={ chat.id } chat={ chat } />
-            )) }
+            {chats.map(chat => (
+                <ChatsItem key={chat.id} chat={chat} />
+            ))}
         </div>
     )
 }

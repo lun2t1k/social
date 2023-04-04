@@ -88,7 +88,7 @@ export const skeleton = {
 }
 
 export const linkStyles = {
-    navBar: ' flex w-full items-center gap-2 rounded-lg p-2 transition-all ease-in md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 ',
-    hub: ' flex w-full items-center gap-2 rounded-2xl py-3 px-4 text-md transition-all ease-in bg-white dark:bg-zinc-900 md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 ',
+    navBar: ' flex w-full items-center justify-between gap-2 rounded-lg p-2 transition-all ease-in md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 ',
+    hub: ' flex w-full items-center justify-between gap-2 rounded-2xl py-3 px-4 text-md transition-all ease-in bg-white dark:bg-zinc-900 md:hover:bg-slate-100 dark:md:hover:bg-zinc-800 ',
     footer: ' text-xs text-zinc-500 md:hover:underline md:hover:underline-offset-2 '
 }

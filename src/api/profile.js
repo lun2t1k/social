@@ -1,4 +1,4 @@
-import { instance } from './axios'
+import {instance} from './axios'
 
 const profile = {
     requestUserProfile(userID) {
@@ -11,7 +11,7 @@ const profile = {
         return instance.put('profile', profileData)
     },
     requestUpdateUserStatus(status) {
-        return instance.put('profile/status', { status })
+        return instance.put('profile/status', {status})
     },
     requestUpdateUserPhoto(photo) {
         let formData = new FormData()

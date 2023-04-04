@@ -1,5 +1,5 @@
-import { lazy } from 'react'
-import { withSuspense } from '../hoc/withSuspense'
+import {lazy} from 'react'
+import {withSuspense} from '../hoc/withSuspense'
 import Hub from '../views/pages/hub/Hub'
 import PageNotFound from '../views/pages/404'
 

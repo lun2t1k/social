@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { componentWrapper } from '../../../helpers/theme'
+import {useEffect} from 'react'
+import {componentWrapper} from '../../../helpers/theme'
 import FriendsSearch from './FriendsSearch'
 import FriendsList from './FriendsList'
 import UsersList from './suggestions/UsersList'
@@ -12,7 +12,7 @@ export default function Friends() {
     return (
         <>
             <div className='relative flex w-full flex-col gap-5 lg:flex-row'>
-                <div className={ componentWrapper.default + 'lg:w-2/3' }>
+                <div className={componentWrapper.default + 'lg:w-2/3'}>
                     <div className='p-5'>
                         <FriendsSearch />
                         <FriendsList />

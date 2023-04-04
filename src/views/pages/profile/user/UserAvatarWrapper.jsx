@@ -16,9 +16,9 @@ export default function UserAvatarWrapper({
                 styles.userAvatar + ' overflow-hidden dark:border-zinc-900'
             }
         >
-            <UserAvatar img={ userPhoto } size='xl' />
+            <UserAvatar img={userPhoto} size='xl' />
 
-            { isOwner && (
+            {isOwner && (
                 <div className='absolute bottom-0 flex h-full w-full flex-col justify-end overflow-hidden rounded-full opacity-0 transition-all ease-in hover:opacity-100'>
                     <div className='bg-black/70 pt-1 pb-5 text-center'>
                         <label
@@ -26,24 +26,24 @@ export default function UserAvatarWrapper({
                             className='block cursor-pointer p-1 text-white md:hover:underline md:hover:underline-offset-2'
                         >
                             <span>
-                                { userPhoto ? 'Update photo' : 'Upload photo' }
+                                {userPhoto ? 'Update photo' : 'Upload photo'}
                             </span>
                             <input
                                 type='file'
                                 name='uploadPhoto'
                                 id='uploadPhoto'
                                 className='hidden'
-                                onChange={ handleChange }
+                                onChange={handleChange}
                             />
                         </label>
-                        { userPhoto && (
+                        {userPhoto && (
                             <button className='w-full p-1 text-rose-600 md:hover:underline md:hover:underline-offset-2'>
                                 Delete photo
                             </button>
-                        ) }
+                        )}
                     </div>
                 </div>
-            ) }
+            )}
         </div>
     )
 }

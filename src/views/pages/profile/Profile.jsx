@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {useParams} from 'react-router-dom'
 import {
     setProfile,
     setAuthorizedProfile,
@@ -66,26 +66,26 @@ const Profile = ({
     return (
         <>
             <User
-                isOwner={ profile.userId == authorizedUserId }
-                profile={ profile }
-                updateUserProfile={ updateUserProfile }
-                updateUserPhoto={ updateUserPhoto }
+                isOwner={profile.userId == authorizedUserId}
+                profile={profile}
+                updateUserProfile={updateUserProfile}
+                updateUserPhoto={updateUserPhoto}
                 status={
                     profile.userId == authorizedUserId
                         ? authorizedUserProfile.status
                         : status
                 }
-                updateStatus={ updateStatus }
+                updateStatus={updateStatus}
             />
             <NewPostForm
-                isOwner={ profile.userId == authorizedUserId }
-                userPhoto={ profile.photos.small }
-                addPost={ addPost }
+                isOwner={profile.userId == authorizedUserId}
+                userPhoto={profile.photos.small}
+                addPost={addPost}
             />
             <Posts
-                posts={ authorizedUserPosts }
-                userPhoto={ profile.photos.small }
-                userName={ profile.fullName }
+                posts={authorizedUserPosts}
+                userPhoto={profile.photos.small}
+                userName={profile.fullName}
             />
         </>
     )

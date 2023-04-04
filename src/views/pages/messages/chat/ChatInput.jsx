@@ -1,13 +1,13 @@
-import { connect } from 'react-redux'
-import { Formik, Form, Field } from 'formik'
+import {connect} from 'react-redux'
+import {Formik, Form, Field} from 'formik'
 import moment from 'moment'
-import { sendMessage } from '../../../../redux/ducks/messages'
-import { NewMessageSchema } from '../../../../helpers/yup'
-import { button, textarea } from '../../../../helpers/theme'
+import {sendMessage} from '../../../../redux/ducks/messages'
+import {NewMessageSchema} from '../../../../helpers/yup'
+import {button, textarea} from '../../../../helpers/theme'
 import Spinner from '../../../components/Spinner'
 import SendIcon from '../../../components/icons/SendIcon'
 
-const ChatInput = ({ sendMessage }) => {
+const ChatInput = ({sendMessage}) => {
     const handleSubmit = (values, actions) => {
         let time = moment().format('hh:mm a')
         sendMessage(values.newMessageText, time)
@@ -16,11 +16,11 @@ const ChatInput = ({ sendMessage }) => {
 
     return (
         <Formik
-            initialValues={ { newMessageText: '' } }
-            validationSchema={ NewMessageSchema }
-            onSubmit={ handleSubmit }
+            initialValues={{newMessageText: ''}}
+            validationSchema={NewMessageSchema}
+            onSubmit={handleSubmit}
         >
-            { ({ isSubmitting, isValid }) => (
+            {({isSubmitting, isValid}) => (
                 <Form className='flex w-full items-end gap-2 p-2'>
                     <Field
                         name='newMessageText'
@@ -33,7 +33,7 @@ const ChatInput = ({ sendMessage }) => {
                     />
                     <button
                         type='submit'
-                        disabled={ !isValid || isSubmitting }
+                        disabled={!isValid || isSubmitting}
                         className={
                             button.size.md +
                             button.default +
@@ -41,16 +41,16 @@ const ChatInput = ({ sendMessage }) => {
                             'rounded-full !p-2'
                         }
                     >
-                        { isSubmitting ? (
+                        {isSubmitting ? (
                             <Spinner size='md' />
                         ) : (
                             <SendIcon extraClasses='relative -right-[1px]' />
-                        ) }
+                        )}
                     </button>
                 </Form>
-            ) }
+            )}
         </Formik>
     )
 }
 
-export default connect(null, { sendMessage })(ChatInput)
+export default connect(null, {sendMessage})(ChatInput)

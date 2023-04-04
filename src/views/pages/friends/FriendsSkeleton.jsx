@@ -1,14 +1,14 @@
-import { skeleton } from '../../../helpers/theme'
+import {skeleton} from '../../../helpers/theme'
 
 export default function FriendsSkeleton() {
     return (
         <>
-            { Array(5)
+            {Array(5)
                 .fill(0)
                 .map((item, index) => {
                     return (
                         <div
-                            key={ `${index}-friend-skeleton` }
+                            key={`${index}-friend-skeleton`}
                             className='w-full border-b py-5 last:border-b-0 last:pb-0 dark:border-zinc-800'
                         >
                             <div className='flex w-full'>
@@ -43,7 +43,7 @@ export default function FriendsSkeleton() {
                             </div>
                         </div>
                     )
-                }) }
+                })}
         </>
     )
 }

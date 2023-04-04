@@ -1,14 +1,14 @@
-import { skeleton } from '../../../../helpers/theme'
+import {skeleton} from '../../../../helpers/theme'
 
 export default function UsersSkeleton() {
     return (
         <div>
-            { Array(5)
+            {Array(5)
                 .fill(0)
                 .map((item, index) => {
                     return (
                         <div
-                            key={ `${index}-user-skeleton` }
+                            key={`${index}-user-skeleton`}
                             className='w-full border-b py-2 last:border-b-0 last:pb-0 dark:border-zinc-800'
                         >
                             <div className='flex items-center justify-between'>
@@ -29,7 +29,7 @@ export default function UsersSkeleton() {
                             </div>
                         </div>
                     )
-                }) }
+                })}
         </div>
     )
 }

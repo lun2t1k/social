@@ -2,8 +2,8 @@ export default function Logo(props) {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
-            width={ props.width }
-            height={ props.height }
+            width={props.width}
+            height={props.height}
             fill='none'
             viewBox='0 0 460 460'
             className=''

@@ -1,21 +1,21 @@
-import { useField } from 'formik'
+import {useField} from 'formik'
 
-const Checkbox = ({ label, id, ...props }) => {
-    const [ field ] = useField(props)
+const Checkbox = ({label, id, ...props}) => {
+    const [field] = useField(props)
 
     return (
         <label
-            htmlFor={ id }
+            htmlFor={id}
             className='flex cursor-pointer select-none items-center gap-2'
         >
-            { label }
-            <input id={ id } { ...field } { ...props } className='peer hidden' />
+            {label}
+            <input id={id} {...field} {...props} className='peer hidden' />
             <div className='flex h-5 w-5 items-center justify-center rounded-lg border-2 border-violet-400 text-white peer-checked:bg-violet-400 dark:text-zinc-100 peer-checked:[&>svg]:block'>
                 <svg
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    strokeWidth={ 2 }
+                    strokeWidth={2}
                     stroke='currentColor'
                     className='hidden h-5 w-5'
                 >

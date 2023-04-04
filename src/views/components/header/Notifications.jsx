@@ -4,7 +4,7 @@ export default function Notifications() {
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            strokeWidth={ 1.5 }
+            strokeWidth={1.5}
             stroke='currentColor'
             className='mr-5 h-7 w-7'
         >

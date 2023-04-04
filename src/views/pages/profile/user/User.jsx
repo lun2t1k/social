@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { componentWrapper, button } from '../../../../helpers/theme'
+import {useEffect, useState} from 'react'
+import {componentWrapper, button} from '../../../../helpers/theme'
 import EditIcon from '../../../components/icons/EditIcon'
 import InfoIcon from '../../../components/icons/InfoIcon'
 import XMarkIcon from '../../../components/icons/XMarkIcon'
@@ -17,8 +17,8 @@ export default function User({
     status,
     updateStatus
 }) {
-    const [ editMode, setEditMode ] = useState(false)
-    const [ viewMode, setViewMode ] = useState(false)
+    const [editMode, setEditMode] = useState(false)
+    const [viewMode, setViewMode] = useState(false)
 
     const handleInfoClick = boolean => {
         setViewMode(boolean)
@@ -32,11 +32,11 @@ export default function User({
     useEffect(() => {
         setViewMode(false)
         setEditMode(false)
-    }, [ profile ])
+    }, [profile])
 
     return (
-        <div className={ componentWrapper.default }>
-            <UserCover userCover={ profile.cover } />
+        <div className={componentWrapper.default}>
+            <UserCover userCover={profile.cover} />
 
             <div
                 className={
@@ -45,70 +45,70 @@ export default function User({
                 }
             >
                 <UserAvatarWrapper
-                    isOwner={ isOwner }
-                    userPhoto={ profile.photos.large }
-                    updateUserPhoto={ updateUserPhoto }
+                    isOwner={isOwner}
+                    userPhoto={profile.photos.large}
+                    updateUserPhoto={updateUserPhoto}
                 />
 
-                { (editMode && (
+                {(editMode && (
                     <EditProfileForm
-                        profile={ profile }
-                        status={ status }
-                        setEditMode={ setEditMode }
-                        updateUserProfile={ updateUserProfile }
+                        profile={profile}
+                        status={status}
+                        setEditMode={setEditMode}
+                        updateUserProfile={updateUserProfile}
                     />
                 )) ||
                     (viewMode && (
-                        <InfoProfile profile={ profile } status={ status } />
+                        <InfoProfile profile={profile} status={status} />
                     )) || (
                         <UserInfo
-                            isOwner={ isOwner }
-                            profile={ profile }
-                            status={ status }
-                            updateStatus={ updateStatus }
+                            isOwner={isOwner}
+                            profile={profile}
+                            status={status}
+                            updateStatus={updateStatus}
                         />
-                    ) }
+                    )}
             </div>
 
             <div className='absolute top-5 right-5 flex gap-2 lg:top-[270px]'>
-                { isOwner &&
+                {isOwner &&
                     (editMode || (
                         <button
-                            className={ button.default + 'p-2 lg:py-2 lg:px-3' }
-                            onClick={ () => handleEditClick() }
+                            className={button.default + 'p-2 lg:py-2 lg:px-3'}
+                            onClick={() => handleEditClick()}
                         >
                             <EditIcon classes='h-5 w-5 lg:hidden' />
                             <span className='hidden lg:inline'>
                                 Edit profile
                             </span>
                         </button>
-                    )) }
-                { editMode || (
+                    ))}
+                {editMode || (
                     <button
                         className={
                             button.default +
                             (viewMode ? 'p-2' : 'p-2 lg:py-2 lg:px-3')
                         }
-                        onClick={ () =>
+                        onClick={() =>
                             viewMode
                                 ? handleInfoClick(false)
                                 : handleInfoClick(true)
                         }
                     >
-                        { viewMode ? (
+                        {viewMode ? (
                             <XMarkIcon classes='lg:hidden' />
                         ) : (
                             <InfoIcon classes='lg:hidden' />
-                        ) }
+                        )}
                         <span className='hidden lg:inline'>
-                            { viewMode ? (
+                            {viewMode ? (
                                 <XMarkIcon classes='hidden lg:block' />
                             ) : (
                                 'More info'
-                            ) }
+                            )}
                         </span>
                     </button>
-                ) }
+                )}
             </div>
         </div>
     )

@@ -1,34 +1,34 @@
-import { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { getNews } from '../../../redux/ducks/news'
+import {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {getNews} from '../../../redux/ducks/news'
 import NewsSkeleton from './NewsSkeleton'
 import Post from '../../components/post/Post'
 
-const News = ({ news, isFetchingNews, getNews }) => {
+const News = ({news, isFetchingNews, getNews}) => {
     useEffect(() => {
         document.title = 'News'
     }, [])
 
     useEffect(() => {
         getNews()
-    }, [ getNews ])
+    }, [getNews])
 
     return (
         <div className='flex flex-col gap-5'>
-            { isFetchingNews ? (
+            {isFetchingNews ? (
                 <NewsSkeleton />
             ) : (
                 <>
-                    { news.map(post => (
+                    {news.map(post => (
                         <Post
-                            key={ post.id }
-                            post={ post }
-                            userPhoto={ post.userPhoto }
-                            userName={ post.userName }
+                            key={post.id}
+                            post={post}
+                            userPhoto={post.userPhoto}
+                            userName={post.userName}
                         />
-                    )) }
+                    ))}
                 </>
-            ) }
+            )}
         </div>
     )
 }
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNews })(News)
+export default connect(mapStateToProps, {getNews})(News)

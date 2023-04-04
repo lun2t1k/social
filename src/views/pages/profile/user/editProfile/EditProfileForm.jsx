@@ -1,6 +1,6 @@
-import { Formik, Form } from 'formik'
-import { button } from '../../../../../helpers/theme'
-import { EditProfileSchema } from '../../../../../helpers/yup'
+import {Formik, Form} from 'formik'
+import {button} from '../../../../../helpers/theme'
+import {EditProfileSchema} from '../../../../../helpers/yup'
 import Spinner from '../../../../components/Spinner'
 import Input from './Input'
 import Checkbox from './Checkbox'
@@ -22,7 +22,7 @@ export default function EditProfileForm({
 
     return (
         <Formik
-            initialValues={ {
+            initialValues={{
                 fullName: profile.fullName,
                 status: profile.status,
                 aboutMe: profile.aboutMe,
@@ -41,11 +41,11 @@ export default function EditProfileForm({
                     youtube: profile.contacts.youtube,
                     mainLink: profile.contacts.mainLink
                 }
-            } }
-            validationSchema={ EditProfileSchema }
-            onSubmit={ handleSubmit }
+            }}
+            validationSchema={EditProfileSchema}
+            onSubmit={handleSubmit}
         >
-            { ({ isSubmitting, isValid }) => (
+            {({isSubmitting, isValid}) => (
                 <Form className='flex w-full max-w-[400px] flex-col gap-6 pt-[120px] md:max-w-full md:pt-0 md:pl-[200px]'>
                     <div className='flex flex-col gap-3'>
                         <h3 className='text-lg font-semibold'>
@@ -185,17 +185,17 @@ export default function EditProfileForm({
 
                     <button
                         type='submit'
-                        disabled={ !isValid || isSubmitting }
+                        disabled={!isValid || isSubmitting}
                         className={
                             button.default +
                             button.disabled +
                             'flex w-full items-center justify-center py-2 px-3 text-center font-semibold'
                         }
                     >
-                        { isSubmitting ? <Spinner size='md' /> : 'Save changes' }
+                        {isSubmitting ? <Spinner size='md' /> : 'Save changes'}
                     </button>
                 </Form>
-            ) }
+            )}
         </Formik>
     )
 }

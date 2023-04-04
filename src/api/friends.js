@@ -1,4 +1,4 @@
-import { jsonplaceholder } from './axios'
+import {jsonplaceholder} from './axios'
 
 const friends = {
     getFriendsRequest() {

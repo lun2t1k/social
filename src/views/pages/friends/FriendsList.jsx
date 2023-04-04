@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { connect } from 'react-redux'
+import {useEffect} from 'react'
+import {connect} from 'react-redux'
 import FriendsSkeleton from './FriendsSkeleton'
 import {
     requestFriends,
@@ -8,22 +8,22 @@ import {
 } from '../../../redux/ducks/friends'
 import Friend from './Friend'
 
-const FriendsList = ({ requestFriends, isFetchingFriends, friends }) => {
+const FriendsList = ({requestFriends, isFetchingFriends, friends}) => {
     useEffect(() => {
         requestFriends()
-    }, [ requestFriends ])
+    }, [requestFriends])
 
     return (
         <>
-            { isFetchingFriends ? (
+            {isFetchingFriends ? (
                 <FriendsSkeleton />
             ) : (
                 <ul className='w-full'>
-                    { friends.map(friend => (
-                        <Friend key={ friend.id } friend={ friend } />
-                    )) }
+                    {friends.map(friend => (
+                        <Friend key={friend.id} friend={friend} />
+                    ))}
                 </ul>
-            ) }
+            )}
         </>
     )
 }
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { requestFriends })(FriendsList)
+export default connect(mapStateToProps, {requestFriends})(FriendsList)

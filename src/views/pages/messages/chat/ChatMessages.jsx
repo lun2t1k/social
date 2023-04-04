@@ -1,26 +1,26 @@
-import { useLayoutEffect, useRef } from 'react'
-import { connect } from 'react-redux'
+import {useLayoutEffect, useRef} from 'react'
+import {connect} from 'react-redux'
 import ContactMessage from './messageType/ContactMessage'
 import UserMessage from './messageType/UserMessage'
 
-const ChatMessages = ({ messages }) => {
+const ChatMessages = ({messages}) => {
     const messagesWindow = useRef(null)
     useLayoutEffect(() => {
         messagesWindow.current.scrollTo(0, 1000)
-    }, [ messages ])
+    }, [messages])
 
     return (
         <div
-            ref={ messagesWindow }
+            ref={messagesWindow}
             className='flex flex-auto flex-col overflow-scroll border-y p-2 dark:border-y-zinc-800 md:px-5 md:py-3'
         >
-            { messages.map(message => {
+            {messages.map(message => {
                 if (message.type === 'contact') {
-                    return <ContactMessage key={ message.id } message={ message } />
+                    return <ContactMessage key={message.id} message={message} />
                 } else {
-                    return <UserMessage key={ message.id } message={ message } />
+                    return <UserMessage key={message.id} message={message} />
                 }
-            }) }
+            })}
         </div>
     )
 }

@@ -9,9 +9,9 @@ export default function PostFooter({
 }) {
     return (
         <div className='flex gap-2'>
-            <Like postLikesAmount={ postLikesAmount } />
-            <Comment postCommentsAmount={ postCommentsAmount } />
-            <Share postSharesAmount={ postSharesAmount } />
+            <Like postLikesAmount={postLikesAmount} />
+            <Comment postCommentsAmount={postCommentsAmount} />
+            <Share postSharesAmount={postSharesAmount} />
         </div>
     )
 }

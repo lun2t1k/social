@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import {Suspense} from 'react'
 import Spinner from '../views/components/Spinner'
 
 const LoadingSpin = () => {
@@ -14,8 +14,8 @@ const LoadingSpin = () => {
 
 export const withSuspense = Component => props => {
     return (
-        <Suspense fallback={ <LoadingSpin /> }>
-            <Component { ...props } />
+        <Suspense fallback={<LoadingSpin />}>
+            <Component {...props} />
         </Suspense>
     )
 }
